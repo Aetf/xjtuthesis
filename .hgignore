@@ -1,0 +1,14 @@
+syntax: glob
+*.pdf
+*.swp
+*.latexmain
+*.out
+*.log
+*.aux
+*.bbl
+*.blg
+*.thm
+*.toc
+setmain
+examples/xjtuthesis.cls 
+STAGED
