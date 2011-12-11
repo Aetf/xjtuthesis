@@ -20,7 +20,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.2.0}
+\def\meta@version{0.2.1}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -75,7 +75,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{subfig}
 %\RequirePackage[labelsep=quad]{caption}
-\RequirePackage[numbers,super,sort&compress]{natbib}
+\RequirePackage[numbers,super,square,sort&compress]{natbib}
 %\RequirePackage{appendix}
 
 % padding
@@ -212,8 +212,6 @@
 % circled footnote number
 \renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt}{\arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 
-\newcommand{\supercite}[1]{\textsuperscript{\cite{#1}}}
-
 \thu@define@term{type}
 \newcommand\xjtucover{}
 \newcommand\xjtucinfopage{}
@@ -262,9 +260,9 @@
     
     \setcounter{secnumdepth}{3}
 
-    \titleformat{\section}[hang]{\xiaosan \CJKfamily{hei}}{}{0em}{\thesection}[\vskip -0.5em]
-    \titleformat{\subsection}{\sihao \CJKfamily{hei}}{}{0em}{\vskip -1.5em \thesubsection}%[\vskip -1em] % 太丑啦, 求workaround
-    \titleformat{\subsubsection}{\CJKfamily{hei}}{}{0em}{\thesubsubsection}[]
+    \titleformat{\section}[hang]{\xiaosan \CJKfamily{hei}}{}{0em}{\thesection\quad }[\vskip -0.5em]
+    \titleformat{\subsection}{\sihao \CJKfamily{hei}}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
+    \titleformat{\subsubsection}{\CJKfamily{hei}}{}{0em}{\thesubsubsection\quad}[]
 
     \let\oldtableofcontents=\tableofcontents
     \def\tableofcontents{
@@ -412,6 +410,21 @@
         \stepcounter{chapter}
         \chapter*{\thechapter\quad#1}
         \addcontentsline{toc}{chapter}{\thechapter\quad #1}
+    }
+    \newcommand{\xjtuappendixsection}[1]{
+        \stepcounter{section}
+        \section*{#1}
+        \addcontentsline{toc}{section}{\thesection\quad #1}
+    }
+    \newcommand{\xjtuappendixsubsection}[1]{
+        \stepcounter{subsection}
+        \subsection*{#1}
+        \addcontentsline{toc}{subsection}{\thesubsection\quad #1}
+    }
+    \newcommand{\xjtuappendixsubsubsection}[1]{
+        \stepcounter{subsubsection}
+        \subsubsection*{#1}
+        \addcontentsline{toc}{subsubsection}{\thesubsubsection\quad #1}
     }
         
 

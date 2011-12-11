@@ -81,7 +81,7 @@
 
     \chapter{绪论}
 
-        正文\footnote{测试一个脚注}是学位论文的主体，第一章为绪论，最后一章为结论与展望。我们来测试一个上标引用\supercite{niubi-paper}。
+        正文\footnote{测试一个脚注}是学位论文的主体，第一章为绪论，最后一章为结论与展望。我们来测试一个上标引用\cite{niubi-paper}。
         
         \section{标题}
 
@@ -181,8 +181,6 @@
 
         \section{表格}
 
-            我制作了一个简单的表格（图\ref{tab:simple}）。
-
             \begin{table}[h!]
               \centering
               \caption{一个简单的表格}
@@ -237,6 +235,8 @@
               \end{tabularx}
             \end{table}
 
+            我制作了一个简单的表格（表\ref{tab:simple}）。
+
 
     \chapter{公式环境}
 
@@ -290,7 +290,7 @@
 
         您当前看到的文件是 \xjtuthesis{} \metaversion 的示例排版文档。请注意，它还远远不是最终的版本，因此，不要传播它。谢谢你。
 
-        \xjtuthesis 项目目前托管在Google Code: \verb|http://code.google.com/p/xjtuthesis|，采用Mercurial管理源代码。
+        \xjtuthesis 项目目前托管在Google Code:\\ \verb|http://code.google.com/p/xjtuthesis|，采用Mercurial管理源代码。
 
     \xjtubib{sample}
 
@@ -298,7 +298,7 @@
 
         \xjtuappendixchapter{附录}
 
-            \section{测试标题}
+            \xjtuappendixsection{测试标题}
 
                 The quick brown fox jumps over the lazy dog.
 
@@ -309,9 +309,17 @@
                   \label{fig:in-appendix}
                 \end{figure}
 
+                \xjtuappendixsubsection{三级标题}
+
+                    测试
+
+                    \xjtuappendixsubsubsection{四级标题}
+
+                        测试
+
         \xjtuappendixchapter{还是附录}
 
-            \section{测试}
+            \xjtuappendixsection{测试}
 
                 The quick brown fox jumps over the lazy dog.
 
