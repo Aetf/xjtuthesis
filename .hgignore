@@ -9,6 +9,7 @@ syntax: glob
 *.blg
 *.thm
 *.toc
+*.toe
 setmain
 examples/xjtuthesis.cls 
 STAGED

@@ -1,5 +1,5 @@
 % multiple1902 <multiple1902@gmail.com>
-% bachelor.tex
+% master.tex
 % Copyright 2011, multiple1902 (Weisi Dai)
 % https://code.google.com/p/xjtuthesis/
 %
@@ -16,9 +16,9 @@
 % The Current Maintainer of this work is Weisi Dai.
 %
 \documentclass[
-    bachelor, 
+    %bachelor, 
     %master,
-    %doctor,
+    doctor,
     %bigskip, % sets linespread factor to 1.5
     %truefont,
     pdflinks,
@@ -32,13 +32,20 @@
     \ctitle{\xjtuthesis{} \metaversion 排版示例}
     % 论文标题不能超过35个汉字
     \cauthor{张三}
+    \csubject{永动机学}
     \csupervisor{李四}
     \ckeywords{礼义廉耻；国之四维；四维不张；国乃灭亡}
+    \cproddate{\the\year 年\the\month 月}
+    \ctype{理论研究}
 
     \etitle{Sample Typesetting for \xjtuthesis}
     \eauthor{John Smith}
     \esupervisor{Barack Obama}
     \ekeywords{Wikipedia; Free encyclopedia; Winner; Good morning}
+    \ecate{Philosophy}
+    \esubject{Mechanical Engineering}
+    \eproddate{December 2011}
+    \etype{Theoretical Research}
 
     \cabstract{
     我住长江头，君住长江尾。日日思君不见君，共饮长江水。此水几时休？此恨何时已？只愿君心似我心，定不负相思意。
@@ -60,12 +67,17 @@
 
     }
 
+    \xjtuchead
+
+    \xjtuehead
+
     \xjtucinfopage
 
     \xjtueinfopage
     
     \xjtutoc
 
+    \xjtutoe
     \clearpage
 
     \xjtucontent
@@ -78,12 +90,15 @@
 
     \end{denotation}
 
+    \cleardoublepage
 
     \chapter{绪论}
+    \echapter{Preface}
 
-        正文\footnote{测试一个脚注}是学位论文的主体，第一章为绪论，最后一章为结论与展望。我们来测试一个上标引用\cite{niubi-paper}。
+    正文\footnote{测试一个脚注}是学位论文的主体，第一章为绪论，最后一章为结论与展望\xjtuincite{niubi-paper}。我们来测试一个上标引用\cite{niubi-paper}。
         
         \section{标题}
+        \esection{Biao Ti}
 
         每章标题按一级标题编排，每节标题按二级标题编排，每小节标题按三级标题编排。
 
@@ -95,6 +110,7 @@
 
 
         \section{二级标题}
+        \esection{Another Biao Ti}
 
 
             积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。 
@@ -197,6 +213,7 @@
 
 
             \begin{table}[h!]
+              %\begin{minipage}{\textwidth}
               \begin{threeparttable}[h]
                 \centering
                 \caption{包含脚注的表格}
@@ -211,6 +228,7 @@
                  \bf 合计\tnote{2}
                       &   21 &   18 &   21 &   60 \\ \bottomrule
                 \end{tabularx}
+              %\end{minipage}
               \begin{tablenotes}
               \item[1] 数据来自Word 97.
               \item[2] Computed by \textsl{Mathematica} 8.
@@ -323,7 +341,7 @@
 
     \xjtuendappendix
 
-    \xjtuspchapter{致谢}{致\qquad 谢}
+    \xjtuspchapter{致谢}{致\qquad 谢}{Acknowledgements}
 
         首先，我们毫无疑问要感谢国家；
 
@@ -331,6 +349,17 @@
 
         最后，我们绝对不能忘记感谢国家。
 
+    \xjtuspchapter{攻读硕士期间取得的研究成果}{攻读硕士期间取得的研究成果}{Achievements}
+
+        \begin{enumerate}
+            \item 已发表或已录用的学术论文、已出版的专著/译著、已获授权的专利按参考文献格式列出。
+            \item 科研获奖，列出格式为：\\
+                获奖人（排名情况）．项目名称．奖项名称及等级，发奖机构，获奖时间．
+            \item 与学位论文相关的其它成果参照参考文献格式列出。
+            \item 全部研究成果连续编号编排。
+        \end{enumerate}
+
+    \xjtuacademicintegrity
 
 
 \end{document}

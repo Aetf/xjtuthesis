@@ -20,7 +20,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.2.1}
+\def\meta@version{0.2.2}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -67,16 +67,13 @@
 % math & format packages
 \RequirePackage[fleqn]{amsmath} % amssymb ?
 \RequirePackage{indentfirst}
-%\RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
 \RequirePackage{tabularx}
 \RequirePackage{threeparttable}
 \RequirePackage{array}
 \RequirePackage{longtable}
 \RequirePackage{booktabs}
 \RequirePackage{subfig}
-%\RequirePackage[labelsep=quad]{caption}
 \RequirePackage[numbers,super,square,sort&compress]{natbib}
-%\RequirePackage{appendix}
 
 % padding
 \RequirePackage[left=2.6cm, right=2.6cm,top=3.0cm,bottom=2.5cm]{geometry}
@@ -92,6 +89,9 @@
 \renewcommand{\figurename}{图} 
 %\renewcommand{\refname}{参考资料}
 %\renewcommand{\abstractname}{摘要}
+\renewcommand\contentsname{目\quad \quad 录}
+\newcommand{\thesis}{thesis}
+\newcommand{\Master}{Master}
 
 \ifxjtu@pdflinks
     \RequirePackage{hyperref}
@@ -204,16 +204,30 @@
     }
 \newcommand\addengcontents[2]{%
     \addcontentsline{toe}{#1}{\protect\numberline{\csname the#1\endcsname}#2}}
+\newcommand\addengappendice[2]{%
+    \addcontentsline{toe}{#1}{theappendix}#2}
 
 \newcommand\echapter[1]{\addengcontents{chapter}{#1}}
 \newcommand\esection[1]{\addengcontents{section}{#1}}
 \newcommand\esubsection[1]{\addengcontents{subsection}{#1}}
+\newcommand\eappendix[1]{\addengappendice{#1}}
 
 % circled footnote number
 \renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt}{\arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 
 \thu@define@term{type}
+
+\ifxjtu@master{
+    \type{硕士}
+\else
+    \type{博士}
+    \renewcommand{\thesis}{dissertation}
+    \renewcommand{\Master}{Doctor}
+\fi
+
 \newcommand\xjtucover{}
+\newcommand\xjtuchead{}
+\newcommand\xjtuehead{}
 \newcommand\xjtucinfopage{}
 \newcommand\xjtueinfopage{}
 \newcommand\xjtucontent{}
@@ -221,21 +235,37 @@
     \tableofcontents
     \chaptermark{目录}
 }
+\newcommand\xjtutoe{
+    \tableofengcontents
+}
 \newcommand\xjtuspchapter[2]{
     \chapter*{#2}
     \chaptermark{#1}
+    \addcontentsline{toc}{chapter}{#1}
+}
+\newcommand\xjtuincite[1]{ {%
+    \citestyle{plain}%
+    \cite{#1}%
+    }%
 }
 \thu@define@term{cauthor}
 \thu@define@term{ctitle}
 \thu@define@term{csupervisor}
 \thu@define@term{cabstract}
 \thu@define@term{ckeywords}
+\thu@define@term{csubject}
+\thu@define@term{cproddate}
+\thu@define@term{ctype}
 
 \thu@define@term{eauthor}
 \thu@define@term{etitle}
+\thu@define@term{ecate}
 \thu@define@term{esupervisor}
 \thu@define@term{eabstract}
 \thu@define@term{ekeywords}
+\thu@define@term{esubject}
+\thu@define@term{eproddate}
+\thu@define@term{etype}
 
 \newcommand\xjtutype{\xjtu@type}
 
@@ -250,28 +280,47 @@
 \xiaosi
 \setlength{\parindent}{2em}
 
+
+\setcounter{secnumdepth}{3}
+
+\titleformat{\section}[hang]{\xiaosan \CJKfamily{hei}}{}{0em}{\thesection\quad }[\vskip -0.5em]
+\titleformat{\subsection}{\sihao \CJKfamily{hei}}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
+\titleformat{\subsubsection}{\CJKfamily{hei}}{}{0em}{\thesubsubsection\quad}[]
+
+\newenvironment{denotation}[1][2.5cm]{ % much thanks to THUthesis!
+  \chapter*{主要符号表}
+  \addcontentsline{toc}{chapter}{主要符号表}
+  \chaptermark{主要符号表}
+  \noindent\begin{list}{}%
+    {\vskip-30bp %\xiaosi[1.6]
+     \renewcommand\makelabel[1]{##1\hfil}
+     \setlength{\labelwidth}{#1} % 标签盒子宽度
+     \setlength{\labelsep}{0.5cm} % 标签与列表文本距离
+     \setlength{\itemindent}{1em} % 标签缩进量
+     \setlength{\leftmargin}{\labelwidth+\labelsep} % 左边界
+     \setlength{\rightmargin}{0cm}
+     \setlength{\parsep}{0cm} % 段落间距
+     \setlength{\itemsep}{0cm} % 标签间距
+    \setlength{\listparindent}{0cm} % 段落缩进量
+    \setlength{\topsep}{0pt} % 标签与上文的间距
+   }}{\end{list}}
+
+\let\oldtableofcontents=\tableofcontents
+\def\tableofcontents{
+    \titleformat{\chapter}[block]{\sanhao \CJKfamily{hei}}{}{0em}{\begin{center}}[\end{center}]
+    \oldtableofcontents
+}
+
 \ifxjtu@bachelor
 
-    \if\ifxjtu@bigskip
+    \ifxjtu@bigskip
       \linespread{1.5}
     \else
       \linespread{1.2}
     \fi
-    
-    \setcounter{secnumdepth}{3}
 
-    \titleformat{\section}[hang]{\xiaosan \CJKfamily{hei}}{}{0em}{\thesection\quad }[\vskip -0.5em]
-    \titleformat{\subsection}{\sihao \CJKfamily{hei}}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
-    \titleformat{\subsubsection}{\CJKfamily{hei}}{}{0em}{\thesubsubsection\quad}[]
-
-    \let\oldtableofcontents=\tableofcontents
-    \def\tableofcontents{
-        \titleformat{\chapter}[block]{\sanhao \CJKfamily{hei}}{}{0em}{\begin{center}}[\end{center}]
-      \oldtableofcontents
-    }
-
-  \renewcommand\footnoterule{\vspace*{-3pt}% eggache!
-       \hrule width 0.25\textwidth height 0.4pt
+    \renewcommand\footnoterule{\vspace*{-3pt}% eggache!
+        \hrule width 0.25\textwidth height 0.4pt
             \vspace*{2.6pt}}
                 
     \fancypagestyle{plain}{%
@@ -288,26 +337,6 @@
     }
     \pagestyle{plain}
 
-
-    \newenvironment{denotation}[1][2.5cm]{ % much thanks to THUthesis!
-      \chapter*{主要符号表}
-      \addcontentsline{toc}{chapter}{主要符号表}
-      \chaptermark{主要符号表}
-      \noindent\begin{list}{}%
-        {\vskip-30bp %\xiaosi[1.6]
-         \renewcommand\makelabel[1]{##1\hfil}
-         \setlength{\labelwidth}{#1} % 标签盒子宽度
-         \setlength{\labelsep}{0.5cm} % 标签与列表文本距离
-         \setlength{\itemindent}{1em} % 标签缩进量
-         \setlength{\leftmargin}{\labelwidth+\labelsep} % 左边界
-         \setlength{\rightmargin}{0cm}
-         \setlength{\parsep}{0cm} % 段落间距
-         \setlength{\itemsep}{0cm} % 标签间距
-        \setlength{\listparindent}{0cm} % 段落缩进量
-        \setlength{\topsep}{0pt} % 标签与上文的间距
-       }}{\end{list}}
-
-    \renewcommand\contentsname{目\quad \quad 录}
     \type{本科}
     \renewcommand\xjtucinfopage{
         \chaptermark{摘要}
@@ -382,12 +411,11 @@
         \pagestyle{plain}
        \fi
 
-           
         \pagenumbering{arabic}
-        %\pagestyle{fancy}
     }
 
     \newcommand{\xjtubib}[1]{ {
+        \addcontentsline{toc}{chapter}{参考文献}
         \wuhao
         %\bibliographystyle{plain}
         \bibliographystyle{GBT7714-2005NLang-UTF8}
@@ -397,13 +425,13 @@
    \let\oldfootnote\footnote
    \renewcommand \footnote[1]{\oldfootnote{\xiaowu #1}}
 
-
     \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
     \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 
     \newcommand{\xjtuappendix}{
         \begin{appendix}
         \renewcommand{\thechapter}{附录\arabic{chapter}}
+        \chaptermark{附录}
     }
     \newcommand{\xjtuendappendix}{\end{appendix}}
     \newcommand{\xjtuappendixchapter}[1]{
@@ -426,56 +454,244 @@
         \subsubsection*{#1}
         \addcontentsline{toc}{subsubsection}{\thesubsubsection\quad #1}
     }
-        
-
-
-\fi
-
-\ifxjtu@master
-    \linespread{1.0}
+\else % postgraduate
+    \linespread{1.1}
     % booktabs parameters
     \setlength\cmidrulewidth {1.0pt}
     \setlength\lightrulewidth{1.0pt}
-    \setlength\heavyrulewidth{1.0pt}
+    \setlength\heavyrulewidth{2.0pt} % or 2.25pt
 
+    \fancypagestyle{plain}{%
+      \fancyhf{}
+      \fancyhead[CO]{\if@mainmatter\wuhao \leftmark\fi}
+      \fancyhead[CE]{\wuhao 西安交通大学\xjtu@type 学位论文}
+      \fancyfoot[OR,EL]{\small ~\thepage~}
+      \renewcommand{\headrulewidth}{\if@mainmatter 1pt\else 0pt \fi}
+      \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth
+      }
+    }
+    \pagestyle{plain}
 
-    \renewcommand\xjtutype{硕士}
-    \renewcommand\xjtucinfopage{
-        \noindent 
-        论文题目：\\
-        学科专业：\\
-        申请人：\\
-        指导教师：\\
-        
+    \renewcommand\xjtuchead{
+        \thispagestyle{empty}
+        \begin{center}
+            \vskip 3cm
+            \includegraphics[width=7cm]{XJTU.pdf} \\
+            {\huge \xjtu@type 学位论文}
+
+            \vskip 5cm
+            {\bf \huge {\bf \xjtu@ctitle}
+
+            \vskip 9cm
+            申请人：   \xjtu@cauthor\\
+            指导教师： \xjtu@csupervisor\\
+            学科专业： \xjtu@csubject\\
+            \xjtu@cproddate
+            }
+        \end{center}
+        \clearpage \phantom{x}
+        \thispagestyle{empty}
+        \clearpage
+    }
+
+    \renewcommand\xjtuehead{
+        \thispagestyle{empty}
+        \begin{center}
+            \vskip 3cm
+            {\bf \huge \xjtu@etitle}
+
+            \vskip 6cm
+            {\huge 
+            A \thesis\ submitted to \\
+            Xi'an Jiaotong University\\
+            in partial fulfillment of the requirement\\
+            for the degree of\\
+            \Master\ of \xjtu@ecate
+
+            \vskip 6cm
+            By \xjtu@eauthor\\
+            (\xjtu@esubject)\\
+            Supervisor: \xjtu@esupervisor\\
+            \xjtu@eproddate
+            }
+
+        \end{center}
+        \clearpage \phantom{x}
+        \thispagestyle{empty}
+        \clearpage
 
     }
-   
-\fi
 
-\ifxjtu@doctor
-    \linespread{2.0}
-    % booktabs parameters
-    \setlength\cmidrulewidth {1.0pt}
-    \setlength\lightrulewidth{1.0pt}
-    \setlength\heavyrulewidth{1.0pt}
+    \renewcommand\xjtucinfopage{
+        \pagestyle{plain}
+        \pagenumbering{roman}
+        \noindent {\bf \xiaosi
+        论文题目： \xjtu@ctitle\\
+        学科专业： \xjtu@csubject\\
+        申请人：   \xjtu@cauthor\\
+        指导教师： \xjtu@csupervisor\\
+        }
+
+        \begin{center}
+          \sanhao
+          摘\qquad 要
+        \end{center}
+
+        {\xiaosi \xjtu@cabstract}
+
+        \mbox{}
+
+        {\wuhao \noindent
+            {\bf 关键词}：
+        \xjtu@ckeywords
+        
+        \noindent {\bf 论文类型} :
+        \xjtu@ctype
+        }
+        \clearpage
+    }
+    \renewcommand\xjtueinfopage{
+        \chaptermark{ABSTRACT}
+        \noindent {\bf
+        Title: \xjtu@etitle\\
+        Speciality: \xjtu@esubject\\
+        Applicant: \xjtu@eauthor\\
+        Supervisor: \xjtu@esupervisor\\
+        }
+
+        \begin{center}
+          \sanhao
+          ABSTRACT
+        \end{center}
+
+
+        {\xiaosi
+        \setlength{\parindent}{0em}
+        \setlength{\parskip}{1em}
+        \xjtu@eabstract
+        }
+
+        \mbox{ }
+
+        {\wuhao\noindent
+            {\bf KEY WORDS: }
+            \xjtu@ekeywords
+        
+            \noindent {\bf TYPE OF \MakeUppercase{\thesis}} :
+            \xjtu@etype
+        }
+
+        \clearpage
+    }
+    \let\oldxjtutoc=\xjtutoc
+    \def\xjtutoc{
+        \cleardoublepage
+        \oldxjtutoc
+    }
+
+    \renewcommand\xjtucontent{
+        % no need to mirror page heads here
+        \pagenumbering{arabic}
+    }
+
+    \newcommand{\xjtubib}[1]{ {
+        \addcontentsline{toc}{chapter}{参考文献}
+        \addcontentsline{toe}{chapter}{References}
+        \wuhao
+        \bibliographystyle{GBT7714-2005NLang-UTF8}
+        \bibliography{#1}
+        } }
+
+   \let\oldfootnote\footnote
+   \renewcommand \footnote[1]{\oldfootnote{\xiaowu #1}}
+
+    \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+    \renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+    \newcommand{\xjtuappendix}{
+        \begin{appendix}
+        \renewcommand{\thechapter}{附录\arabic{chapter}}
+        \chaptermark{附录}
+    }
+    \newcommand{\xjtuendappendix}{\end{appendix}}
+    \newcommand{\xjtuappendixchapter}[1]{
+        \stepcounter{chapter}
+        \chapter*{\thechapter\quad#1}
+        \addcontentsline{toc}{chapter}{\thechapter\quad #1}
+    }
+    \newcommand{\xjtuappendixsection}[1]{
+        \stepcounter{section}
+        \section*{#1}
+        \addcontentsline{toc}{section}{\thesection\quad #1}
+    }
+    \newcommand{\xjtuappendixsubsection}[1]{
+        \stepcounter{subsection}
+        \subsection*{#1}
+        \addcontentsline{toc}{subsection}{\thesubsection\quad #1}
+    }
+    \newcommand{\xjtuappendixsubsubsection}[1]{
+        \stepcounter{subsubsection}
+        \subsubsection*{#1}
+        \addcontentsline{toc}{subsubsection}{\thesubsubsection\quad #1}
+    }
+    \renewcommand\xjtuspchapter[3]{
+        \chapter*{#2}
+        \chaptermark{#1}
+        \addcontentsline{toc}{chapter}{#1}
+        \addcontentsline{toe}{chapter}{#3}
+    }
+
+    \newcommand{\xjtuacademicintegrity}{ {% 仅供参考
+        \cleardoublepage
+        \chaptermark{声明}
+        \begin{center}
+            \sanhao 学位论文独创性声明（1）
+        \end{center}
+    本人声明：所呈交的学位论文系在导师指导下本人独立完成的研究成果。文中依法引用他人的成果，均已做出明确标注或得到许可。论文内容未包含法律意义上已属于他人的任何形式的研究成果，也不包含本人已用于其他学位申请的论文或成果。
     
-    \renewcommand\xjtutype{博士}
-    \renewcommand\xjtucinfopage{
-        \noindent 
-        论文题目：\\
-        学科专业：\\
-        申请人：\\
-        指导教师：\\
-        
+    本人如违反上述声明，愿意承担以下责任和后果：
+    \begin{enumerate} \itemsep1pt \parskip0pt \parsep0pt
+        \item 交回学校授予的学位证书；
+        \item 学校可在相关媒体上对作者本人的行为进行通报；
+        \item 本人按照学校规定的方式，对因不当取得学位给学校造成的名誉损害，进行公开道歉。
+        \item 本人负责因论文成果不实产生的法律纠纷。
+    \end{enumerate}
+    
+    论文作者（签名）：\hskip 5cm 日期：\hskip 2cm 年\hskip 1cm 月\hskip 1cm日 \vskip 1cm
 
-    }
+    \begin{center}
+        \sanhao 学位论文独创性声明（2）
+    \end{center}
+    本人声明：研究生\hskip 2cm 所提交的本篇学位论文已经本人审阅，确系在本人指导下由该生独立完成的研究成果。
 
-    \setlength{\cftbeforechapskip}{0ex}
-    \setlength{\cftbeforesecskip}{1ex}
-    \setlength{\cftbeforesecskip}{1ex}
-    \setlength{\cftbeforesecskip}{1ex}
+    本人如违反上述声明，愿意承担以下责任和后果：
+    \begin{enumerate} \itemsep1pt \parskip0pt \parsep0pt
+        \item 学校可在相关媒体上对本人的失察行为进行通报；
+        \item 本人按照学校规定的方式，对因失察给学校造成的名誉损害，进行公开道歉。
+        \item 本人接受学校按照有关规定做出的任何处理。
+    \end{enumerate}
+
+    指导教师（签名）：\hskip 5cm 日期：\hskip 2cm 年\hskip 1cm 月\hskip 1cm日 \vskip 1cm
+
+
+\begin{center}
+    \sanhao 学位论文知识产权权属声明
+\end{center}
+我们声明，我们提交的学位论文及相关的职务作品，知识产权归属学校。学校享有以任何方式发表、复制、公开阅览、借阅以及申请专利等权利。学位论文作者离校后，或学位论文导师因故离校后，发表或使用学位论文或与该论文直接相关的学术论文或成果时，署名单位仍然为西安交通大学。
+
+    论文作者（签名）：\hskip 5cm 日期：\hskip 2cm 年\hskip 1cm 月\hskip 1cm日
+
+    指导教师（签名）：\hskip 5cm 日期：\hskip 2cm 年\hskip 1cm 月\hskip 1cm日
+
+    \noindent (本声明的版权归西安交通大学所有，未经许可，任何单位及任何个人不得擅自使用)
+
+    \thispagestyle{empty}
+    } }
+
+   
 
 \fi
+
 
 % borrowed from nenuthesis
 \newtheorem{assumption}{假设}[chapter]

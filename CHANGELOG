@@ -1,7 +1,15 @@
+0.2.2
+Dec 16, 2011
+* Initial support for masters' and Ph.D.'s theses and dissertations.
+* Fixed: a grammar error.
+* Added: a command for in-text citation.
+
 0.2.1
-* 修正正文标题编号与题目之间空一格
-* 修正参考文献使用上角标中括号标注
-* 修正附录编号在目录中和标题重叠的错误
+Dec 11, 2011
+* Fixed: Space between section title and its number.
+* Fixed: Citation style using sqaure brackets.
+* Fixed: Appendices overlays with its number in TOC.
 
 0.2.0
-* 代码迁移到Google Code
+Oct 5, 2011
+* Switched to Google Code
