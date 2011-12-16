@@ -61,7 +61,7 @@
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
-\RequirePackage[slantfont,boldfont,CJKnumber,CJKtextspaces,CJKmathspaces]{xeCJK}
+\RequirePackage[slantfont,boldfont,CJKnumber]{xeCJK}
 \punctstyle{kaiming}
 
 % math & format packages
@@ -396,21 +396,20 @@
     \setlength\heavyrulewidth{1.5pt}
 
     \renewcommand\xjtucontent{
-        \ifodd\thepage\else
-         \fancypagestyle{plain}{%
-          \fancyhf{}
-          \fancyhead[CE]{\if@mainmatter\wuhao \leftmark\fi}
-          \fancyhead[CO]{\wuhao \ifxjtu@bachelor
-                            西安交通大学本科毕业设计(论文)
-                            \fi}
-          \fancyfoot[ER,OL]{\small ~\thepage~}
-          \renewcommand{\headrulewidth}{\if@mainmatter 0.5pt\else 0pt \fi}
-          \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth
-          \hrule \@height \headrulewidth \@width \headwidth \vskip -\headrulewidth}
-        }
-        \pagestyle{plain}
-       \fi
-
+        \ifodd\arabic{page}\else
+            \fancypagestyle{plain}{%
+                \fancyhf{}
+                \fancyhead[CE]{\if@mainmatter\wuhao \leftmark\fi}
+                \fancyhead[CO]{\wuhao \ifxjtu@bachelor
+                                西安交通大学本科毕业设计(论文)
+                                \fi}
+                \fancyfoot[ER,OL]{\small ~\thepage~}
+                \renewcommand{\headrulewidth}{\if@mainmatter 0.5pt\else 0pt \fi}
+                \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth
+                \hrule \@height \headrulewidth \@width \headwidth \vskip -\headrulewidth}
+            }
+            \pagestyle{plain}
+        \fi
         \pagenumbering{arabic}
     }
 
