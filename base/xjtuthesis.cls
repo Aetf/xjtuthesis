@@ -314,9 +314,9 @@
 \ifxjtu@bachelor
 
     \ifxjtu@bigskip
-      \linespread{1.5}
+      \linespread{1.5} \selectfont
     \else
-      \linespread{1.2}
+      \linespread{1.2} \selectfont
     \fi
 
     \renewcommand\footnoterule{\vspace*{-3pt}% eggache!
@@ -454,7 +454,7 @@
         \addcontentsline{toc}{subsubsection}{\thesubsubsection\quad #1}
     }
 \else % postgraduate
-    \linespread{1.1}
+    \linespread{1.1} \selectfont
     % booktabs parameters
     \setlength\cmidrulewidth {1.0pt}
     \setlength\lightrulewidth{1.0pt}
