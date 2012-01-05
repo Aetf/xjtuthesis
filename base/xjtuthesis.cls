@@ -174,12 +174,10 @@
   \setmainfont{Times New Roman}
   \setCJKmainfont{SimSun}
   \setCJKsansfont{SimHei}
-  \setCJKmonofont{SimSun}
 \else
   \setmainfont{Nimbus Roman No9 L}
   \setCJKmainfont{文鼎ＰＬ简报宋}
   \setCJKsansfont{文泉驿微米黑}
-  \setCJKmonofont{文鼎ＰＬ简报宋}
 \fi
 \setsansfont{Arial}
 \setmonofont{Courier New}
