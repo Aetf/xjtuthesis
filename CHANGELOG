@@ -1,19 +1,20 @@
 0.2.4
- * Fixed a few mistakes
+ * Fixed: a few mistakes
+ * Added: unit tests
 
 0.2.3 Dec 16, 2011
 * Fixed a few mistakes
 * Fixed 2 errors that break compilation
 
 0.2.2 Dec 16, 2011
-* Initial support for masters' and Ph.D.'s theses and dissertations.
-* Fixed: a grammar error.
-* Added: a command for in-text citation.
+* Initial support for masters' and Ph.D.'s theses and dissertations
+* Fixed: a grammar error
+* Added: a command for in-text citation
 
 0.2.1 Dec 11, 2011
-* Fixed: Space between section title and its number.
-* Fixed: Citation style using sqaure brackets.
-* Fixed: Appendices overlays with its number in TOC.
+* Fixed: Space between section title and its number
+* Fixed: Citation style using sqaure brackets
+* Fixed: Appendices overlays with its number in TOC
 
 0.2.0 Oct 5, 2011
 * Switched to Google Code
@@ -39,7 +40,7 @@
 * CodeName turned to `Monet`
 * Improved abstract pages in `bachelor`
 * Added: standard linespread support
-* Added: \thu@define@term from `THUthesis`.
+* Added: \thu@define@term from `THUthesis`
 
 0.1.0 July 21, 2011
 * Initial commit
