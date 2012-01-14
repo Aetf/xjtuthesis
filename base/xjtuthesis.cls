@@ -20,7 +20,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.2.3}
+\def\meta@version{0.2.5}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -31,6 +31,7 @@
 \newif\ifxjtu@truefont  \xjtu@truefontfalse
 \newif\ifxjtu@pdflinks  \xjtu@pdflinksfalse
 \newif\ifxjtu@colorlinks\xjtu@colorlinksfalse
+\newif\ifxjtu@compact   \xjtu@compactfalse
 
 \DeclareOption{bachelor}    {\xjtu@bachelortrue}
 \DeclareOption{master}      {\xjtu@mastertrue}
@@ -39,6 +40,7 @@
 \DeclareOption{truefont}    {\xjtu@truefonttrue}
 \DeclareOption{pdflinks}    {\xjtu@pdflinkstrue}
 \DeclareOption{colorlinks}  {\xjtu@colorlinkstrue}
+\DeclareOption{compact}     {\xjtu@compacttrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 
@@ -90,6 +92,12 @@
 %\renewcommand{\refname}{参考资料}
 %\renewcommand{\abstractname}{摘要}
 \renewcommand\contentsname{目\quad \quad 录}
+\renewcommand\thefigure{% thanks to fitsir<at>gmail.com
+     \ifnum \c@chapter>\z@\thechapter-\fi\@arabic\c@figure%
+}
+\renewcommand\thetable{%
+    \ifnum \c@chapter >\z@ \thechapter -\fi \@arabic \c@table%
+}
 \newcommand{\thesis}{thesis}
 \newcommand{\Master}{Master}
 
@@ -309,6 +317,13 @@
     \oldtableofcontents
 }
 
+\ifxjtu@compact
+    \let\oldcleardoublepage=\cleardoublepage
+    \def\cleardoublepage{
+        \clearpage
+    }
+\fi
+
 \ifxjtu@bachelor
 
     \ifxjtu@bigskip
@@ -486,8 +501,10 @@
             \xjtu@cproddate
             }
         \end{center}
-        \clearpage \phantom{x}
-        \thispagestyle{empty}
+        \ifxjtu@compact\else
+            \clearpage \phantom{x}
+            \thispagestyle{empty}
+        \fi
         \clearpage
     }
 
@@ -513,8 +530,10 @@
             }
 
         \end{center}
-        \clearpage \phantom{x}
-        \thispagestyle{empty}
+        \ifxjtu@compact\else
+            \clearpage \phantom{x}
+            \thispagestyle{empty}
+        \fi
         \clearpage
 
     }

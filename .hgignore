@@ -13,3 +13,5 @@ syntax: glob
 setmain
 examples/xjtuthesis.cls 
 STAGED
+release.sh
+release/
