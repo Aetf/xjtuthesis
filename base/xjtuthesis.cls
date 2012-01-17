@@ -1,6 +1,6 @@
 % multiple1902 <multiple1902@gmail.com>
 % xjtuthesis.cls
-% Copyright 2011, multiple1902 (Weisi Dai)
+% Copyright 2011~2012, multiple1902 (Weisi Dai)
 % https://code.google.com/p/xjtuthesis/
 %
 % This work may be distributed and/or modified under the
