@@ -1,3 +1,9 @@
+0.2.6
+ * Fixed: modified equation numbering style
+
+0.2.5
+ * Fixed: compact option turned off in default
+
 0.2.4
  * Fixed: a few mistakes
  * Fixed: separator in figure numbers changed to "-"
