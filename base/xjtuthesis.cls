@@ -20,7 +20,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.2.5}
+\def\meta@version{0.2.6}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -98,6 +98,10 @@
 \renewcommand\thetable{%
     \ifnum \c@chapter >\z@ \thechapter -\fi \@arabic \c@table%
 }
+\renewcommand\theequation{%
+    \ifnum \c@chapter >\z@ \thechapter -\fi \@arabic \c@equation%
+}
+
 \newcommand{\thesis}{thesis}
 \newcommand{\Master}{Master}
 

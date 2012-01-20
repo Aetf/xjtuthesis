@@ -1,5 +1,8 @@
 syntax: glob
-*.pdf
+examples/bachelor.pdf
+examples/master.pdf
+examples/doctor.pdf
+unittests/*.pdf
 *.swp
 *.latexmain
 *.out
