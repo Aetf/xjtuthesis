@@ -20,7 +20,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.2.6}
+\def\meta@version{0.2.7}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -29,6 +29,7 @@
 \newif\ifxjtu@doctor    \xjtu@doctorfalse
 \newif\ifxjtu@bigskip   \xjtu@bigskipfalse
 \newif\ifxjtu@truefont  \xjtu@truefontfalse
+\newif\ifxjtu@nofont    \xjtu@nofontfalse
 \newif\ifxjtu@pdflinks  \xjtu@pdflinksfalse
 \newif\ifxjtu@colorlinks\xjtu@colorlinksfalse
 \newif\ifxjtu@compact   \xjtu@compactfalse
@@ -38,6 +39,7 @@
 \DeclareOption{doctor}      {\xjtu@doctortrue}
 \DeclareOption{bigskip}     {\xjtu@bigskiptrue} % bachelor only
 \DeclareOption{truefont}    {\xjtu@truefonttrue}
+\DeclareOption{nofont}      {\xjtu@nofonttrue}
 \DeclareOption{pdflinks}    {\xjtu@pdflinkstrue}
 \DeclareOption{colorlinks}  {\xjtu@colorlinkstrue}
 \DeclareOption{compact}     {\xjtu@compacttrue}
@@ -182,6 +184,7 @@
   \let\@evenfoot=\@oddfoot}
 
 % font-family
+\ifxjtu@nofont\else
 \ifxjtu@truefont
   \setmainfont{Times New Roman}
   \setCJKmainfont{SimSun}
@@ -193,6 +196,7 @@
 \fi
 \setsansfont{Arial}
 \setmonofont{Courier New}
+\fi
 
 \def\thu@define@term#1{
 \long\expandafter\gdef\csname #1\endcsname##1{% defines a macro like \ctitle#1: \def\xjtu@ctitle{#1}
