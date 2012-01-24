@@ -20,7 +20,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.2.7}
+\def\meta@version{0.2.8}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -435,9 +435,10 @@
     }
 
     \newcommand{\xjtubib}[1]{ {
+        \clearpage
+        \phantomsection
         \addcontentsline{toc}{chapter}{参考文献}
         \wuhao
-        %\bibliographystyle{plain}
         \bibliographystyle{GBT7714-2005NLang-UTF8}
         \bibliography{#1}
         } }
@@ -510,7 +511,8 @@
             }
         \end{center}
         \ifxjtu@compact\else
-            \clearpage \phantom{x}
+            \clearpage
+            \phantomsection
             \thispagestyle{empty}
         \fi
         \clearpage
@@ -539,7 +541,8 @@
 
         \end{center}
         \ifxjtu@compact\else
-            \clearpage \phantom{x}
+            \clearpage
+            \phantomsection
             \thispagestyle{empty}
         \fi
         \clearpage
@@ -619,6 +622,8 @@
     }
 
     \newcommand{\xjtubib}[1]{ {
+        \clearpage
+        \phantomsection
         \addcontentsline{toc}{chapter}{参考文献}
         \addcontentsline{toe}{chapter}{References}
         \wuhao
