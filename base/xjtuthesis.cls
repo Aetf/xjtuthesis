@@ -513,7 +513,7 @@
         \end{center}
         \ifxjtu@compact\else
             \clearpage
-            \phantomsection
+            \phantom{x}
             \thispagestyle{empty}
         \fi
         \clearpage
@@ -543,7 +543,7 @@
         \end{center}
         \ifxjtu@compact\else
             \clearpage
-            \phantomsection
+            \phantom{x}
             \thispagestyle{empty}
         \fi
         \clearpage
@@ -551,6 +551,7 @@
     }
 
     \renewcommand\xjtucinfopage{
+        \chaptermark{摘要}
         \pagestyle{plain}
         \pagenumbering{roman}
         \noindent {\bf \xiaosi
