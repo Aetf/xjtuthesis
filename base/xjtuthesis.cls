@@ -436,11 +436,12 @@
 
     \newcommand{\xjtubib}[1]{ {
         \clearpage
-        \phantomsection
+        \phantomsection % http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tocbibind
         \addcontentsline{toc}{chapter}{参考文献}
         \wuhao
         \bibliographystyle{GBT7714-2005NLang-UTF8}
         \bibliography{#1}
+        \clearpage
         } }
 
    \let\oldfootnote\footnote
@@ -629,6 +630,7 @@
         \wuhao
         \bibliographystyle{GBT7714-2005NLang-UTF8}
         \bibliography{#1}
+        \clearpage
         } }
 
    \let\oldfootnote\footnote
