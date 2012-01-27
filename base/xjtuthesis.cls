@@ -20,7 +20,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.2.5}
+\def\meta@version{0.2.8}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -29,6 +29,7 @@
 \newif\ifxjtu@doctor    \xjtu@doctorfalse
 \newif\ifxjtu@bigskip   \xjtu@bigskipfalse
 \newif\ifxjtu@truefont  \xjtu@truefontfalse
+\newif\ifxjtu@nofont    \xjtu@nofontfalse
 \newif\ifxjtu@pdflinks  \xjtu@pdflinksfalse
 \newif\ifxjtu@colorlinks\xjtu@colorlinksfalse
 \newif\ifxjtu@compact   \xjtu@compactfalse
@@ -38,6 +39,7 @@
 \DeclareOption{doctor}      {\xjtu@doctortrue}
 \DeclareOption{bigskip}     {\xjtu@bigskiptrue} % bachelor only
 \DeclareOption{truefont}    {\xjtu@truefonttrue}
+\DeclareOption{nofont}      {\xjtu@nofonttrue}
 \DeclareOption{pdflinks}    {\xjtu@pdflinkstrue}
 \DeclareOption{colorlinks}  {\xjtu@colorlinkstrue}
 \DeclareOption{compact}     {\xjtu@compacttrue}
@@ -98,6 +100,10 @@
 \renewcommand\thetable{%
     \ifnum \c@chapter >\z@ \thechapter -\fi \@arabic \c@table%
 }
+\renewcommand\theequation{%
+    \ifnum \c@chapter >\z@ \thechapter -\fi \@arabic \c@equation%
+}
+
 \newcommand{\thesis}{thesis}
 \newcommand{\Master}{Master}
 
@@ -178,6 +184,7 @@
   \let\@evenfoot=\@oddfoot}
 
 % font-family
+\ifxjtu@nofont\else
 \ifxjtu@truefont
   \setmainfont{Times New Roman}
   \setCJKmainfont{SimSun}
@@ -189,6 +196,7 @@
 \fi
 \setsansfont{Arial}
 \setmonofont{Courier New}
+\fi
 
 \def\thu@define@term#1{
 \long\expandafter\gdef\csname #1\endcsname##1{% defines a macro like \ctitle#1: \def\xjtu@ctitle{#1}
@@ -427,11 +435,13 @@
     }
 
     \newcommand{\xjtubib}[1]{ {
+        \clearpage
+        \phantomsection % http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tocbibind
         \addcontentsline{toc}{chapter}{参考文献}
         \wuhao
-        %\bibliographystyle{plain}
         \bibliographystyle{GBT7714-2005NLang-UTF8}
         \bibliography{#1}
+        \clearpage
         } }
 
    \let\oldfootnote\footnote
@@ -502,7 +512,8 @@
             }
         \end{center}
         \ifxjtu@compact\else
-            \clearpage \phantom{x}
+            \clearpage
+            \phantom{x}
             \thispagestyle{empty}
         \fi
         \clearpage
@@ -531,7 +542,8 @@
 
         \end{center}
         \ifxjtu@compact\else
-            \clearpage \phantom{x}
+            \clearpage
+            \phantom{x}
             \thispagestyle{empty}
         \fi
         \clearpage
@@ -539,6 +551,7 @@
     }
 
     \renewcommand\xjtucinfopage{
+        \chaptermark{摘要}
         \pagestyle{plain}
         \pagenumbering{roman}
         \noindent {\bf \xiaosi
@@ -611,11 +624,14 @@
     }
 
     \newcommand{\xjtubib}[1]{ {
+        \clearpage
+        \phantomsection
         \addcontentsline{toc}{chapter}{参考文献}
         \addcontentsline{toe}{chapter}{References}
         \wuhao
         \bibliographystyle{GBT7714-2005NLang-UTF8}
         \bibliography{#1}
+        \clearpage
         } }
 
    \let\oldfootnote\footnote
