@@ -1,0 +1,50 @@
+0.2.4
+ * Fixed: a few mistakes
+ * Fixed: separator in figure numbers changed to "-"
+ * Added: unit tests
+ * Added: option to turn off empty pages
+
+0.2.3 Dec 16, 2011
+* Fixed a few mistakes
+* Fixed 2 errors that break compilation
+
+0.2.2 Dec 16, 2011
+* Initial support for masters' and Ph.D.'s theses and dissertations
+* Fixed: a grammar error
+* Added: a command for in-text citation
+
+0.2.1 Dec 11, 2011
+* Fixed: Space between section title and its number
+* Fixed: Citation style using sqaure brackets
+* Fixed: Appendices overlays with its number in TOC
+
+0.2.0 Oct 5, 2011
+* Switched to Google Code
+
+0.1.7 Aug 27, 2011
+* Improved: `subsection` style
+
+0.1.5 Aug 5, 2011
+* Added: appendices support
+* Improved: samples for math-mode
+
+0.1.4 Aug 7, 2011
+* Added: footnote support
+
+0.1.3 Aug 3, 2011
+* Added: `denotation` environment
+
+0.1.2 Aug 2, 2011
+* Added: samples for tables
+* Added: support for page headers and footer
+
+0.1.1 July 23, 2011
+* CodeName turned to `Monet`
+* Improved abstract pages in `bachelor`
+* Added: standard linespread support
+* Added: \thu@define@term from `THUthesis`
+
+0.1.0 July 21, 2011
+* Initial commit
+* CodeName `Copycat`
+* Unfinished `bachelor` template

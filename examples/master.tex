@@ -1,0 +1,366 @@
+% multiple1902 <multiple1902@gmail.com>
+% master.tex
+% Copyright 2011~2012, multiple1902 (Weisi Dai)
+% https://code.google.com/p/xjtuthesis/
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Weisi Dai.
+%
+\documentclass[
+    %bachelor, 
+    master,
+    %doctor,
+    %bigskip, % sets linespread factor to 1.5
+    %truefont,
+    pdflinks,
+    %colorlinks,
+    %compact,
+    ]{xjtuthesis}
+
+\graphicspath{{figures/}}
+
+\begin{document}
+
+    \ctitle{\xjtuthesis{} \metaversion 排版示例}
+    % 论文标题不能超过35个汉字
+    \cauthor{张三}
+    \csubject{永动机学}
+    \csupervisor{李四}
+    \ckeywords{礼义廉耻；国之四维；四维不张；国乃灭亡}
+    \cproddate{\the\year 年\the\month 月}
+    \ctype{理论研究}
+
+    \etitle{Sample Typesetting for \xjtuthesis}
+    \eauthor{John Smith}
+    \esupervisor{Barack Obama}
+    \ekeywords{Wikipedia; Free encyclopedia; Winner; Good morning}
+    \ecate{Philosophy}
+    \esubject{Mechanical Engineering}
+    \eproddate{December 2011}
+    \etype{Theoretical Research}
+
+    \cabstract{
+    我住长江头，君住长江尾。日日思君不见君，共饮长江水。此水几时休？此恨何时已？只愿君心似我心，定不负相思意。
+
+    迢迢牵牛星，皎皎河汉女。纤纤擢素手，札札弄机杼。终日不成章，泣涕零如雨。河汉清且浅，相去复几许。盈盈一水间，脉脉不得语。
+
+    汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。天生丽质难自弃，一朝选在君王侧。回眸一笑百媚生，六宫粉黛无颜色。姊妹弟兄皆列土，可怜光彩生门户。遂令天下父母心，不重生男重生女。玉容寂寞泪阑干，梨花一枝春带雨。含情凝睇谢君王，一别音容两渺茫。在天愿作比翼鸟，在地愿为连理枝。天长地久有时尽，此恨绵绵无绝期。
+
+    春江潮水连海平，海上明月共潮生。滟滟随波千万里，何处春江无月明？江流宛转绕芳甸，月照花林皆似霰。空里流霜不觉飞，汀上白沙看不见。江天一色无纤尘，皎皎空中孤月轮。江畔何人初见月？江月何年初照人？人生代代无穷已，江月年年只相似。不知江月待何人，但见长江送流水。白云一片去悠悠，青枫浦上不胜愁。谁家今夜扁舟子？何处相思明月楼？可怜楼上月徘徊，应照离人妆镜台。玉户帘中卷不去，捣衣砧上拂还来。此时相望不相闻，愿逐月华流照君。鸿雁长飞光不度，鱼龙潜跃水成文。昨夜闲潭梦落花，可怜春半不还家。江水流春去欲尽，江潭落月复西斜。斜月沉沉藏海雾，碣石潇湘无限路。不知乘月几人归？落花摇情满江树。
+
+    }
+
+
+    \eabstract{
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    }
+
+    \xjtuchead
+
+    \xjtuehead
+
+    \xjtucinfopage
+
+    \xjtueinfopage
+    
+    \xjtutoc
+
+    \xjtutoe
+    \clearpage
+
+    \xjtucontent
+
+    \begin{denotation}
+
+      \item[\xjtuthesis]    我能吞下玻璃而不伤身体哟
+      \item[Linux]          李氏操作系统
+      \item[Windows]        温氏操作系统
+
+    \end{denotation}
+
+    \cleardoublepage
+
+    \chapter{绪论}
+    \echapter{Preface}
+
+    正文\footnote{测试一个脚注}是学位论文的主体，第一章为绪论，最后一章为结论与展望\xjtuincite{niubi-paper}。我们来测试一个上标引用\cite{niubi-paper}。
+        
+        \section{标题}
+        \esection{Biao Ti}
+
+        每章标题按一级标题编排，每节标题按二级标题编排，每小节标题按三级标题编排。
+
+        “章”、“节”、“小节”的编号统一为：1、1.1、1.1.1。
+
+        四级以后的标题和编号的编排原则为：下级标题的显目程度不超过上一级，不重复或混淆。
+
+        编号与题目之间空一格。
+
+
+        \section{二级标题}
+        \esection{Another Biao Ti}
+
+
+            积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。 
+
+            \subsection{三级标题}
+
+            平林漠漠烟如织，寒山一带伤心碧。暝色入高楼，有人楼上愁。王阶空伫立，宿鸟归飞急。何处是归程，长亭更短亭。
+
+                \subsubsection{四级标题}
+                    
+                君不见，黄河之水天上来，奔流到海不复回。君不见，高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。烹羊宰牛且为乐，会须一饮三百杯。岑夫子，丹丘生，将进酒，君莫停。与君歌一曲，请君为我侧耳听。钟鼓馔玉不足贵，但愿长醉不复醒。古来圣贤皆寂寞，惟有饮者留其名。陈王昔时宴平乐，斗酒十千恣欢谑。主人何为言少钱，径须沽取对君酌。五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。
+
+                \subsubsection{四级标题}
+
+                    一屠晚归，担中肉尽，止有剩骨。途中两狼，缀行甚远。
+
+                    屠惧，投以骨。一狼得骨止，一狼仍从。复投之，后狼止而前狼又至。骨已尽矣，而两狼之并驱如故。
+
+                    屠大窘，恐前后受其敌。顾野有麦场，场主积薪其中，苫蔽成丘。屠乃奔倚其下，弛担持刀。狼不敢前，眈眈相向。
+
+                    少时，一狼径去，其一犬坐于前。久之，目似瞑，意暇甚。屠暴起，以刀劈狼首，又数刀毙之。方欲行，转视积薪后，一狼洞其中，意将隧入以攻其后也。身已半入，止露尻尾。屠自后断其股，亦毙之。乃悟前狼假寐，盖以诱敌。
+
+                    狼亦黠矣，而顷刻两毙，禽兽之变诈几何哉？止增笑耳。
+
+                \subsubsection{又是一个四级标题}
+
+                    孔子东游，见两小儿辩斗。问其故。
+
+                    一儿曰：“我以日始出时去人近，而日中时远也。”
+
+                    一儿以日初出远，而日中时近也。
+
+                    一儿曰：“日初出大如车盖，及日中则如盘盂，此不为远者小而近者大乎？”
+
+                    一儿曰：“日初出沧沧凉凉，及其日中如探汤，此不为近者热而远者凉乎？”
+
+                    孔子不能决也。
+
+                    两小儿笑曰：“孰为汝多知乎？”
+
+    \chapter{浮动格式}
+
+        金溪民方仲永，世隶耕。仲永生五年，未尝识书具，忽啼求之。父异焉，借旁近与之，即书诗四句，并自为其名。其诗以养父母、收族为意，传一乡秀才观之。自是指物作诗立就，其文理皆有可观者。邑人奇之，稍稍宾客其父，或以钱币乞之。父利其然也，日扳仲永环谒于邑人，不使学。
+
+        余闻之也久。明道中，从先人还家，于舅家见之，十二三矣。令作诗，不能称前时之闻。又七年，还自扬州，复到舅家问焉。曰：“泯然众人矣。”
+
+        王子曰：仲永之通悟，受之天也。其受之天也，贤于才人远矣。卒之为众人，则其受于人者不至也。彼其受之天也，如此其贤也，不受之人，且为众人；今夫不受之天，固众人，又不受之人，得为众人而已耶？
+
+        \section{图片}
+
+            \begin{figure}[h!]
+              \centering
+              \includegraphics[width=6.67cm]{XJTU.pdf}
+              \caption{西安交通大学}
+              \label{fig:xjtu}
+            \end{figure}
+ 
+            \begin{figure}[h!]
+              \begin{minipage}{0.45\textwidth}
+                  \centering
+                  \includegraphics[width=6.67cm]{XJTU.pdf}
+                  \caption{西安交通大学}
+                  \label{fig:xjtu-left}
+              \end{minipage}
+              \begin{minipage}{0.45\textwidth}
+                  \centering
+                  \includegraphics[width=6.67cm]{XJTU.pdf}
+                  \caption{西安交通大学}
+                  \label{fig:xjtu-right}
+              \end{minipage}
+            \end{figure}
+              
+            \begin{figure}[h!]
+              \centering
+              \subfloat[果毅力行]{
+                  \includegraphics[width=6.67cm]{XJTU.pdf}
+                  \label{fig:xjtu-sub-left}}
+              \subfloat[忠恕任事]{
+                  \includegraphics[width=6.67cm]{XJTU.pdf}
+                  \label{fig:xjtu-sub-right}}
+              \caption{子图}
+            \end{figure}
+              
+
+        \section{表格}
+
+            \begin{table}[h!]
+              \centering
+              \caption{一个简单的表格}
+              \label{tab:simple}
+              \wuhao
+              \begin{tabularx}{\linewidth}{XXXXX} \toprule 
+                    & 一月 & 二月 & 三月 & 合计 \\ \midrule
+               东部 &    7 &    7 &    5 &   19 \\ 
+               西部 &    6 &    4 &    7 &   17 \\ 
+               南部 &    8 &    7 &    9 &   24 \\ 
+           \bf 合计 &   21 &   18 &   21 &   60 \\ \bottomrule
+              \end{tabularx}
+            \end{table}
+
+
+            \begin{table}[h!]
+              %\begin{minipage}{\textwidth}
+              \begin{threeparttable}[h]
+                \centering
+                \caption{包含脚注的表格}
+                \label{tab:with-footnote}
+                \wuhao
+                \begin{tabularx}{\linewidth}{XXXXX} \toprule 
+                      & 一月 & 二月 & 三月 & 合计 \\ \midrule
+                      东部 &    7\tnote{1}
+                                    &    7 &    5 &   19 \\ 
+                 西部 &    6 &    4 &    7 &   17 \\ 
+                 南部 &    8 &    7 &    9 &   24 \\ 
+                 \bf 合计\tnote{2}
+                      &   21 &   18 &   21 &   60 \\ \bottomrule
+                \end{tabularx}
+              %\end{minipage}
+              \begin{tablenotes}
+              \item[1] 数据来自Word 97.
+              \item[2] Computed by \textsl{Mathematica} 8.
+              \end{tablenotes}
+              \end{threeparttable}
+            \end{table}
+
+            \begin{table}[h!]
+              \centering
+              \caption{稍微复杂一点的表格}
+              \label{tab:complex}
+              \wuhao
+              \begin{tabularx}{\linewidth}{XXXXX} \toprule 
+                    & \multicolumn{3}{c}{这是一句废话} &  \\ \cmidrule{2-4}
+                    & 一月 & 二月 & 三月 & 合计 \\ \midrule
+               东部 &    9 &    7 &    5 &   19 \\ 
+               西部 &    6 &    4 &    7 &   17 \\ 
+               南部 &    8 &    7 &    9 &   24 \\ 
+           \bf 合计 &   21 &   18 &   21 &   60 \\ \bottomrule
+              \end{tabularx}
+            \end{table}
+
+            我制作了一个简单的表格（表\ref{tab:simple}）。
+
+
+    \chapter{公式环境}
+
+            \begin{axiom}
+                \rm 两点间直线段距离最短。  
+                \begin{align}
+                    x&\equiv y+1\pmod{m^2}\\
+                    x&\equiv y+1\mod{m^2}\\
+                    x&\equiv y+1\pod{m^2}
+                \end{align}
+            \end{axiom}
+
+            \begin{remark}
+            \rm 对齐的公式示例，它还同时演示了标号。
+            \begin{align}
+            \begin{split} 
+            \varphi(x,z)
+            &=z-\gamma_{10}x-\gamma_{mn}x^mz^n\\
+            &=z-Mr^{-1}x-Mr^{-(m+n)}x^mz^n
+            \end{split} \notag \\
+            \noindent\zeta^1&=(\xi^1)^2,\\
+            \zeta^1 &=\xi^0\xi^1,\\
+            \zeta^2 &=(\xi^1)^2,
+            \end{align}
+            \end{remark}
+
+            \begin{theorem}
+              \rm 对于直角三角形$ABC$， 若$a<c$且$b<c$， 则有
+                \begin{equation}
+                  a^2+b^2=c^2
+                \end{equation}
+            \end{theorem}
+
+
+            \begin{exercise}
+                  \rm 请列出温家宝的所有影视作品。
+            \end{exercise}
+                
+            贝叶斯公式如式~(\ref{equ:chap1:bayes})，其中 $p(y|\mathbf{x})$ 为后验；
+            $p(\mathbf{x})$ 为先验；分母 $p(\mathbf{x})$ 为归一化因子。
+            \begin{equation}
+                \label{equ:chap1:bayes}
+                p(y|\mathbf{x}) = \frac{p(\mathbf{x},y)}{p(\mathbf{x})}=
+                \frac{p(\mathbf{x}|y)p(y)}{p(\mathbf{x})} 
+            \end{equation}
+
+
+    \chapter{结论与展望}
+
+        \xjtuthesis 是一个开源项目，旨在提供符合西安交通大学有关部门要求的学位论文\LaTeX 模板。
+
+        您当前看到的文件是 \xjtuthesis{} \metaversion 的示例排版文档。请注意，它还远远不是最终的版本，因此，不要传播它。谢谢你。
+
+        \xjtuthesis 项目目前托管在Google Code:\\ \verb|http://code.google.com/p/xjtuthesis|，采用Mercurial管理源代码。
+
+    \xjtubib{sample}
+
+    \xjtuappendix
+
+        \xjtuappendixchapter{附录}
+
+            \xjtuappendixsection{测试标题}
+
+                The quick brown fox jumps over the lazy dog.
+
+                \begin{figure}[h!]
+                  \centering
+                  \includegraphics[width=6.67cm]{XJTU.pdf}
+                  \caption{西安交通大学}
+                  \label{fig:in-appendix}
+                \end{figure}
+
+                \xjtuappendixsubsection{三级标题}
+
+                    测试
+
+                    \xjtuappendixsubsubsection{四级标题}
+
+                        测试
+
+        \xjtuappendixchapter{还是附录}
+
+            \xjtuappendixsection{测试}
+
+                The quick brown fox jumps over the lazy dog.
+
+    \xjtuendappendix
+
+    \xjtuspchapter{致谢}{致\qquad 谢}{Acknowledgements}
+
+        首先，我们毫无疑问要感谢国家；
+
+        其次，我们当然还要感谢国家；
+
+        最后，我们绝对不能忘记感谢国家。
+
+    \xjtuspchapter{攻读硕士期间取得的研究成果}{攻读硕士期间取得的研究成果}{Achievements}
+
+        \begin{enumerate}
+            \item 已发表或已录用的学术论文、已出版的专著/译著、已获授权的专利按参考文献格式列出。
+            \item 科研获奖，列出格式为：\\
+                获奖人（排名情况）．项目名称．奖项名称及等级，发奖机构，获奖时间．
+            \item 与学位论文相关的其它成果参照参考文献格式列出。
+            \item 全部研究成果连续编号编排。
+        \end{enumerate}
+
+
+
+\end{document}
+
