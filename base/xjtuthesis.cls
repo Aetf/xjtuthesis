@@ -59,13 +59,9 @@
   \fi
 \fi
 
-% CJK character support
-\RequirePackage{fontspec,xltxtra,xunicode}
-\RequirePackage[slantfont,boldfont,CJKnumber]{xeCJK}
-\punctstyle{kaiming}
-
 % math & format packages
-\RequirePackage[fleqn]{amsmath} % amssymb ?
+\RequirePackage[fleqn]{amsmath}
+\RequirePackage{amssymb}
 \RequirePackage{indentfirst}
 \RequirePackage{tabularx}
 \RequirePackage{threeparttable}
@@ -74,6 +70,11 @@
 \RequirePackage{booktabs}
 \RequirePackage{subfig}
 \RequirePackage[numbers,super,square,sort&compress]{natbib}
+
+% CJK character support
+\RequirePackage{fontspec,xltxtra,xunicode}
+\RequirePackage[slantfont,boldfont,CJKnumber]{xeCJK}
+\punctstyle{kaiming}
 
 % padding
 \RequirePackage[left=2.6cm, right=2.6cm,top=3.0cm,bottom=2.5cm,a4paper]{geometry}
