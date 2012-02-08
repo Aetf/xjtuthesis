@@ -20,7 +20,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.2.8}
+\def\meta@version{0.3.0}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
