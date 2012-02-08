@@ -13,6 +13,7 @@ unittests/*.pdf
 *.thm
 *.toc
 *.toe
+*.orig
 setmain
 examples/xjtuthesis.cls 
 STAGED
