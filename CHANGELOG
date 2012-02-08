@@ -1,3 +1,10 @@
+0.3.0
+ * Fixed: amssymb package not loading due to confict
+ * Improved: page size declaration
+
+0.2.8
+ * Fixed: wrong page number for references in TOC.
+
 0.2.7 
  * Added: nofont option for manually setting fonts
 
