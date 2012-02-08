@@ -182,17 +182,17 @@
 
 % font-family
 \ifxjtu@nofont\else
-\ifxjtu@truefont
-  \setmainfont{Times New Roman}
-  \setCJKmainfont{SimSun}
-  \setCJKsansfont{SimHei}
-\else
-  \setmainfont{Nimbus Roman No9 L}
-  \setCJKmainfont{文鼎ＰＬ简报宋}
-  \setCJKsansfont{文泉驿微米黑}
-\fi
-\setsansfont{Arial}
-\setmonofont{Courier New}
+    \ifxjtu@truefont
+      \setmainfont{Times New Roman}
+      \setCJKmainfont{SimSun}
+      \setCJKsansfont{SimHei}
+    \else
+      \setmainfont{Nimbus Roman No9 L}
+      \setCJKmainfont{文鼎ＰＬ简报宋}
+      \setCJKsansfont{文泉驿微米黑}
+    \fi
+    \setsansfont{Arial}
+    \setmonofont{Courier New}
 \fi
 
 \def\thu@define@term#1{
