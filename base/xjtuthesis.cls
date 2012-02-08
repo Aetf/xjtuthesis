@@ -59,10 +59,6 @@
   \fi
 \fi
 
-% papersize: A4
-\setlength\paperheight {297mm}
-\setlength\paperwidth  {210mm}
-
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
 \RequirePackage[slantfont,boldfont,CJKnumber]{xeCJK}
@@ -80,7 +76,7 @@
 \RequirePackage[numbers,super,square,sort&compress]{natbib}
 
 % padding
-\RequirePackage[left=2.6cm, right=2.6cm,top=3.0cm,bottom=2.5cm]{geometry}
+\RequirePackage[left=2.6cm, right=2.6cm,top=3.0cm,bottom=2.5cm,a4paper]{geometry}
 
 % header & footer
 \RequirePackage{fancyhdr}
