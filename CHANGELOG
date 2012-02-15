@@ -1,3 +1,7 @@
+0.3.2
+ * Added: links to documents in source code.
+ * Fixed: removed `bigskip` option in graduates' example files.
+
 0.3.0
  * Fixed: amssymb package not loading due to confict
  * Improved: page size declaration
