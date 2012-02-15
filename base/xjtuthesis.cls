@@ -2,6 +2,10 @@
 % xjtuthesis.cls
 % Copyright 2011~2012, multiple1902 (Weisi Dai)
 % https://code.google.com/p/xjtuthesis/
+% 
+% It is strongly recommended that you read documentations located at
+%   http://code.google.com/p/xjtuthesis/w/list
+% in advance of your compilation if you have not read them before.
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -20,7 +24,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.3.0}
+\def\meta@version{0.3.2}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
