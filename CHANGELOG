@@ -1,5 +1,10 @@
+0.3.4
+ * Added: xjtuacademicintegrity command in master example file
+ * Fixed: typo in doctor.tex
+ * Fixed: links to documentation in source code.
+
 0.3.2
- * Added: links to documents in source code.
+ * Added: links to documentation in source code.
  * Fixed: removed `bigskip` option in graduates' example files.
 
 0.3.0
