@@ -352,8 +352,8 @@
                         西安交通大学本科毕业设计(论文)
                         \fi}
       \fancyfoot[OR,EL]{\small ~\thepage~}
-      \renewcommand{\headrulewidth}{\if@mainmatter 0.5pt\else 0pt \fi}
-      \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth
+      \renewcommand{\headrulewidth}{\if@mainmatter 0.5bp\else 0bp \fi}
+      \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .3pt
       \hrule \@height \headrulewidth \@width \headwidth \vskip -\headrulewidth}
 
     }
@@ -426,8 +426,8 @@
                                 西安交通大学本科毕业设计(论文)
                                 \fi}
                 \fancyfoot[ER,OL]{\small ~\thepage~}
-                \renewcommand{\headrulewidth}{\if@mainmatter 0.5pt\else 0pt \fi}
-                \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth
+                \renewcommand{\headrulewidth}{\if@mainmatter 0.5bp\else 0bp \fi}
+                \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .3pt
                 \hrule \@height \headrulewidth \@width \headwidth \vskip -\headrulewidth}
             }
             \pagestyle{plain}
@@ -493,8 +493,9 @@
       \fancyhead[CO]{\if@mainmatter\wuhao \leftmark\fi}
       \fancyhead[CE]{\wuhao 西安交通大学\xjtu@type 学位论文}
       \fancyfoot[OR,EL]{\small ~\thepage~}
-      \renewcommand{\headrulewidth}{\if@mainmatter 1pt\else 0pt \fi}
-      \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth
+      \renewcommand{\headrulewidth}{\if@mainmatter 1bp\else 0bp \fi}
+      \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .8pt
+      \hrule \@height \headrulewidth \@width \headwidth
       }
     }
     \pagestyle{plain}
