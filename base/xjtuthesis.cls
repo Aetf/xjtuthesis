@@ -371,7 +371,7 @@
           摘\qquad 要
         \end{center}
 
-        {\xiaosi \xjtu@cabstract}
+        \xjtu@cabstract
 
         \mbox{}
 
@@ -476,7 +476,7 @@
         \addcontentsline{toc}{subsubsection}{\thesubsubsection\quad #1}
     }
 \else % postgraduate
-    \linespread{1.1} \selectfont
+    %\linespread{1.2} \selectfont
     % booktabs parameters
     \setlength\cmidrulewidth {1.0pt}
     \setlength\lightrulewidth{1.0pt}
@@ -498,17 +498,18 @@
         \begin{center}
             \vskip 3cm
             \includegraphics[width=7cm]{XJTU.pdf} \\
+            \vskip 3ex
             {\huge \xjtu@type 学位论文}
 
             \vskip 5cm
-            {\bf \huge {\bf \xjtu@ctitle}
+            {\bf \huge {\bf \xjtu@ctitle}}
 
             \vskip 9cm
-            申请人：   \xjtu@cauthor\\
+            申\:\;请\:\;人： \xjtu@cauthor\\
             指导教师： \xjtu@csupervisor\\
             学科专业： \xjtu@csubject\\
             \xjtu@cproddate
-            }
+            
         \end{center}
         \ifxjtu@compact\else
             \clearpage
@@ -556,7 +557,7 @@
         \noindent {\bf \xiaosi
         论文题目： \xjtu@ctitle\\
         学科专业： \xjtu@csubject\\
-        申请人：   \xjtu@cauthor\\
+        申\:\;请\:\;人： \xjtu@cauthor\\
         指导教师： \xjtu@csupervisor\\
         }
 
@@ -565,15 +566,16 @@
           摘\qquad 要
         \end{center}
 
-        {\xiaosi \xjtu@cabstract}
+        %{\xiaosi \xjtu@cabstract}
+        \xjtu@cabstract
 
         \mbox{}
 
         {\wuhao \noindent
-            {\bf 关键词}：
+            {\bf 关\:\;键\:\;词}：
         \xjtu@ckeywords
         
-        \noindent {\bf 论文类型} :
+        \noindent {\bf 论文类型}：
         \xjtu@ctype
         }
         \clearpage
