@@ -24,7 +24,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.3.2}
+\def\meta@version{0.3.4}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -189,11 +189,9 @@
     \ifxjtu@truefont
       \setmainfont{Times New Roman}
       \setCJKmainfont{SimSun}
-      \setCJKsansfont{SimHei}
     \else
       \setmainfont{Nimbus Roman No9 L}
       \setCJKmainfont{文鼎ＰＬ简报宋}
-      \setCJKsansfont{文泉驿微米黑}
     \fi
     \setsansfont{Arial}
     \setmonofont{Courier New}
@@ -298,9 +296,9 @@
 
 \setcounter{secnumdepth}{3}
 
-\titleformat{\section}[hang]{\xiaosan \CJKfamily{hei}}{}{0em}{\thesection\quad }[\vskip -0.5em]
-\titleformat{\subsection}{\sihao \CJKfamily{hei}}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
-\titleformat{\subsubsection}{\CJKfamily{hei}}{}{0em}{\thesubsubsection\quad}[]
+\titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
+\titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
+\titleformat{\subsubsection}{}{}{0em}{\thesubsubsection\quad}[]
 
 \newenvironment{denotation}[1][2.5cm]{ % much thanks to THUthesis!
   \chapter*{主要符号表}
@@ -322,7 +320,7 @@
 
 \let\oldtableofcontents=\tableofcontents
 \def\tableofcontents{
-    \titleformat{\chapter}[block]{\sanhao \CJKfamily{hei}}{}{0em}{\begin{center}}[\end{center}]
+    \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
     \oldtableofcontents
 }
 
