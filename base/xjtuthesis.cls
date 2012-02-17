@@ -244,6 +244,7 @@
 \newcommand\xjtucinfopage{}
 \newcommand\xjtueinfopage{}
 \newcommand\xjtucontent{}
+\newcommand\xjtuendcontent{}
 \newcommand\xjtutoc{
     \tableofcontents
     \chaptermark{目录}
@@ -296,6 +297,7 @@
 
 \setcounter{secnumdepth}{3}
 
+\xjtuendcontent
 \titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
 \titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
 \titleformat{\subsubsection}{}{}{0em}{\thesubsubsection\quad}[]
@@ -320,8 +322,8 @@
 
 \let\oldtableofcontents=\tableofcontents
 \def\tableofcontents{
-    \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
     \oldtableofcontents
+
 }
 
 \ifxjtu@compact
@@ -431,6 +433,10 @@
             \pagestyle{plain}
         \fi
         \pagenumbering{arabic}
+        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad}[\end{center}]
+    }
+    \renewcommand\xjtuendcontent{
+        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
     }
 
     \newcommand{\xjtubib}[1]{ {
@@ -622,6 +628,10 @@
     \renewcommand\xjtucontent{
         % no need to mirror page heads here
         \pagenumbering{arabic}
+        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad}[\end{center}]
+    }
+    \renewcommand\xjtuendcontent{
+        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
     }
 
     \newcommand{\xjtubib}[1]{ {
