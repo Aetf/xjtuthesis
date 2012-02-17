@@ -24,7 +24,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.3.4}
+\def\meta@version{0.4.0}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -290,14 +290,14 @@
 \textheight=242mm % 297-30-25
 \footskip=7.5mm
 \setlength\voffset{2cm} % 规范：页眉距边界2.0cm
-\pagenumbering{roman}
+\pagenumbering{Roman}
 \xiaosi
 \setlength{\parindent}{2em}
 
 
 \setcounter{secnumdepth}{3}
 
-\xjtuendcontent
+\titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
 \titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
 \titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
 \titleformat{\subsubsection}{}{}{0em}{\thesubsubsection\quad}[]
