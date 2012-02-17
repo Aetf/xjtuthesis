@@ -1,0 +1,21 @@
+syntax: glob
+examples/bachelor.pdf
+examples/master.pdf
+examples/doctor.pdf
+unittests/*.pdf
+*.swp
+*.latexmain
+*.out
+*.log
+*.aux
+*.bbl
+*.blg
+*.thm
+*.toc
+*.toe
+*.orig
+setmain
+examples/xjtuthesis.cls 
+STAGED
+release.sh
+release/
