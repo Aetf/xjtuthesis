@@ -553,7 +553,7 @@
     \renewcommand\xjtucinfopage{
         \chaptermark{摘要}
         \pagestyle{plain}
-        \pagenumbering{Roman}
+        \pagenumbering{roman}
         \noindent {\bf \xiaosi
         论文题目： \xjtu@ctitle\\
         学科专业： \xjtu@csubject\\
