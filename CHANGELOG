@@ -1,3 +1,14 @@
+0.4.0
+ * Improved: chapter titles having leading numbers
+ * Fixed: some errors within the head pages
+ * Fixed: page numbering in graduates theses
+ * Fixed: line spacing in the abstract section
+ * Fixed: rules in the header
+ * Updated: example text
+ * Removed: useless font commands
+ * Interface: added \xjtuendcontents after numbered chapters
+ * Interface: moved \xjtucontents after the denotation env
+
 0.3.4
  * Added: xjtuacademicintegrity command in master example file
  * Fixed: typo in doctor.tex
