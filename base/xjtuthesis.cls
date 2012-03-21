@@ -24,7 +24,7 @@
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.4.0}
+\def\meta@version{0.4.2}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -187,10 +187,10 @@
 % font-family
 \ifxjtu@nofont\else
     \ifxjtu@truefont
-      \setmainfont{Times New Roman}
+      \setmainfont[Ligatures=TeX]{Times New Roman}
       \setCJKmainfont{SimSun}
     \else
-      \setmainfont{Nimbus Roman No9 L}
+      \setmainfont[Ligatures=TeX]{Nimbus Roman No9 L}
       \setCJKmainfont{文鼎ＰＬ简报宋}
     \fi
     \setsansfont{Arial}
