@@ -23,11 +23,13 @@
 \ProvidesClass{xjtuthesis}
 [2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
 
+% Brand marks, and version info
 \def\xjtuthesis{XJTUthesis}
 \def\meta@version{0.4.2}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
+% Option switches
 \newif\ifxjtu@bachelor  \xjtu@bachelorfalse
 \newif\ifxjtu@master    \xjtu@masterfalse
 \newif\ifxjtu@doctor    \xjtu@doctorfalse
@@ -63,7 +65,7 @@
   \fi
 \fi
 
-% math & format packages
+% Math & format packages
 \RequirePackage[fleqn]{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{indentfirst}
@@ -80,10 +82,10 @@
 \RequirePackage[slantfont,boldfont,CJKnumber]{xeCJK}
 \punctstyle{kaiming}
 
-% padding
+% Padding
 \RequirePackage[left=2.6cm, right=2.6cm,top=3.0cm,bottom=2.5cm,a4paper]{geometry}
 
-% header & footer
+% Header & footer
 \RequirePackage{fancyhdr}
 
 % titleformat
@@ -92,8 +94,7 @@
 % l10n here
 \renewcommand{\tablename}{表} 
 \renewcommand{\figurename}{图} 
-%\renewcommand{\refname}{参考资料}
-%\renewcommand{\abstractname}{摘要}
+\renewcommand{\bibname}{参考文献}
 \renewcommand\contentsname{目\quad \quad 录}
 \renewcommand\thefigure{% thanks to fitsir<at>gmail.com
      \ifnum \c@chapter>\z@\thechapter-\fi\@arabic\c@figure%
@@ -139,7 +140,8 @@
     \urlstyle{same}
 \fi
 
-% font-size
+% Font-size
+% Used code from THUthesis. Many thanks!
 \newlength\thu@linespace
 \newcommand{\thu@choosefont}[2]{%
   \setlength{\thu@linespace}{#2*\real{#1}}%
@@ -172,7 +174,7 @@
   \belowdisplayskip=\abovedisplayskip
   \belowdisplayshortskip=\abovedisplayshortskip}
 
-% header & footer
+% Header & footer styles
 \def\ps@thu@empty{%
   \let\@oddhead\@empty%
   \let\@evenhead\@empty%
@@ -184,7 +186,7 @@
   \def\@oddfoot{\hfil\wuhao\thepage\hfil}%
   \let\@evenfoot=\@oddfoot}
 
-% font-family
+% Font-family
 \ifxjtu@nofont\else
     \ifxjtu@truefont
       \setmainfont[Ligatures=TeX]{Times New Roman}
@@ -200,8 +202,9 @@
 \def\thu@define@term#1{
 \long\expandafter\gdef\csname #1\endcsname##1{% defines a macro like \ctitle#1: \def\xjtu@ctitle{#1}
     \long\expandafter\gdef\csname xjtu@#1\endcsname{##1}}
-  \csname #1\endcsname{}} % the initial value=NULLSTR
+  \csname #1\endcsname{}} % the initial value is NULLSTR
 
+% Table of contents, in English
 \newcommand\engcontentsname{CONTENTS}
 \newcommand\tableofengcontents{%
     \if@twocolumn
@@ -225,7 +228,7 @@
 \newcommand\esubsection[1]{\addengcontents{subsection}{#1}}
 \newcommand\eappendix[1]{\addengappendice{#1}}
 
-% circled footnote number
+% Circled footnote number
 \renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt}{\arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 
 \thu@define@term{type}
@@ -238,6 +241,7 @@
     \renewcommand{\Master}{Doctor}
 \fi
 
+% Interfaces, or commands
 \newcommand\xjtucover{}
 \newcommand\xjtuchead{}
 \newcommand\xjtuehead{}
@@ -262,6 +266,8 @@
     \cite{#1}%
     }%
 }
+
+% Interfaces, or terms
 \thu@define@term{cauthor}
 \thu@define@term{ctitle}
 \thu@define@term{csupervisor}
@@ -283,7 +289,7 @@
 
 \newcommand\xjtutype{\xjtu@type}
 
-% geometry
+% Geometry specifications
 \topmargin=-1in % 消除页眉-边界距离初始值
 \headheight=8mm 
 \headsep=2mm
@@ -294,14 +300,16 @@
 \xiaosi
 \setlength{\parindent}{2em}
 
-
+% Table of contents, style
 \setcounter{secnumdepth}{3}
 
+% Section titles, style
 \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
 \titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
 \titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
 \titleformat{\subsubsection}{}{}{0em}{\thesubsubsection\quad}[]
 
+% The denotation environment
 \newenvironment{denotation}[1][2.5cm]{ % much thanks to THUthesis!
   \chapter*{主要符号表}
   \addcontentsline{toc}{chapter}{主要符号表}
@@ -323,9 +331,9 @@
 \let\oldtableofcontents=\tableofcontents
 \def\tableofcontents{
     \oldtableofcontents
-
 }
 
+% The ``compact'' option eliminates the empty pages
 \ifxjtu@compact
     \let\oldcleardoublepage=\cleardoublepage
     \def\cleardoublepage{
@@ -396,7 +404,7 @@
         \end{center}
 
 
-        {%\xiaosi
+        {
         \setlength{\parindent}{0em}
         \setlength{\parskip}{1em}
         \xjtu@eabstract
@@ -482,7 +490,6 @@
         \addcontentsline{toc}{subsubsection}{\thesubsubsection\quad #1}
     }
 \else % postgraduate
-    %\linespread{1.2} \selectfont
     % booktabs parameters
     \setlength\cmidrulewidth {1.0pt}
     \setlength\lightrulewidth{1.0pt}
@@ -573,7 +580,6 @@
           摘\qquad 要
         \end{center}
 
-        %{\xiaosi \xjtu@cabstract}
         \xjtu@cabstract
 
         \mbox{}
@@ -602,7 +608,7 @@
         \end{center}
 
 
-        {%\xiaosi
+        {
         \setlength{\parindent}{0em}
         \setlength{\parskip}{1em}
         \xjtu@eabstract
@@ -731,11 +737,7 @@
 
     \thispagestyle{empty}
     } }
-
-   
-
 \fi
-
 
 % borrowed from nenuthesis
 \newtheorem{assumption}{假设}[chapter]
@@ -750,5 +752,3 @@
 \newtheorem{remark}{注释}[chapter]
 \newtheorem{problem}{问题}[chapter]
 \newtheorem{conjecture}{猜想}[chapter]
-
-\renewcommand{\bibname}{参考文献}
