@@ -76,6 +76,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{subfig}
 \RequirePackage[numbers,super,square,sort&compress]{natbib}
+\RequirePackage{enumerate} % issue 5
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
