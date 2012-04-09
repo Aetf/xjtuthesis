@@ -198,8 +198,6 @@
       \setmainfont[Ligatures=TeX]{Nimbus Roman No9 L}
       \setCJKmainfont{文鼎ＰＬ简报宋}
     \fi
-    \setsansfont{Arial}
-    \setmonofont{Courier New}
 \fi
 
 \def\thu@define@term#1{
