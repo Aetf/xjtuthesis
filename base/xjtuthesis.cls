@@ -312,6 +312,18 @@
 \titleformat{\subsubsection}{}{}{2em}{\thesubsubsection~}[] % issue 4
 \renewcommand\thesubsubsection{\arabic{subsubsection}}  % issue 4
 
+\let\oldfigure=\figure
+\renewcommand\figure[1][]{
+    \oldfigure[#1]
+    \wuhao
+}
+
+\let\oldtable=\table
+\renewcommand\table[1][]{
+    \oldtable[#1]
+    \wuhao
+}
+
 % The denotation environment
 \newenvironment{denotation}[1][2.5cm]{ % many thanks to THUthesis!
   \chapter*{主要符号表}
