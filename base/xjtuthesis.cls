@@ -25,7 +25,7 @@
 
 % Brand marks, and version info
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.4.2}
+\def\meta@version{0.4.6}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -173,6 +173,8 @@
   \abovedisplayshortskip=10bp \@plus 2bp \@minus 2bp
   \belowdisplayskip=\abovedisplayskip
   \belowdisplayshortskip=\abovedisplayshortskip}
+\DeclareCaptionFont{wuhao}{\wuhao}\captionsetup{font=wuhao} % thanks to wander huang
+\DeclareCaptionFont{xiaowu}{\xiaowu}\captionsetup[subfloat]{font=xiaowu} % issue 4
 
 % Header & footer styles
 \def\ps@thu@empty{%
@@ -307,10 +309,11 @@
 \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
 \titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
 \titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
-\titleformat{\subsubsection}{}{}{0em}{\thesubsubsection\quad}[]
+\titleformat{\subsubsection}{}{}{2em}{\thesubsubsection~}[] % issue 4
+\renewcommand\thesubsubsection{\arabic{subsubsection}}  % issue 4
 
 % The denotation environment
-\newenvironment{denotation}[1][2.5cm]{ % much thanks to THUthesis!
+\newenvironment{denotation}[1][2.5cm]{ % many thanks to THUthesis!
   \chapter*{主要符号表}
   \addcontentsline{toc}{chapter}{主要符号表}
   \chaptermark{主要符号表}
