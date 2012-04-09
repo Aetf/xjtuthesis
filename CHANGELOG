@@ -1,3 +1,9 @@
+0.4.6
+ * Fixed: fontsize of figures and tables
+ * Fixed: fontsize of labels of sub-figures
+ * Added: dependency for package `enumerate`
+ * Removed: unused font dependencies
+
 0.4.2
  * Fixed: quotation marks error
 
