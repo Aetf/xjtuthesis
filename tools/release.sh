@@ -19,7 +19,9 @@ rsync -ar . $DESTROOT$DEST/ --exclude-from=.hgignore --exclude=".hg*" --copy-lin
 echo "Zip ..."
 cd $DESTROOT
 rm -f $DEST.zip
+rm -f $DEST.zip.asc
 zip -rq $DEST.zip $DEST
 rm -rf $DEST
+gpg -ab --sign $DEST.zip
 cd - > /dev/null
 echo "$DEST is ready"
