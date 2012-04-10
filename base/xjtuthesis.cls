@@ -88,6 +88,7 @@
 
 % Header & footer
 \RequirePackage{fancyhdr}
+\RequirePackage[perpage]{footmisc}
 
 % titleformat
 \RequirePackage{titlesec,titletoc}
@@ -230,7 +231,7 @@
 \newcommand\eappendix[1]{\addengappendice{#1}}
 
 % Circled footnote number
-\renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt}{\arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt}{\scriptsize \arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 
 \thu@define@term{type}
 
