@@ -25,7 +25,7 @@
 
 % Brand marks, and version info
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.4.6}
+\def\meta@version{0.6.0}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -231,7 +231,7 @@
 \newcommand\eappendix[1]{\addengappendice{#1}}
 
 % Circled footnote number
-\renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt}{\scriptsize \arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.5pt}{\scriptsize \arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 
 \thu@define@term{type}
 
