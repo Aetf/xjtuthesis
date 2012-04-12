@@ -102,10 +102,10 @@
      \ifnum \c@chapter>\z@\thechapter-\fi\@arabic\c@figure%
 }
 \renewcommand\thetable{%
-    \ifnum \c@chapter >\z@ \thechapter -\fi \@arabic \c@table%
+    \ifnum \c@chapter >\z@ \thechapter-\fi \@arabic \c@table%
 }
 \renewcommand\theequation{%
-    \ifnum \c@chapter >\z@ \thechapter -\fi \@arabic \c@equation%
+    \ifnum \c@chapter >\z@ \thechapter-\fi \@arabic \c@equation%
 }
 
 \newcommand{\thesis}{thesis}
@@ -158,7 +158,7 @@
 \thu@define@fontsize{erhao}{22bp}
 \thu@define@fontsize{xiaoer}{18bp}
 \thu@define@fontsize{sanhao}{16bp}
-\thu@define@fontsize{xiaosan}{17bp}
+\thu@define@fontsize{xiaosan}{15bp}
 \thu@define@fontsize{sihao}{14bp}
 \thu@define@fontsize{banxiaosi}{13bp}
 \thu@define@fontsize{xiaosi}{12bp}
@@ -175,7 +175,7 @@
   \abovedisplayshortskip=10bp \@plus 2bp \@minus 2bp
   \belowdisplayskip=\abovedisplayskip
   \belowdisplayshortskip=\abovedisplayshortskip}
-\DeclareCaptionFont{wuhao}{\wuhao}\captionsetup{font=wuhao} % thanks to wander huang
+\DeclareCaptionFont{wuhao}{\wuhao}\captionsetup{font=wuhao} % thanks to @wanderxjtu
 \DeclareCaptionFont{xiaowu}{\xiaowu}\captionsetup[subfloat]{font=xiaowu} % issue 4
 
 % Header & footer styles
@@ -228,6 +228,7 @@
 \newcommand\echapter[1]{\addengcontents{chapter}{#1}}
 \newcommand\esection[1]{\addengcontents{section}{#1}}
 \newcommand\esubsection[1]{\addengcontents{subsection}{#1}}
+\newcommand\esubsubsection[1]{} % do nothing
 \newcommand\eappendix[1]{\addengappendice{#1}}
 
 % Circled footnote number
@@ -309,8 +310,7 @@
 \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
 \titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
 \titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
-\titleformat{\subsubsection}{}{}{2em}{\thesubsubsection~}[] % issue 4
-\renewcommand\thesubsubsection{\arabic{subsubsection}}  % issue 4
+\titleformat{\subsubsection}{}{}{0em}{\thesubsubsection\quad}[]
 
 \let\oldfigure=\figure
 \renewcommand\figure[1][]{
@@ -323,6 +323,23 @@
     \oldtable[#1]
     \wuhao
 }
+
+\newcommand{\monthname}[1]{%
+\ifcase#1
+\or January%
+\or February%
+\or March%
+\or April%
+\or May%
+\or June%
+\or July%
+\or August%
+\or September%
+\or October%
+\or November%
+\or December%
+\fi}
+
 
 % The denotation environment
 \newenvironment{denotation}[1][2.5cm]{ % many thanks to THUthesis!
@@ -342,6 +359,47 @@
     \setlength{\listparindent}{0cm} % 段落缩进量
     \setlength{\topsep}{0pt} % 标签与上文的间距
    }}{\end{list}}
+
+\newcommand{\xjtuappendix}{
+    \begin{appendix}
+    \renewcommand{\thechapter}{附录\arabic{chapter}}
+    \chaptermark{附录}
+}
+\newcommand{\xjtuendappendix}{\end{appendix}}
+\newcommand{\xjtuappendixchapter}[1]{
+    \stepcounter{chapter}
+    \chapter*{\thechapter\quad#1}
+    \addcontentsline{toc}{chapter}{\thechapter\quad #1}
+}
+\newcommand{\xjtuappendixsection}[1]{
+    \stepcounter{section}
+    \section*{#1}
+    \addcontentsline{toc}{section}{\thesection\quad #1}
+}
+\newcommand{\xjtuappendixsubsection}[1]{
+    \stepcounter{subsection}
+    \subsection*{#1}
+    \addcontentsline{toc}{subsection}{\thesubsection\quad #1}
+}
+\newcommand{\xjtuappendixsubsubsection}[1]{
+    \stepcounter{subsubsection}
+    \subsubsection*{#1}
+    \addcontentsline{toc}{subsubsection}{\thesubsubsection\quad #1}
+}
+\newcommand{\xjtuappendixechapter}[1]{
+    \echapter*{\thechapter\quad#1}
+    \addcontentsline{toe}{chapter}{\thechapter\quad #1}
+}
+\newcommand{\xjtuappendixesection}[1]{
+    \esection*{#1}
+    \addcontentsline{toe}{section}{\thesection\quad #1}
+}
+\newcommand{\xjtuappendixesubsection}[1]{
+    \esubsection*{#1}
+    \addcontentsline{toe}{subsection}{\thesubsection\quad #1}
+}
+\newcommand{\xjtuappendixesubsubsection}[1]{
+}
 
 \let\oldtableofcontents=\tableofcontents
 \def\tableofcontents{
@@ -441,6 +499,7 @@
     \setlength\heavyrulewidth{1.5pt}
 
     \renewcommand\xjtucontent{
+        \cleardoublepage
         \ifodd\arabic{page}\else
             \fancypagestyle{plain}{%
                 \fancyhf{}
@@ -478,32 +537,6 @@
     \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
     \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 
-    \newcommand{\xjtuappendix}{
-        \begin{appendix}
-        \renewcommand{\thechapter}{附录\arabic{chapter}}
-        \chaptermark{附录}
-    }
-    \newcommand{\xjtuendappendix}{\end{appendix}}
-    \newcommand{\xjtuappendixchapter}[1]{
-        \stepcounter{chapter}
-        \chapter*{\thechapter\quad#1}
-        \addcontentsline{toc}{chapter}{\thechapter\quad #1}
-    }
-    \newcommand{\xjtuappendixsection}[1]{
-        \stepcounter{section}
-        \section*{#1}
-        \addcontentsline{toc}{section}{\thesection\quad #1}
-    }
-    \newcommand{\xjtuappendixsubsection}[1]{
-        \stepcounter{subsection}
-        \subsection*{#1}
-        \addcontentsline{toc}{subsection}{\thesubsection\quad #1}
-    }
-    \newcommand{\xjtuappendixsubsubsection}[1]{
-        \stepcounter{subsubsection}
-        \subsubsection*{#1}
-        \addcontentsline{toc}{subsubsection}{\thesubsubsection\quad #1}
-    }
 \else % postgraduate
     % booktabs parameters
     \setlength\cmidrulewidth {1.0pt}
@@ -648,7 +681,7 @@
     }
 
     \renewcommand\xjtucontent{
-        % no need to mirror page heads here
+        \cleardoublepage
         \pagenumbering{arabic}
         \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad}[\end{center}]
     }
@@ -673,32 +706,6 @@
     \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
     \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 
-    \newcommand{\xjtuappendix}{
-        \begin{appendix}
-        \renewcommand{\thechapter}{附录\arabic{chapter}}
-        \chaptermark{附录}
-    }
-    \newcommand{\xjtuendappendix}{\end{appendix}}
-    \newcommand{\xjtuappendixchapter}[1]{
-        \stepcounter{chapter}
-        \chapter*{\thechapter\quad#1}
-        \addcontentsline{toc}{chapter}{\thechapter\quad #1}
-    }
-    \newcommand{\xjtuappendixsection}[1]{
-        \stepcounter{section}
-        \section*{#1}
-        \addcontentsline{toc}{section}{\thesection\quad #1}
-    }
-    \newcommand{\xjtuappendixsubsection}[1]{
-        \stepcounter{subsection}
-        \subsection*{#1}
-        \addcontentsline{toc}{subsection}{\thesubsection\quad #1}
-    }
-    \newcommand{\xjtuappendixsubsubsection}[1]{
-        \stepcounter{subsubsection}
-        \subsubsection*{#1}
-        \addcontentsline{toc}{subsubsection}{\thesubsubsection\quad #1}
-    }
     \renewcommand\xjtuspchapter[3]{
         \chapter*{#2}
         \chaptermark{#1}

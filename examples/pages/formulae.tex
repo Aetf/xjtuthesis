@@ -1,0 +1,65 @@
+% multiple1902 <multiple1902@gmail.com>
+% formulae.tex
+% Copyright 2011~2012, multiple1902 (Weisi Dai)
+% https://code.google.com/p/xjtuthesis/
+% 
+% It is strongly recommended that you read documentations located at
+%   http://code.google.com/p/xjtuthesis/wiki/Landing?tm=6
+% in advance of your compilation if you have not read them before.
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Weisi Dai.
+%
+\chapter{公式环境}
+
+    \begin{axiom}
+        \rm 两点间直线段距离最短。  
+        \begin{align}
+            x&\equiv y+1\pmod{m^2}\\
+            x&\equiv y+1\mod{m^2}\\
+            x&\equiv y+1\pod{m^2}
+        \end{align}
+    \end{axiom}
+
+    \begin{remark}
+    \rm 对齐的公式示例，它还同时演示了标号。
+    \begin{align}
+    \begin{split} 
+    \varphi(x,z)
+    &=z-\gamma_{10}x-\gamma_{mn}x^mz^n\\
+    &=z-Mr^{-1}x-Mr^{-(m+n)}x^mz^n
+    \end{split} \notag \\
+    \noindent\zeta^1&=(\xi^1)^2,\\
+    \zeta^1 &=\xi^0\xi^1,\\
+    \zeta^2 &=(\xi^1)^2,
+    \end{align}
+    \end{remark}
+
+    \begin{theorem}
+      \rm 对于直角三角形$ABC$， 若$a<c$且$b<c$， 则有
+        \begin{equation}
+          a^2+b^2=c^2
+        \end{equation}
+    \end{theorem}
+
+
+    \begin{exercise}
+          \rm 请列出温家宝的所有影视作品。
+    \end{exercise}
+        
+    贝叶斯公式如式~(\ref{equ:chap1:bayes})，其中 $p(y|\mathbf{x})$ 为后验；
+    $p(\mathbf{x})$ 为先验；分母 $p(\mathbf{x})$ 为归一化因子。
+    \begin{equation}
+        \label{equ:chap1:bayes}
+        p(y|\mathbf{x}) = \frac{p(\mathbf{x},y)}{p(\mathbf{x})}=
+        \frac{p(\mathbf{x}|y)p(y)}{p(\mathbf{x})} 
+    \end{equation}
