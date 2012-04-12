@@ -16,6 +16,11 @@ unittests/*.pdf
 *.orig
 setmain
 examples/xjtuthesis.cls 
+solutions/xjtuthesis.cls
+solutions/bachelor.pdf
+solutions/master.pdf
+solutions/doctor.pdf
+solutions/*.bst
 STAGED
 release.sh
 release/
