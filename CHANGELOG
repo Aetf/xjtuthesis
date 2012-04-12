@@ -1,3 +1,12 @@
+0.6.0
+ * Fixed: section titles
+ * Fixed: mistake in example table
+ * Added: Monet's description for example typesetting result
+ * Added: schoolmate Jiang's speech
+ * Added: support for appendix titles in English
+ * Added: support for auto determining the month name
+ * Improved: better content structure
+
 0.4.6
  * Fixed: fontsize of figures and tables
  * Fixed: fontsize of labels of sub-figures
