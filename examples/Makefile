@@ -1,4 +1,4 @@
-all: bachelor master doctor
+pdf: bachelor master doctor
 
 bachelor:
 	xelatex --no-pdf --interaction=nonstopmode bachelor.tex

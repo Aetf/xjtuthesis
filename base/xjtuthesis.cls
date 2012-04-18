@@ -232,7 +232,7 @@
 \newcommand\eappendix[1]{\addengappendice{#1}}
 
 % Circled footnote number
-\renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.5pt}{\scriptsize \arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.3ex}{\scriptsize \arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 
 \thu@define@term{type}
 
