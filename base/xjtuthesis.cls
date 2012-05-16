@@ -111,6 +111,8 @@
 \renewcommand\theequation{%
     \ifnum \c@chapter >\z@ \thechapter-\fi \@arabic \c@equation%
 }
+\captionsetup{labelsep=quad}
+\captionsetup[longtable]{labelsep=quad}
 
 \newcommand{\thesis}{thesis}
 \newcommand{\Master}{Master}
