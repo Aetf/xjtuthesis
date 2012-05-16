@@ -25,7 +25,7 @@
 
 % Brand marks, and version info
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.6.0}
+\def\meta@version{0.6.2}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -39,6 +39,7 @@
 \newif\ifxjtu@pdflinks  \xjtu@pdflinksfalse
 \newif\ifxjtu@colorlinks\xjtu@colorlinksfalse
 \newif\ifxjtu@compact   \xjtu@compactfalse
+\newif\ifxjtu@inmainbody\xjtu@inmainbodyfalse
 
 \DeclareOption{bachelor}    {\xjtu@bachelortrue}
 \DeclareOption{master}      {\xjtu@mastertrue}
@@ -76,12 +77,15 @@
 \RequirePackage{booktabs}
 \RequirePackage{subfig}
 \RequirePackage[numbers,super,square,sort&compress]{natbib}
-\RequirePackage{enumerate} % issue 5
+\RequirePackage{setspace}
+\RequirePackage[shortlabels]{enumitem}
+\setenumerate[1]{1),fullwidth,itemindent=\parindent,listparindent=\parindent,itemsep=0.05\baselineskip,partopsep=0pt,parsep=0ex,topsep=0.1\baselineskip}
+\setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
 \RequirePackage[slantfont,boldfont,CJKnumber]{xeCJK}
-\punctstyle{kaiming}
+\punctstyle{hangmobanjiao}
 
 % Padding
 \RequirePackage[left=2.6cm, right=2.6cm,top=3.0cm,bottom=2.5cm,a4paper]{geometry}
@@ -96,8 +100,8 @@
 % l10n here
 \renewcommand{\tablename}{表} 
 \renewcommand{\figurename}{图} 
-\renewcommand{\bibname}{参考文献}
-\renewcommand\contentsname{目\quad \quad 录}
+\renewcommand{\bibname}{\vskip -0.5em 参考文献}
+\renewcommand\contentsname{目\quad 录}
 \renewcommand\thefigure{% thanks to fitsir<at>gmail.com
      \ifnum \c@chapter>\z@\thechapter-\fi\@arabic\c@figure%
 }
@@ -232,7 +236,7 @@
 \newcommand\eappendix[1]{\addengappendice{#1}}
 
 % Circled footnote number
-\renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.3ex}{\scriptsize \arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.5pt}{\scriptsize \arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 
 \thu@define@term{type}
 
@@ -254,10 +258,12 @@
 \newcommand\xjtuendcontent{}
 \newcommand\xjtutoc{
     \tableofcontents
-    \chaptermark{目录}
+    \noindent 声明
+    \chaptermark{目\quad 录}
 }
 \newcommand\xjtutoe{
     \tableofengcontents
+    \noindent Declaration
 }
 \newcommand\xjtuspchapter[2]{
     \chapter*{#2}
@@ -299,7 +305,7 @@
 \textheight=242mm % 297-30-25
 \footskip=7.5mm
 \setlength\voffset{2cm} % 规范：页眉距边界2.0cm
-\pagenumbering{roman}
+\pagenumbering{Roman}
 \xiaosi
 \setlength{\parindent}{2em}
 
@@ -307,10 +313,19 @@
 \setcounter{secnumdepth}{3}
 
 % Section titles, style
-\titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
-\titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
-\titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}%[\vskip -1em] % 太丑啦, 求workaround
-\titleformat{\subsubsection}{}{}{0em}{\thesubsubsection\quad}[]
+\titleformat{\chapter}[block]{\sanhao}{}{1em}{\begin{center}}[\end{center}]
+\titlespacing{\chapter}{0em}{0\baselineskip}{1\baselineskip}
+\titleformat{\section}[hang]{\xiaosan}{\thesection}{1em}{}
+\titlespacing{\section}{0em}{1\baselineskip}{0.5\baselineskip}
+\titleformat{\subsection}{\sihao}{\thesubsection}{1em}{}
+\titlespacing{\subsection}{2em}{0.5\baselineskip}{0\baselineskip}
+\titleformat{\subsubsection}{}{\arabic{subsubsection})~}{1em}{}
+\titlespacing{\subsubsection}{2em}{0.2\baselineskip}{0\baselineskip}
+\renewcommand{\l@chapter}{\@dottedtocline{1}{0em}{1.5em}}
+
+\titlecontents{chapter}[0em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+\titlecontents{section}[1.5em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+\titlecontents{subsection}[3.8em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
 
 \let\oldfigure=\figure
 \renewcommand\figure[1][]{
@@ -451,7 +466,7 @@
 
         \begin{center}
           \sanhao
-          摘\qquad 要
+          摘\quad 要
         \end{center}
 
         \xjtu@cabstract
@@ -503,7 +518,7 @@
         \ifodd\arabic{page}\else
             \fancypagestyle{plain}{%
                 \fancyhf{}
-                \fancyhead[CE]{\if@mainmatter\wuhao \leftmark\fi}
+                \fancyhead[CE]{\if@mainmatter\wuhao \thechapter\quad\leftmark\fi}
                 \fancyhead[CO]{\wuhao \ifxjtu@bachelor
                                 西安交通大学本科毕业设计(论文)
                                 \fi}
@@ -525,6 +540,7 @@
         \clearpage
         \phantomsection % http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tocbibind
         \addcontentsline{toc}{chapter}{参考文献}
+
         \wuhao
         \bibliographystyle{GBT7714-2005NLang-UTF8}
         \bibliography{#1}
@@ -544,12 +560,14 @@
     \setlength\heavyrulewidth{2.0pt} % or 2.25pt
 
     \fancypagestyle{plain}{%
+      \setlength{\voffset}{1.8cm}
+      \setlength{\headsep}{1.2cm-\headheight}
       \fancyhf{}
-      \fancyhead[CO]{\if@mainmatter\wuhao \leftmark\fi}
+      \fancyhead[CO]{\if@mainmatter\wuhao \ifxjtu@inmainbody\thechapter\quad\fi \leftmark\fi}
       \fancyhead[CE]{\wuhao 西安交通大学\xjtu@type 学位论文}
-      \fancyfoot[OR,EL]{\small ~\thepage~}
-      \renewcommand{\headrulewidth}{\if@mainmatter 1bp\else 0bp \fi}
-      \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .8pt
+      \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
+      \renewcommand{\headrulewidth}{\if@mainmatter .4pt \else 0pt \fi}
+      \renewcommand{\headrule}{\vskip 3pt \hrule \@height \headrulewidth \@width \headwidth \vskip .5pt
       \hrule \@height \headrulewidth \@width \headwidth
       }
     }
@@ -558,19 +576,21 @@
     \renewcommand\xjtuchead{
         \thispagestyle{empty}
         \begin{center}
-            \vskip 3cm
-            \includegraphics[width=7cm]{XJTU.pdf} \\
-            \vskip 3ex
-            {\huge \xjtu@type 学位论文}
+        \vspace*{1.5cm}
+            \includegraphics[width=8cm]{XJTU.pdf} \\
+            \vskip 1.2cm
+            {\erhao \xjtu@type 学位论文}
 
-            \vskip 5cm
-            {\bf \huge {\bf \xjtu@ctitle}}
+            \vskip 3.5cm
+            {\bf \sanhao {\bf \xjtu@ctitle}}
 
-            \vskip 9cm
-            申\:\;请\:\;人： \xjtu@cauthor\\
-            指导教师： \xjtu@csupervisor\\
+            \vskip 6cm 
+        \begin{spacing}{1.5}\sanhao
+            申请人： \xjtu@cauthor\\
             学科专业： \xjtu@csubject\\
+            指导教师： \xjtu@csupervisor\\
             \xjtu@cproddate
+        \end{spacing}
             
         \end{center}
         \ifxjtu@compact\else
@@ -584,23 +604,23 @@
     \renewcommand\xjtuehead{
         \thispagestyle{empty}
         \begin{center}
-            \vskip 3cm
-            {\bf \huge \xjtu@etitle}
+        \vspace*{1.5cm}
+            {\bf \sanhao \xjtu@etitle}
 
-            \vskip 6cm
-            {\huge 
+            \vskip 4.2cm
+            \begin{spacing}{1.3}\sanhao
             A \thesis\ submitted to \\
             Xi'an Jiaotong University\\
             in partial fulfillment of the requirement\\
             for the degree of\\
             \Master\ of \xjtu@ecate
 
-            \vskip 6cm
-            By \xjtu@eauthor\\
+            \vskip 3cm
+            By\\ \xjtu@eauthor\\
             (\xjtu@esubject)\\
             Supervisor: \xjtu@esupervisor\\
             \xjtu@eproddate
-            }
+            \end{spacing}
 
         \end{center}
         \ifxjtu@compact\else
@@ -613,9 +633,9 @@
     }
 
     \renewcommand\xjtucinfopage{
-        \chaptermark{摘要}
+        \chaptermark{摘\quad 要}
         \pagestyle{plain}
-        \pagenumbering{roman}
+        \pagenumbering{Roman}
         \noindent {\bf \xiaosi
         论文题目： \xjtu@ctitle\\
         学科专业： \xjtu@csubject\\
@@ -623,10 +643,12 @@
         指导教师： \xjtu@csupervisor\\
         }
 
+        \vskip 0\baselineskip
         \begin{center}
           \sanhao
-          摘\qquad 要
+          摘\quad 要
         \end{center}
+        \vskip 1.1\baselineskip
 
         \xjtu@cabstract
 
@@ -650,19 +672,23 @@
         Supervisor: \xjtu@esupervisor\\
         }
 
+        \vskip 1.1\baselineskip
         \begin{center}
           \sanhao
           ABSTRACT
         \end{center}
+        \vskip 0.5\baselineskip
 
 
         {
+        \begin{spacing}{0.9}
         \setlength{\parindent}{0em}
         \setlength{\parskip}{1em}
         \xjtu@eabstract
+        \end{spacing}
         }
 
-        \mbox{ }
+        \vskip 1em
 
         {\wuhao\noindent
             {\bf KEY WORDS: }
@@ -684,9 +710,11 @@
         \cleardoublepage
         \pagenumbering{arabic}
         \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad}[\end{center}]
+        \xjtu@inmainbodytrue
     }
     \renewcommand\xjtuendcontent{
         \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
+        \xjtu@inmainbodyfalse
     }
 
     \newcommand{\xjtubib}[1]{ {
@@ -694,9 +722,12 @@
         \phantomsection
         \addcontentsline{toc}{chapter}{参考文献}
         \addcontentsline{toe}{chapter}{References}
+        \setlength{\bibsep}{0pt}
+        \begin{spacing}{1.2}
         \wuhao
         \bibliographystyle{GBT7714-2005NLang-UTF8}
         \bibliography{#1}
+        \end{spacing}
         \clearpage
         } }
 
@@ -722,7 +753,7 @@
     本人声明：所呈交的学位论文系在导师指导下本人独立完成的研究成果。文中依法引用他人的成果，均已做出明确标注或得到许可。论文内容未包含法律意义上已属于他人的任何形式的研究成果，也不包含本人已用于其他学位申请的论文或成果。
     
     本人如违反上述声明，愿意承担以下责任和后果：
-    \begin{enumerate} \itemsep1pt \parskip0pt \parsep0pt
+    \begin{enumerate}[1] \itemsep1pt \parskip0pt \parsep0pt
         \item 交回学校授予的学位证书；
         \item 学校可在相关媒体上对作者本人的行为进行通报；
         \item 本人按照学校规定的方式，对因不当取得学位给学校造成的名誉损害，进行公开道歉。
@@ -737,7 +768,7 @@
     本人声明：研究生\hskip 2cm 所提交的本篇学位论文已经本人审阅，确系在本人指导下由该生独立完成的研究成果。
 
     本人如违反上述声明，愿意承担以下责任和后果：
-    \begin{enumerate} \itemsep1pt \parskip0pt \parsep0pt
+    \begin{enumerate}[1] \itemsep1pt \parskip0pt \parsep0pt
         \item 学校可在相关媒体上对本人的失察行为进行通报；
         \item 本人按照学校规定的方式，对因失察给学校造成的名誉损害，进行公开道歉。
         \item 本人接受学校按照有关规定做出的任何处理。
