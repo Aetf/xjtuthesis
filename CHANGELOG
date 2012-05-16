@@ -1,3 +1,10 @@
+0.6.2
+ * Fixed: various titles as well as enumerates
+ * Fixed: sequence of items on the title page
+ * Fixed: typo in example text
+ * Improved: appearance in footnote numbering
+ * Improved: example text in abstract and acknowledgement
+
 0.6.0
  * Fixed: section titles
  * Fixed: mistake in example table
