@@ -447,11 +447,11 @@
                 
     \fancypagestyle{plain}{%
       \fancyhf{}
-      \fancyhead[CO]{\if@mainmatter\wuhao \leftmark\fi}
+      \fancyhead[CO]{\if@mainmatter\wuhao \ifxjtu@inmainbody\thechapter\quad\fi \leftmark\fi}
       \fancyhead[CE]{\wuhao \ifxjtu@bachelor
                         西安交通大学本科毕业设计(论文)
                         \fi}
-      \fancyfoot[OR,EL]{\small ~\thepage~}
+      \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
       \renewcommand{\headrulewidth}{\if@mainmatter 0.5bp\else 0bp \fi}
       \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .3pt
       \hrule \@height \headrulewidth \@width \headwidth \vskip -\headrulewidth}
@@ -535,6 +535,7 @@
         \fi
         \pagenumbering{arabic}
         \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad}[\end{center}]
+        \xjtu@inmainbodytrue
     }
     \renewcommand\xjtuendcontent{
         \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
@@ -546,7 +547,7 @@
         \titlecontents{subsection}[3.8em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
         \titlespacing{\subsection}{0em}{0.5\baselineskip}{0\baselineskip}
         \titlespacing{\subsubsection}{0em}{0.2\baselineskip}{0\baselineskip}
-
+        \xjtu@inmainbodyfalse
     }
 
     \newcommand{\xjtubib}[1]{ {
