@@ -260,7 +260,9 @@
 \newcommand\xjtuendcontent{}
 \newcommand\xjtutoc{
     \tableofcontents
-    \noindent 声明
+    \ifxjtu@bachelor\else
+        \noindent 声明
+    \fi
     \chaptermark{目\quad 录}
 }
 \newcommand\xjtutoe{
@@ -536,6 +538,15 @@
     }
     \renewcommand\xjtuendcontent{
         \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
+        \titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
+        \titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}
+        \titleformat{\subsubsection}{}{}{0em}{\thesubsubsection\quad}[]
+        \titlecontents{chapter}[0em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+        \titlecontents{section}[1.5em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+        \titlecontents{subsection}[3.8em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+        \titlespacing{\subsection}{0em}{0.5\baselineskip}{0\baselineskip}
+        \titlespacing{\subsubsection}{0em}{0.2\baselineskip}{0\baselineskip}
+
     }
 
     \newcommand{\xjtubib}[1]{ {
@@ -716,6 +727,14 @@
     }
     \renewcommand\xjtuendcontent{
         \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
+        \titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
+        \titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}
+        \titleformat{\subsubsection}{}{}{0em}{\thesubsubsection\quad}[]
+        \titlecontents{chapter}[0em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+        \titlecontents{section}[1.5em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+        \titlecontents{subsection}[3.8em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+        \titlespacing{\subsection}{0em}{0.5\baselineskip}{0\baselineskip}
+        \titlespacing{\subsubsection}{0em}{0.2\baselineskip}{0\baselineskip}
         \xjtu@inmainbodyfalse
     }
 
