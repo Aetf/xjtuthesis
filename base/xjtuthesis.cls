@@ -39,7 +39,6 @@
 \newif\ifxjtu@pdflinks  \xjtu@pdflinksfalse
 \newif\ifxjtu@colorlinks\xjtu@colorlinksfalse
 \newif\ifxjtu@compact   \xjtu@compactfalse
-\newif\ifxjtu@inmainbody\xjtu@inmainbodyfalse
 
 \DeclareOption{bachelor}    {\xjtu@bachelortrue}
 \DeclareOption{master}      {\xjtu@mastertrue}
@@ -56,6 +55,9 @@
 \ProcessOptions\relax
 
 \LoadClass[openany]{book}
+
+% if-condition
+\newif\ifxjtu@inmainbody\xjtu@inmainbodyfalse
 
 \ifxjtu@bachelor\relax\else
   \ifxjtu@master\relax\else
