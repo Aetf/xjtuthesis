@@ -184,6 +184,13 @@
 \DeclareCaptionFont{wuhao}{\wuhao}\captionsetup{font=wuhao} % thanks to @wanderxjtu
 \DeclareCaptionFont{xiaowu}{\xiaowu}\captionsetup[subfloat]{font=xiaowu} % issue 4
 
+% Subfloat
+\captionsetup[subfloat]{labelformat=simple,captionskip=6bp,nearskip=6bp,farskip=0bp,topadjust=0bp}
+\renewcommand{\thesubfigure}{(\alph{subfigure})} % referencing
+\setlength{\floatsep}{5bp \@plus4pt \@minus1pt}
+\setlength{\intextsep}{5bp \@plus4pt \@minus2pt}
+\setlength{\textfloatsep}{5bp \@plus4pt \@minus2pt}
+
 % Header & footer styles
 \def\ps@thu@empty{%
   \let\@oddhead\@empty%
