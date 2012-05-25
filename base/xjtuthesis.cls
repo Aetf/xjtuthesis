@@ -778,7 +778,7 @@
         \addcontentsline{toe}{chapter}{#3}
     }
 
-    \newcommand{\xjtuacademicintegrity}{ {% 仅供参考
+    \newcommand{\xjtuacademicintegrity}{\thispagestyle{fancy}\fancyfoot{}{ % 仅供参考
         \cleardoublepage
         \chaptermark{声明}
         \begin{center}
@@ -821,8 +821,6 @@
     指导教师（签名）：\hskip 5cm 日期：\hskip 2cm 年\hskip 1cm 月\hskip 1cm日
 
     \noindent (本声明的版权归西安交通大学所有，未经许可，任何单位及任何个人不得擅自使用)
-
-    \thispagestyle{empty}
     } }
 \fi
 
