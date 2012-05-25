@@ -548,7 +548,7 @@
         \xjtu@inmainbodytrue
     }
     \renewcommand\xjtuendcontent{
-        \cleardoublepage
+        \newpage
         \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
         \titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
         \titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}
@@ -738,7 +738,7 @@
         \xjtu@inmainbodytrue
     }
     \renewcommand\xjtuendcontent{
-        \cleardoublepage
+        \newpage
         \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}}[\end{center}]
         \titleformat{\section}[hang]{\xiaosan}{}{0em}{\thesection\quad }[\vskip -0.5em]
         \titleformat{\subsection}{\sihao}{}{0em}{\vskip -1.5em \thesubsection\quad{}}
