@@ -25,7 +25,7 @@
 
 % Brand marks, and version info
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.6.2}
+\def\meta@version{0.6.6}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -152,6 +152,7 @@
 \fi
 
 % Font-size
+\RequirePackage{calc}
 % Used code from THUthesis. Many thanks!
 \newlength\thu@linespace
 \newcommand{\thu@choosefont}[2]{%
@@ -212,7 +213,7 @@
       \setmainfont[Ligatures=TeX]{Times New Roman}
       \setCJKmainfont{SimSun}
     \else
-      \setmainfont[Ligatures=TeX]{Nimbus Roman No9 L}
+      \setmainfont[Ligatures=TeX]{FreeSerif}
       \setCJKmainfont{文鼎ＰＬ简报宋}
     \fi
 \fi
