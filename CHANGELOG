@@ -1,3 +1,7 @@
+0.6.6
+ * Fixed: support for TeX Live 2012
+ * Improved: Free English font using FreeSerif
+
 0.6.2
  * Fixed: various titles as well as enumerates
  * Fixed: sequence of items on the title page
