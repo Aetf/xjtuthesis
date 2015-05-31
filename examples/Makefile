@@ -17,3 +17,6 @@ doctor:
 	bibtex doctor || true
 	xelatex --no-pdf --interaction=nonstopmode doctor.tex
 	xelatex --interaction=nonstopmode doctor.tex
+
+clean:
+	rm -f *.aux *.blg *.out *.log *.bbl *.toc
