@@ -95,6 +95,7 @@
 % Header & footer
 \RequirePackage{fancyhdr}
 \RequirePackage[perpage]{footmisc}
+\RequirePackage{tikz}
 
 % titleformat
 \RequirePackage{titlesec,titletoc}
@@ -249,7 +250,15 @@
 \newcommand\eappendix[1]{\addengappendice{#1}}
 
 % Circled footnote number
-\renewcommand{\thefootnote}{\raisebox{.5pt}{\textcircled{\raisebox{-.5pt}{\scriptsize \arabic{footnote}}}}} % http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+% http://tex.stackexchange.com/questions/133264/circled-footnote-symbols-with-pifont-showing-arrows-instead-of-circled-numbers
+\newcommand*\circled[1]{
+    \tikz[baseline=(char.base)]
+    \node[shape=circle,draw,inner sep=0.5pt,minimum size=8pt] (char) {#1};
+}
+\renewcommand\thefootnote{\protect\circled{\arabic{footnote}}}
+\renewcommand\@makefntext[1]{
+    \noindent\makebox[0pt][r]{\@thefnmark}#1
+}
 
 \thu@define@term{type}
 
