@@ -568,7 +568,7 @@
         \addcontentsline{toc}{chapter}{参考文献}
 
         \wuhao
-        \bibliographystyle{GBT7714-2005NLang-UTF8}
+        \bibliographystyle{gbt7714-2005}
         \bibliography{#1}
         \clearpage
         } }
