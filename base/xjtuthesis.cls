@@ -577,7 +577,7 @@
         \addcontentsline{toc}{chapter}{参考文献}
 
         \wuhao
-        \bibliographystyle{gbt7714-2005}
+        \bibliographystyle{gbt7714-2005-xjtu}
         \bibliography{#1}
         \clearpage
         } }
