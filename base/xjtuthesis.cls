@@ -39,6 +39,7 @@
 \newif\ifxjtu@pdflinks  \xjtu@pdflinksfalse
 \newif\ifxjtu@colorlinks\xjtu@colorlinksfalse
 \newif\ifxjtu@compact   \xjtu@compactfalse
+\newif\ifxjtu@content	  \xjtu@contentfalse
 
 \DeclareOption{bachelor}    {\xjtu@bachelortrue}
 \DeclareOption{master}      {\xjtu@mastertrue}
@@ -83,6 +84,7 @@
 \RequirePackage[shortlabels]{enumitem}
 \setenumerate[1]{1),fullwidth,itemindent=\parindent,listparindent=\parindent,itemsep=0.05\baselineskip,partopsep=0pt,parsep=0ex,topsep=0.1\baselineskip}
 \setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
+\RequirePackage{pdfpages}
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
@@ -186,7 +188,7 @@
   \abovedisplayshortskip=10bp \@plus 2bp \@minus 2bp
   \belowdisplayskip=\abovedisplayskip
   \belowdisplayshortskip=\abovedisplayshortskip}
-\DeclareCaptionFont{wuhao}{\wuhao}\captionsetup{font=wuhao} % thanks to @wanderxjtu
+\DeclareCaptionFont{wuhao}{\wuhao}\captionsetup{font=wuhao,labelsep=quad} % thanks to @wanderxjtu
 \DeclareCaptionFont{xiaowu}{\xiaowu}\captionsetup[subfloat]{font=xiaowu} % issue 4
 
 % Subfloat
@@ -213,9 +215,17 @@
     \ifxjtu@truefont
       \setmainfont[Ligatures=TeX]{Times New Roman}
       \setCJKmainfont{SimSun}
+      \setCJKfamilyfont{vert}[RawFeature={script=hani:language=CHN:vertical:+valt}]{SimSun}
+          \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
+          \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
+      \setCJKfamilyfont{hei}{SimHei}
     \else
       \setmainfont[Ligatures=TeX]{FreeSerif}
       \setCJKmainfont{文鼎ＰＬ简报宋}
+      \setCJKfamilyfont{vert}[RawFeature={script=hani:language=CHN:vertical:+valt}]{文鼎ＰＬ简报宋}
+          \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
+          \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
+      \setCJKfamilyfont{hei}{SimHei}
     \fi
 \fi
 
@@ -262,7 +272,7 @@
 
 \thu@define@term{type}
 
-\ifxjtu@master{
+\ifxjtu@master
     \type{硕士}
 \else
     \type{博士}
@@ -319,6 +329,12 @@
 \thu@define@term{esubject}
 \thu@define@term{eproddate}
 \thu@define@term{etype}
+
+\thu@define@term{zhongtufenlei}
+\thu@define@term{UDC}
+\thu@define@term{secrettype}
+\thu@define@term{stunum}
+\thu@define@term{degreetype}
 
 \newcommand\xjtutype{\xjtu@type}
 
@@ -602,11 +618,59 @@
       \fancyhead[CE]{\wuhao 西安交通大学\xjtu@type 学位论文}
       \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
       \renewcommand{\headrulewidth}{\if@mainmatter .4pt \else 0pt \fi}
-      \renewcommand{\headrule}{\vskip 3pt \hrule \@height \headrulewidth \@width \headwidth \vskip .4pt
+      \renewcommand{\headrule}{\vskip 3pt \hrule \@height \headrulewidth \@width \headwidth \vskip .6pt
       \hrule \@height \headrulewidth \@width \headwidth
       }
     }
     \pagestyle{plain}
+    
+    \renewcommand\xjtucover{
+        \thispagestyle{empty}
+        \setlength\hoffset{0.8cm}
+        \hspace*{-3.8cm}
+        \rotatebox{-90}{
+            \makebox[\textheight][c]{
+                \bf \CJKmove \xiaowu \CJKfamily{vert}
+                西安交通大学\xjtu@type 学位论文
+                \hspace{2cm}
+                \xjtu@ctitle
+                \hspace{2cm}
+                \xjtu@cauthor
+                \hspace{2cm}
+                \xjtu@cproddate
+            }
+        }
+        \vspace*{-\textheight}\vspace*{-1.4cm}
+        \begin{center}
+            {
+                \sihao 分类号\underline{\makebox[5.2cm][c]{\xjtu@zhongtufenlei}}
+                \quad 密级\underline{\makebox[5.2cm][c]{\xjtu@secrettype}} \\
+                \vskip 0.4cm U~D~C\underline{\makebox[5.4cm][c]{\xjtu@UDC}}
+                \quad 学号\underline{\makebox[5.2cm][c]{\xjtu@stunum}}
+            }
+            \vskip 9cm
+            {\xiaoyi {\bf \xjtu@ctitle}}
+
+            \vskip 4cm
+            \begin{spacing}{1.5}
+              \sihao 
+              {\CJKfamily{hei}学位申请人：}  \underline{\makebox[6.2cm][c]{\xjtu@cauthor}}\\
+              {\CJKfamily{hei}指~导~教~师~：} \underline{\makebox[6.2cm][c]{\xjtu@csupervisor}}\\
+              {\CJKfamily{hei}学~科~专~业~：} \underline{\makebox[6.2cm][c]{\xjtu@csubject}}\\
+              {\CJKfamily{hei}学~位~类~别~：} \underline{\makebox[6.2cm][c]{\xjtu@degreetype}}
+              \vskip 2cm
+              {\CJKfamily{hei}\xjtu@cproddate}
+            \end{spacing}
+        \end{center}
+
+        \ifxjtu@compact\else
+            \clearpage
+            \phantom{x}
+            \thispagestyle{empty}
+        \fi
+        \clearpage
+        \setlength\hoffset{0cm}
+    }
 
     \renewcommand\xjtuchead{
         \thispagestyle{empty}
@@ -847,3 +911,15 @@
 \newtheorem{remark}{注释}[chapter]
 \newtheorem{problem}{问题}[chapter]
 \newtheorem{conjecture}{猜想}[chapter]
+
+\RequirePackage[shortlabels]{enumitem}
+\setenumerate[1]{1),fullwidth,itemindent=\parindent,listparindent=\parindent,itemsep=0.05\baselineskip,partopsep=0pt,parsep=0ex,topsep=0.1\baselineskip}
+\setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
+
+%\makeatletter
+%\renewcommand{\l@chapter}{\@dottedtocline{1}{0em}{1.5em}}
+%\makeatother
+
+\titlecontents{chapter}[0em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+\titlecontents{section}[1em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+\titlecontents{subsection}[2em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
