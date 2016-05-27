@@ -2,7 +2,7 @@
 % xjtuthesis.cls
 % Copyright 2011~2013, multiple1902 (Weisi Dai)
 % https://code.google.com/p/xjtuthesis/
-% 
+%
 % It is strongly recommended that you read documentations located at
 %   http://code.google.com/p/xjtuthesis/wiki/Landing?tm=6
 % in advance of your compilation if you have not read them before.
@@ -16,7 +16,7 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status `maintained'.
-% 
+%
 % The Current Maintainer of this work is Weisi Dai.
 %
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
@@ -103,8 +103,8 @@
 \RequirePackage{titlesec,titletoc}
 
 % l10n here
-\renewcommand{\tablename}{表} 
-\renewcommand{\figurename}{图} 
+\renewcommand{\tablename}{表}
+\renewcommand{\figurename}{图}
 \renewcommand{\bibname}{\vskip -0.5em 参考文献}
 \renewcommand\@biblabel[1]{{[#1]\hfill}}
 \renewcommand\contentsname{目\quad 录}
@@ -147,7 +147,7 @@
             breaklinks=true,
             colorlinks=false,
             plainpages=false,
-            pdfpagelabels,
+            % pdfpagelabels, % comment this to reduce warning
             pdfborder=0 0 0,
         }
     \fi
@@ -183,7 +183,8 @@
 \thu@define@fontsize{qihao}{5.5bp}
 \thu@define@fontsize{bahao}{5bp}
 \renewcommand\normalsize{%
-  \@setfontsize\normalsize{12bp}{20bp}
+  %下面这一行必须以百分号结尾，否则header会有一个向右的微小偏移。
+  \@setfontsize\normalsize{12bp}{20bp}%
   \abovedisplayskip=10bp \@plus 2bp \@minus 2bp
   \abovedisplayshortskip=10bp \@plus 2bp \@minus 2bp
   \belowdisplayskip=\abovedisplayskip
@@ -340,11 +341,13 @@
 
 % Geometry specifications
 \topmargin=-1in % 消除页眉-边界距离初始值
-\headheight=8mm 
-\headsep=2mm
+\headheight=5.5mm % 该设定使得效果与官方doc模板相似
 \textheight=242mm % 297-30-25
 \footskip=7.5mm
-\setlength\voffset{2cm} % 规范：页眉距边界2.0cm
+\setlength\voffset{2cm} % 规范：页眉距边界2.0cm, one inch + \voffset + \topmargin = 2cm.
+% 规范：上装订线边距3cm，即上边距到正文3cm。
+% 需要 1 inch + \voffset + \topmargin + \headheight + \headsep = 3.0cm
+\headsep= 4.5mm
 \pagenumbering{Roman}
 \xiaosi
 \setlength{\parindent}{2em}
@@ -480,16 +483,16 @@
     \renewcommand\footnoterule{\vspace*{-3pt}% eggache!
         \hrule width 0.25\textwidth height 0.4pt
             \vspace*{2.6pt}}
-                
+
     \fancypagestyle{plain}{%
       \fancyhf{}
       \fancyhead[CO]{\if@mainmatter\wuhao \ifxjtu@inmainbody\thechapter\quad\fi \leftmark\fi}
       \fancyhead[CE]{\wuhao \ifxjtu@bachelor
-                        西安交通大学本科毕业设计(论文)
+                        西安交通大学本科毕业设计（论文）
                         \fi}
       \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
-      \renewcommand{\headrulewidth}{\if@mainmatter 0.5bp\else 0bp \fi}
-      \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .4pt
+      \renewcommand{\headrulewidth}{\if@mainmatter 0.5pt\else 0pt \fi}
+      \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .5pt
       \hrule \@height \headrulewidth \@width \headwidth \vskip -\headrulewidth}
 
     }
@@ -560,11 +563,11 @@
                 \fancyhf{}
                 \fancyhead[CE]{\if@mainmatter\wuhao \thechapter\quad\leftmark\fi}
                 \fancyhead[CO]{\wuhao \ifxjtu@bachelor
-                                西安交通大学本科毕业设计(论文)
+                                西安交通大学本科毕业设计（论文）
                                 \fi}
                 \fancyfoot[ER,OL]{\small ~\thepage~}
-                \renewcommand{\headrulewidth}{\if@mainmatter 0.5bp\else 0bp \fi}
-                \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .4pt
+                \renewcommand{\headrulewidth}{\if@mainmatter 0.5pt\else 0pt \fi}
+                \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .5pt
                 \hrule \@height \headrulewidth \@width \headwidth \vskip -\headrulewidth}
             }
             \pagestyle{plain}
@@ -623,7 +626,7 @@
       }
     }
     \pagestyle{plain}
-    
+
     \renewcommand\xjtucover{
         \thispagestyle{empty}
         \setlength\hoffset{0.8cm}
@@ -653,7 +656,7 @@
 
             \vskip 4cm
             \begin{spacing}{1.5}
-              \sihao 
+              \sihao
               {\CJKfamily{hei}学位申请人：}  \underline{\makebox[6.2cm][c]{\xjtu@cauthor}}\\
               {\CJKfamily{hei}指~导~教~师~：} \underline{\makebox[6.2cm][c]{\xjtu@csupervisor}}\\
               {\CJKfamily{hei}学~科~专~业~：} \underline{\makebox[6.2cm][c]{\xjtu@csubject}}\\
@@ -683,14 +686,14 @@
             \vskip 3.5cm
             {\bf \sanhao {\bf \xjtu@ctitle}}
 
-            \vskip 6cm 
+            \vskip 6cm
         \begin{spacing}{1.5}\sanhao
             申请人： \xjtu@cauthor\\
             学科专业： \xjtu@csubject\\
             指导教师： \xjtu@csupervisor\\
             \xjtu@cproddate
         \end{spacing}
-            
+
         \end{center}
         \ifxjtu@compact\else
             \clearpage
@@ -756,7 +759,7 @@
         {\wuhao \noindent
             {\bf 关\:\;键\:\;词}：
         \xjtu@ckeywords
-        
+
         \noindent {\bf 论文类型}：
         \xjtu@ctype
         }
@@ -792,7 +795,7 @@
         {\wuhao\noindent
             {\bf KEY WORDS: }
             \xjtu@ekeywords
-        
+
             \noindent {\bf TYPE OF \MakeUppercase{\thesis}} :
             \xjtu@etype
         }
@@ -859,7 +862,7 @@
             \sanhao 学位论文独创性声明（1）
         \end{center}
     本人声明：所呈交的学位论文系在导师指导下本人独立完成的研究成果。文中依法引用他人的成果，均已做出明确标注或得到许可。论文内容未包含法律意义上已属于他人的任何形式的研究成果，也不包含本人已用于其他学位申请的论文或成果。
-    
+
     本人如违反上述声明，愿意承担以下责任和后果：
     \begin{enumerate}[1] \itemsep1pt \parskip0pt \parsep0pt
         \item 交回学校授予的学位证书；
@@ -867,7 +870,7 @@
         \item 本人按照学校规定的方式，对因不当取得学位给学校造成的名誉损害，进行公开道歉。
         \item 本人负责因论文成果不实产生的法律纠纷。
     \end{enumerate}
-    
+
     论文作者（签名）：\hskip 5cm 日期：\hskip 2cm 年\hskip 1cm 月\hskip 1cm日 \vskip 1cm
 
     \begin{center}
