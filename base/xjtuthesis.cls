@@ -34,7 +34,6 @@
 \newif\ifxjtu@master    \xjtu@masterfalse
 \newif\ifxjtu@doctor    \xjtu@doctorfalse
 \newif\ifxjtu@bigskip   \xjtu@bigskipfalse
-\newif\ifxjtu@truefont  \xjtu@truefontfalse
 \newif\ifxjtu@nofont    \xjtu@nofontfalse
 \newif\ifxjtu@pdflinks  \xjtu@pdflinksfalse
 \newif\ifxjtu@colorlinks\xjtu@colorlinksfalse
@@ -45,7 +44,6 @@
 \DeclareOption{master}      {\xjtu@mastertrue}
 \DeclareOption{doctor}      {\xjtu@doctortrue}
 \DeclareOption{bigskip}     {\xjtu@bigskiptrue} % bachelor only
-\DeclareOption{truefont}    {\xjtu@truefonttrue}
 \DeclareOption{nofont}      {\xjtu@nofonttrue}
 \DeclareOption{pdflinks}    {\xjtu@pdflinkstrue}
 \DeclareOption{colorlinks}  {\xjtu@colorlinkstrue}
@@ -213,21 +211,12 @@
 
 % Font-family
 \ifxjtu@nofont\else
-    \ifxjtu@truefont
-      \setmainfont[Ligatures=TeX]{Times New Roman}
-      \setCJKmainfont{SimSun}
-      \setCJKfamilyfont{vert}[RawFeature={script=hani:language=CHN:vertical:+valt}]{SimSun}
-          \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
-          \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
-      \setCJKfamilyfont{hei}{SimHei}
-    \else
-      \setmainfont[Ligatures=TeX]{FreeSerif}
-      \setCJKmainfont{文鼎ＰＬ简报宋}
-      \setCJKfamilyfont{vert}[RawFeature={script=hani:language=CHN:vertical:+valt}]{文鼎ＰＬ简报宋}
-          \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
-          \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
-      \setCJKfamilyfont{hei}{SimHei}
-    \fi
+  \setmainfont[Ligatures=TeX]{FreeSerif}
+  \setCJKmainfont{SimSun}
+  \setCJKfamilyfont{vert}[RawFeature={script=hani:language=CHN:vertical:+valt}]{SimSun}
+      \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
+      \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
+  \setCJKfamilyfont{hei}{SimHei}
 \fi
 
 \def\thu@define@term#1{
