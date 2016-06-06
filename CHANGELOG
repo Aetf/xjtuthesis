@@ -1,15 +1,30 @@
-0.6.6
+0.6.6 (Mar 21, 2013)
+ * 修正了对 Tex Live 2012 的支持
+ * 改进了英文字体，使用 FreeSerif 作为默认字体
  * Fixed: support for TeX Live 2012
  * Improved: Free English font using FreeSerif
 
-0.6.2
+0.6.2 (May 16, 2012)
+ * 修正了标题和编号的格式问题
+ * 修正了扉页中元素的顺序错误
+ * 修正了示例排版文本中的笔误
+ * 改进了脚注编号的外观
+ * 改进了示例排版中的摘要和致谢部分
  * Fixed: various titles as well as enumerates
  * Fixed: sequence of items on the title page
  * Fixed: typo in example text
  * Improved: appearance in footnote numbering
  * Improved: example text in abstract and acknowledgement
 
-0.6.0
+0.6.0 (Apr 12, 2012)
+ * 修正了二级标题字号错误
+ * 修正了示例表格中的笔误
+ * 增加了示例排版中莫奈的介绍
+ * 增加了示例排版中江学长的演讲
+ * 增加了对附录英文标题的支持
+ * 增加了自动判断月份名称的功能
+ * 增加了「解决方案」(solutions) 目录
+ * 优化了目录结构
  * Fixed: section titles
  * Fixed: mistake in example table
  * Added: Monet's description for example typesetting result
@@ -19,16 +34,30 @@
  * Added: the directory of solutions
  * Improved: better content structure
 
-0.4.6
+0.4.6 (Apr 9, 2012)
+ * 修正了图和表环境中没有指定默认字号的问题
+ * 修正了子图标题的字号
+ * 添加了对 enumerate 包的调用
+ * 移去了未被用到的字体
  * Fixed: fontsize of figures and tables
  * Fixed: fontsize of labels of sub-figures
  * Added: dependency for package `enumerate`
  * Removed: unused font dependencies
 
-0.4.2
+0.4.2 (Mar 21, 2012)
+ * 修正了英文引号不正确的问题
  * Fixed: quotation marks error
 
-0.4.0
+0.4.0 (Feb 18, 2012)
+ * 改进了章节标题，在之前添加了章节号
+ * 修正了扉页格式的错误
+ * 修正了论文页码
+ * 修正了摘要部分的行距
+ * 修正了页眉中的分隔线
+ * 修改了示例文本
+ * 去除了无用的字体命令
+ * 接口变化: 在有标号章节结束后, 增加\xjtuendcontents命令
+ * 接口变化: 将\xjtucontents移动到主要符号表的后面
  * Improved: chapter titles having leading numbers
  * Fixed: some errors within the head pages
  * Fixed: page numbering in graduates theses
@@ -39,78 +68,116 @@
  * Interface: added \xjtuendcontents after numbered chapters
  * Interface: moved \xjtucontents after the denotation env
 
-0.3.4
+0.3.4 (Feb 17, 2012)
+ * 在硕士学位论文示例中加入学术规范页面
+ * 修正了博士学位论文示例中的笔误
+ * 修改了源代码中到文档的链接地址
  * Added: xjtuacademicintegrity command in master example file
  * Fixed: typo in doctor.tex
  * Fixed: links to documentation in source code.
 
-0.3.2
+0.3.2 (Feb 15, 2012)
+ * 增加了源代码顶部的到相关文档的链接和说明
+ * 删去了研究生学位论文示例文件中无用的选项
  * Added: links to documentation in source code.
  * Fixed: removed `bigskip` option in graduates' example files.
 
-0.3.0
+0.3.0 (Feb 9, 2012)
+ * 修正了 amssymb 宏包因冲突无法载入的情况
+ * 改进了纸张大小的声明
  * Fixed: amssymb package not loading due to confict
  * Improved: page size declaration
 
-0.2.8
+0.2.8 (Jan 27, 2012)
+ * 修正了参考文献在目录中页码错误的情况
  * Fixed: wrong page number for references in TOC.
 
-0.2.7 
+0.2.7 (Jan 20, 2012)
+ * 增加了无字体选项以便于手动设置字体
  * Added: nofont option for manually setting fonts
 
-0.2.6
+0.2.6 (Jan 20, 2012)
+ * 修正了公式编号的分隔符为"`-`"
  * Fixed: modified equation numbering style
 
-0.2.5
+0.2.5 (Jan 16, 2012)
+ * 修正了默认打开`compact`选项的错误
  * Fixed: compact option turned off in default
 
-0.2.4
+0.2.4 (Jan 14, 2012)
+ * 修正了一些错误
+ * 修正了图片和表格编号中没有使用"`-`"分隔的错误
+ * 添加了单元测试
+ * 添加了用于隐藏空白页的选项
  * Fixed: a few mistakes
  * Fixed: separator in figure numbers changed to "-"
  * Added: unit tests
  * Added: option to turn off empty pages
 
-0.2.3 Dec 16, 2011
-* Fixed a few mistakes
-* Fixed 2 errors that break compilation
+0.2.3 (Dec 16, 2011)
+ * 修正了一些错误
+ * 修正了2个导致编译失败的错误
+ * Fixed a few mistakes
+ * Fixed 2 errors that break compilation
 
-0.2.2 Dec 16, 2011
-* Initial support for masters' and Ph.D.'s theses and dissertations
-* Fixed: a grammar error
-* Added: a command for in-text citation
+0.2.2 (Dec 16, 2011)
+ * 添加了对硕士和博士学位论文的初步支持
+ * 修正了一个语法错误
+ * 添加了用于行内引用的命令
+ * Initial support for masters' and Ph.D.'s theses and dissertations
+ * Fixed: a grammar error
+ * Added: a command for in-text citation
 
-0.2.1 Dec 11, 2011
-* Fixed: Space between section title and its number
-* Fixed: Citation style using sqaure brackets
-* Fixed: Appendices overlays with its number in TOC
+0.2.1 (Dec 11, 2011)
+ * 修正了章节标题和编号之间的空格
+ * 修正了引用编号使用中括号的问题
+ * 修正了目录中附录编号覆盖附录标题的错误
+ * Fixed: Space between section title and its number
+ * Fixed: Citation style using sqaure brackets
+ * Fixed: Appendices overlays with its number in TOC
 
-0.2.0 Oct 5, 2011
-* Switched to Google Code
+0.2.0 (Oct 5, 2011)
+ * 迁移到Google Code
+ * Switched to Google Code
 
-0.1.7 Aug 27, 2011
-* Improved: `subsection` style
+0.1.7 (Aug 27, 2011)
+ * 改进了 subsection 的样式
+ * Improved: `subsection` style
 
-0.1.5 Aug 5, 2011
-* Added: appendices support
-* Improved: samples for math-mode
+0.1.5 (Aug 5, 2011)
+ * 添加了对附录的支持
+ * 改进了公式的示例
+ * Added: appendices support
+ * Improved: samples for math-mode
 
-0.1.4 Aug 7, 2011
-* Added: footnote support
+0.1.4 (Aug 7, 2011)
+ * 添加了脚注格式标题
+ * Added: footnote support
 
-0.1.3 Aug 3, 2011
-* Added: `denotation` environment
+0.1.3 (Aug 3, 2011)
+ * 增加了新的 denotation 环境
+ * Added: `denotation` environment
 
-0.1.2 Aug 2, 2011
-* Added: samples for tables
-* Added: support for page headers and footer
+0.1.2 (Aug 2, 2011)
+ * 增加了表格的示例排版
+ * 增加了对页眉和页脚的支持
+ * Added: samples for tables
+ * Added: support for page headers and footer
 
-0.1.1 July 23, 2011
-* CodeName turned to `Monet`
-* Improved abstract pages in `bachelor`
-* Added: standard linespread support
-* Added: \thu@define@term from `THUthesis`
+0.1.1 (July 23, 2011)
+ * 代号改为 Monet
+ * 改进了本科毕业论文的摘要部分
+ * 增加了标准行距
+ * 增加了新的命令
+ * CodeName turned to `Monet`
+ * Improved abstract pages in `bachelor`
+ * Added: standard linespread support
+ * Added: \thu@define@term from `THUthesis`
 
-0.1.0 July 21, 2011
-* Initial commit
-* CodeName `Copycat`
-* Unfinished `bachelor` template
+0.1.0 (July 21, 2011)
+ * 首个版本
+ * 代号 Copycat
+ * 本科毕业论文模板尚未完成
+ * Initial commit
+ * CodeName `Copycat`
+ * Unfinished `bachelor` template
