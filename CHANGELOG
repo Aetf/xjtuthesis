@@ -3,6 +3,12 @@
  * 修正了页眉间距，与最新标准吻合
  * 接口改变: 移除了 truefont 选项, 增加了 propfont 选项
  * 更新了示例排版的代码
+ * 增加了自动化编译脚本
+ * Slightly changed project file structure
+ * Fixed header spacing, matching newest official doc template
+ * Interface: removed truefont option, added propfont option
+ * Improved: updated examples code
+ * Added automatic make script
 
 0.6.7 (Jun 13, 2015)
  * 项目主页转移至 Github
