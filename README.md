@@ -6,7 +6,7 @@
 | 帮助         | 要使用 LaTeX 排版学位论文的西安交大学生         |
 | 解决         | 学位论文排版的大部分格式问题                    |
 
-## 下载使用[从这里开始](https://github.com/Aetf/xjtuthesis/wiki/Before-Downloading)
+## [下载使用](https://github.com/Aetf/xjtuthesis/wiki/Before-Downloading)
 
 ## 示例文档
 
@@ -15,20 +15,9 @@
 - [博士示例](https://github.com/Aetf/xjtuthesis/wiki/examples/doctor.pdf)
 
 ## 使用字体
-`propfont` 选项控制本模板是否使用版权字体
+您可选择使用免费字体或版权字体或手动设置字体. 设置方式请参考[如何编译](https://github.com/Aetf/xjtuthesis/wiki/HowToCompile#%E5%AD%97%E4%BD%93)
 
-- 启用 `propfont` 选项
-    * Times New Roman
-    * SimSun
-- 不启用 `propfont` 选项
-    * [FreeSerif](https://www.freedesktop.org/wiki/Software/CJKUnifonts://www.gnu.org/software/freefont/)
-    * [AR PL UMing (AR PL 上海宋)](https://www.freedesktop.org/wiki/Software/CJKUnifonts/Download/)
-
-您也可启用 `nofont` 选项并手动设置字体
-
-#### 一款不错的宋体字体
-- **[购买方正新书宋简体](http://item.taobao.com/item.htm?id=20077875366)**
-
+推荐一款不错的宋体字体: [方正新书宋简体](http://item.taobao.com/item.htm?id=20077875366).
 
 ## 免责声明
 
