@@ -6,7 +6,7 @@
 | 帮助         | 要使用 LaTeX 排版学位论文的西安交大学生         |
 | 解决         | 学位论文排版的大部分格式问题                    |
 
-## >>>[从这里进入Wiki](Landing)<<<
+## 下载使用[从这里开始](https://github.com/Aetf/xjtuthesis/wiki/Before-Downloading)
 
 ## 示例文档
 
@@ -26,6 +26,7 @@
 
 您也可启用 `nofont` 选项并手动设置字体
 
+#### 一款不错的宋体字体
 - **[购买方正新书宋简体](http://item.taobao.com/item.htm?id=20077875366)**
 
 
