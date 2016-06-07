@@ -25,7 +25,7 @@
 
 % Brand marks, and version info
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.6.6}
+\def\meta@version{0.6.7}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
