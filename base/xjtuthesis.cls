@@ -1,10 +1,15 @@
+% bachelor.tex
+%
+% Aetf <aetf@unlimitedcodeworks.xyz>
+% Copyright 2016 Aetf <aetf@unlimitedcodeworks.xyz>
+%
 % multiple1902 <multiple1902@gmail.com>
-% xjtuthesis.cls
-% Copyright 2011~2013, multiple1902 (Weisi Dai)
-% https://code.google.com/p/xjtuthesis/
+% Copyright 2011~2012, multiple1902 (Weisi Dai)
+%
+% Project Home: https://github.com/Aetf/xjtuthesis
 %
 % It is strongly recommended that you read documentations located at
-%   http://code.google.com/p/xjtuthesis/wiki/Landing?tm=6
+%   https://github.com/Aetf/xjtuthesis/wiki
 % in advance of your compilation if you have not read them before.
 %
 % This work may be distributed and/or modified under the
@@ -17,15 +22,15 @@
 %
 % This work has the LPPL maintenance status `maintained'.
 %
-% The Current Maintainer of this work is Weisi Dai.
+% The Current Maintainer of this work is Aetf.
 %
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{xjtuthesis}
-[2011/7/15 0.0.1 Xi'an Jiaotong University Dissertation Template]
+[2016/6/6 0.7.0 Xi'an Jiaotong University Dissertation Template]
 
 % Brand marks, and version info
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.6.6}
+\def\meta@version{0.7.0-dev}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 

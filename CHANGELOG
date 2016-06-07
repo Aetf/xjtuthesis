@@ -1,3 +1,19 @@
+0.6.7 (Jun 13, 2015)
+ * 项目主页转移至 Github
+ * 增加了示例排版的 Makefile 中的 clean 目标
+ * 更新使用了新版本的 GBT7714-2005 文献引用格式
+ * 修正了带圈的脚注编号
+ * 移除了无用的文件
+ * 修正了文献引用中作者姓没有首字母大写的问题
+ * 与 revamped 分支融合
+ * Changed: project moved to Github
+ * Improved: added a clean target in example Makefile
+ * Improved: using a newer version of GBT7714-2005 for reference style
+ * Fixed: circled footnote number
+ * Removed: unused files
+ * Fixed: Capitalize author's last name in reference entries.
+ * Improved: merged with revamped version reviewed through XJTU library
+
 0.6.6 (Mar 21, 2013)
  * 修正了对 Tex Live 2012 的支持
  * 改进了英文字体，使用 FreeSerif 作为默认字体
