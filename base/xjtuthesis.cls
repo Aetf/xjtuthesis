@@ -75,7 +75,7 @@
 \fi
 
 % Math & format packages
-\RequirePackage[fleqn]{amsmath}
+\RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{indentfirst}
 \RequirePackage{tabularx}
