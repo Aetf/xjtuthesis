@@ -93,7 +93,8 @@
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
-\RequirePackage[slantfont,boldfont,CJKnumber]{xeCJK}
+\RequirePackage[slantfont,boldfont]{xeCJK}
+\RequirePackage{CJKnumb}
 \punctstyle{hangmobanjiao}
 
 % Padding
@@ -521,8 +522,8 @@
 
         \mbox{}
 
-        {\wuhao \noindent
-            {\bf 关键词}：
+        {\xiaosi \noindent
+            {\bf 关\ \ 键\ \ 词}：
         \xjtu@ckeywords}
         \clearpage
     }
@@ -548,7 +549,7 @@
 
         \mbox{ }
 
-        {\wuhao\noindent
+        {\xiaosi \noindent
             {\bf KEY WORDS: }
             \xjtu@ekeywords
         }
