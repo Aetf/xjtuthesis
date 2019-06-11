@@ -426,7 +426,7 @@
 
 \newcommand{\xjtuappendix}{
     \begin{appendix}
-    \renewcommand{\thechapter}{附录\arabic{chapter}}
+    \renewcommand{\thechapter}{附录\Alph{chapter}}
     \chaptermark{附录}
 }
 \newcommand{\xjtuendappendix}{\end{appendix}}
@@ -600,10 +600,12 @@
         \clearpage
         \phantomsection % http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tocbibind
         \addcontentsline{toc}{chapter}{参考文献}
-
-        \wuhao
-        \bibliographystyle{gbt7714-2005-xjtu}
-        \bibliography{#1}
+        \setlength{\bibsep}{0.0pt}
+        \begin{spacing}{1.2}
+            \wuhao
+            \bibliographystyle{gbt7714-2005-xjtu}
+            \bibliography{#1}
+        \end{spacing}
         \clearpage
         } }
 
