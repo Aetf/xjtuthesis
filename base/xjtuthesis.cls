@@ -90,6 +90,7 @@
 \setenumerate[1]{1),fullwidth,itemindent=\parindent,listparindent=\parindent,itemsep=0.05\baselineskip,partopsep=0pt,parsep=0ex,topsep=0.1\baselineskip}
 \setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
 \RequirePackage{pdfpages}
+\RequirePackage{ulem}
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
@@ -326,6 +327,10 @@
 \thu@define@term{csubject}
 \thu@define@term{cproddate}
 \thu@define@term{ctype}
+\thu@define@term{ccollege}
+\thu@define@term{cmajor}
+\thu@define@term{cclass}
+\thu@define@term{corgnization}
 
 \thu@define@term{eauthor}
 \thu@define@term{etitle}
@@ -505,14 +510,42 @@
     \pagestyle{plain}
 
     \type{本科}
+    \renewcommand\xjtuchead{
+        \thispagestyle{empty}
+        \begin{center}
+        \vspace*{1.5cm}
+            \includegraphics[width=8cm]{XJTU.pdf} \\
+            \vskip 1.2cm
+            {\bf \xiaochu {\bf 毕\ 业\ 设\ 计\ （论\ 文）\ }}
+
+        \end{center}
+
+        \begin{flushleft}
+            \vskip 1.5cm
+            \CJKfamily{hei} \sanhao {题 \quad 目 \underline {\makebox[13cm]{\xjtu@ctitle}}}
+
+            \vskip 3cm
+            \begin{spacing}{1.8}\CJKfamily{hei} \sanhao
+                \underline {\makebox[4.5cm]{\xjtu@ccollege}} 学院 \underline {\makebox[5cm]{\xjtu@cmajor}} 专业 \underline {\makebox[2cm]{\xjtu@cclass}} 班 \\
+            学生姓名 \underline {\makebox[12cm]{\xjtu@cauthor}} \\
+            学\qquad 号 \underline {\makebox[12cm]{\xjtu@stunum}}\\
+            指导教师 \underline {\makebox[12cm]{\xjtu@csupervisor}}\\
+            设计所在单位 \underline {\makebox[11cm]{\xjtu@corgnization}}\\
+            \center{\xjtu@cproddate}
+        \end{spacing}
+
+        \end{flushleft}
+
+        \ifxjtu@compact\else
+            \clearpage
+            \phantom{x}
+            \thispagestyle{empty}
+        \fi
+        \clearpage
+    }
     \renewcommand\xjtucinfopage{
         \chaptermark{摘要}
-        \noindent {\bf
-        论文题目： \xjtu@ctitle\\
-        学生姓名： \xjtu@cauthor\\
-        指导教师： \xjtu@csupervisor\\
-        }
-
+        \makebox{}
         \begin{center}
           \sanhao
           摘\quad 要
@@ -529,12 +562,7 @@
     }
     \renewcommand\xjtueinfopage{
         \chaptermark{ABSTRACT}
-        \noindent {\bf
-        Title: \xjtu@etitle\\
-        Name: \xjtu@eauthor\\
-        Supervisor: \xjtu@esupervisor\\
-        }
-
+        \makebox{}
         \begin{center}
           \sanhao
           ABSTRACT
