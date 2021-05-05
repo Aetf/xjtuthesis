@@ -525,10 +525,10 @@
 
         \begin{flushleft}
             \vskip 1.5cm
-        \textcolor{red}{
-            {\CJKfamily{hei} \sanhao {题 \quad 目 \CJKunderline*{\hfill {\xjtu@ctitle} \hfill}}}
-        }
-            \vskip 3cm
+            \CJKfamily{hei} \sanhao
+                \hangpara{4em}{1}
+                {\color{red} 题 \quad 目 \CJKunderline*{\hfill \xjtu@ctitle \hfill}}
+            \vskip 2cm
         \textcolor{red}{
             \begin{spacing}{1.8}{\CJKfamily{hei} \sanhao
                 \CJKunderline*{ \hfill \xjtu@ccollege \hfill}学院
