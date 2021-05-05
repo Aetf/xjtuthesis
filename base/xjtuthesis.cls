@@ -90,11 +90,12 @@
 \setenumerate[1]{1),fullwidth,itemindent=\parindent,listparindent=\parindent,itemsep=0.05\baselineskip,partopsep=0pt,parsep=0ex,topsep=0.1\baselineskip}
 \setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
 \RequirePackage{pdfpages}
-\RequirePackage{ulem}
+\RequirePackage{hanging}
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
 \RequirePackage[slantfont,boldfont]{xeCJK}
+\RequirePackage{xeCJKfntef}
 \RequirePackage{CJKnumb}
 \punctstyle{hangmobanjiao}
 
@@ -522,16 +523,19 @@
 
         \begin{flushleft}
             \vskip 1.5cm
-            \CJKfamily{hei} \sanhao {题 \quad 目 \underline {\makebox[13cm]{\xjtu@ctitle}}}
+            {\CJKfamily{hei} \sanhao {题 \quad 目 \CJKunderline*{\hfill {\xjtu@ctitle} \hfill}}}
 
             \vskip 3cm
-            \begin{spacing}{1.8}\CJKfamily{hei} \sanhao
-                \underline {\makebox[4.5cm]{\xjtu@ccollege}} 学院 \underline {\makebox[5cm]{\xjtu@cmajor}} 专业 \underline {\makebox[2cm]{\xjtu@cclass}} 班 \\
-            学生姓名 \underline {\makebox[12cm]{\xjtu@cauthor}} \\
-            学\qquad 号 \underline {\makebox[12cm]{\xjtu@stunum}}\\
-            指导教师 \underline {\makebox[12cm]{\xjtu@csupervisor}}\\
-            设计所在单位 \underline {\makebox[11cm]{\xjtu@corgnization}}\\
-            \center{\xjtu@cproddate}
+            \begin{spacing}{1.8}{\CJKfamily{hei} \sanhao
+                \CJKunderline*{ \hfill \xjtu@ccollege \hfill}学院
+                \CJKunderline*{ \hfill \xjtu@cmajor \hfill}专业
+                \CJKunderline*{ \hfill \xjtu@cclass \hfill}班 \\
+                学生姓名 \CJKunderline* {\hfill {\xjtu@cauthor} \hfill} \\
+                学\qquad 号 \CJKunderline* {\hfill {\xjtu@stunum} \hfill} \\
+                指导教师 \CJKunderline* {\hfill {\xjtu@csupervisor} \hfill} \\
+                设计所在单位 \CJKunderline* {\hfill {\xjtu@corgnization} \hfill} \\
+            }
+            \sanhao \center {\bf \xjtu@cproddate}
         \end{spacing}
 
         \end{flushleft}
