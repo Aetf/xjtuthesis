@@ -91,6 +91,7 @@
 \setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
 \RequirePackage{pdfpages}
 \RequirePackage{hanging}
+\RequirePackage{color}
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
@@ -515,17 +516,20 @@
         \thispagestyle{empty}
         \begin{center}
         \vspace*{1.5cm}
-            \includegraphics[width=8cm]{XJTU.pdf} \\
+            \includegraphics[width=8cm]{XJTU_RED.png} \\
             \vskip 1.2cm
+        \textcolor{red}{
             {\bf \xiaochu {\bf 毕\ 业\ 设\ 计\ （论\ 文）\ }}
-
+        }
         \end{center}
 
         \begin{flushleft}
             \vskip 1.5cm
+        \textcolor{red}{
             {\CJKfamily{hei} \sanhao {题 \quad 目 \CJKunderline*{\hfill {\xjtu@ctitle} \hfill}}}
-
+        }
             \vskip 3cm
+        \textcolor{red}{
             \begin{spacing}{1.8}{\CJKfamily{hei} \sanhao
                 \CJKunderline*{ \hfill \xjtu@ccollege \hfill}学院
                 \CJKunderline*{ \hfill \xjtu@cmajor \hfill}专业
@@ -536,7 +540,8 @@
                 设计所在单位 \CJKunderline* {\hfill {\xjtu@corgnization} \hfill} \\
             }
             \sanhao \center {\bf \xjtu@cproddate}
-        \end{spacing}
+            \end{spacing}
+        }
 
         \end{flushleft}
 
