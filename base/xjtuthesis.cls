@@ -90,10 +90,13 @@
 \setenumerate[1]{1),fullwidth,itemindent=\parindent,listparindent=\parindent,itemsep=0.05\baselineskip,partopsep=0pt,parsep=0ex,topsep=0.1\baselineskip}
 \setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
 \RequirePackage{pdfpages}
+\RequirePackage{hanging}
+\RequirePackage{color}
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
 \RequirePackage[slantfont,boldfont]{xeCJK}
+\RequirePackage{xeCJKfntef}
 \RequirePackage{CJKnumb}
 \punctstyle{hangmobanjiao}
 
@@ -326,6 +329,10 @@
 \thu@define@term{csubject}
 \thu@define@term{cproddate}
 \thu@define@term{ctype}
+\thu@define@term{ccollege}
+\thu@define@term{cmajor}
+\thu@define@term{cclass}
+\thu@define@term{corgnization}
 
 \thu@define@term{eauthor}
 \thu@define@term{etitle}
@@ -505,14 +512,49 @@
     \pagestyle{plain}
 
     \type{本科}
-    \renewcommand\xjtucinfopage{
-        \chaptermark{摘要}
-        \noindent {\bf
-        论文题目： \xjtu@ctitle\\
-        学生姓名： \xjtu@cauthor\\
-        指导教师： \xjtu@csupervisor\\
+    \renewcommand\xjtuchead{
+        \thispagestyle{empty}
+        \begin{center}
+        \vspace*{1.5cm}
+            \includegraphics[width=8cm]{XJTU_RED.png} \\
+            \vskip 1.2cm
+        \textcolor{red}{
+            {\bf \xiaochu {\bf 毕\ 业\ 设\ 计\ （论\ 文）\ }}
+        }
+        \end{center}
+
+        \begin{flushleft}
+            \vskip 1.5cm
+            \CJKfamily{hei} \sanhao
+                \hangpara{4em}{1}
+                {\color{red} 题 \quad 目 \CJKunderline*{\hfill \xjtu@ctitle \hfill}}
+            \vskip 2cm
+        \textcolor{red}{
+            \begin{spacing}{1.8}{\CJKfamily{hei} \sanhao
+                \CJKunderline*{ \hfill \xjtu@ccollege \hfill}学院
+                \CJKunderline*{ \hfill \xjtu@cmajor \hfill}专业
+                \CJKunderline*{ \hfill \xjtu@cclass \hfill}班 \\
+                学生姓名 \CJKunderline* {\hfill {\xjtu@cauthor} \hfill} \\
+                学\qquad 号 \CJKunderline* {\hfill {\xjtu@stunum} \hfill} \\
+                指导教师 \CJKunderline* {\hfill {\xjtu@csupervisor} \hfill} \\
+                设计所在单位 \CJKunderline* {\hfill {\xjtu@corgnization} \hfill} \\
+            }
+            \sanhao \center {\bf \xjtu@cproddate}
+            \end{spacing}
         }
 
+        \end{flushleft}
+
+        \ifxjtu@compact\else
+            \clearpage
+            \phantom{x}
+            \thispagestyle{empty}
+        \fi
+        \clearpage
+    }
+    \renewcommand\xjtucinfopage{
+        \chaptermark{摘要}
+        \makebox{}
         \begin{center}
           \sanhao
           摘\quad 要
@@ -529,12 +571,7 @@
     }
     \renewcommand\xjtueinfopage{
         \chaptermark{ABSTRACT}
-        \noindent {\bf
-        Title: \xjtu@etitle\\
-        Name: \xjtu@eauthor\\
-        Supervisor: \xjtu@esupervisor\\
-        }
-
+        \makebox{}
         \begin{center}
           \sanhao
           ABSTRACT
