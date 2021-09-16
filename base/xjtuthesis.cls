@@ -91,7 +91,7 @@
 \setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
 \RequirePackage{pdfpages}
 \RequirePackage{hanging}
-\RequirePackage{color}
+\RequirePackage{xcolor}
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
@@ -370,12 +370,12 @@
 
 % Section titles, style
 \titleformat{\chapter}[block]{\sanhao}{}{1em}{\begin{center}}[\end{center}]
-\titlespacing{\chapter}{0em}{0\baselineskip}{1\baselineskip}
-\titleformat{\section}[hang]{\xiaosan}{\thesection}{1em}{}
+\titlespacing{\chapter}{0em}{-1\baselineskip}{0.1\baselineskip}
+\titleformat{\section}[hang]{\xiaosan}{\thesection}{0.8em}{}
 \titlespacing{\section}{0em}{1\baselineskip}{0.5\baselineskip}
-\titleformat{\subsection}{\sihao}{\thesubsection}{1em}{}
+\titleformat{\subsection}{\sihao}{\ \ \thesubsection}{0.8em}{}
 \titlespacing{\subsection}{2em}{0.5\baselineskip}{0\baselineskip}
-\titleformat{\subsubsection}{}{\arabic{subsubsection})~}{1em}{}
+\titleformat{\subsubsection}{}{\qquad\qquad\arabic{subsubsection})~}{0.8em}{}
 \titlespacing{\subsubsection}{2em}{0.2\baselineskip}{0\baselineskip}
 \renewcommand{\l@chapter}{\@dottedtocline{1}{0em}{1.5em}}
 
@@ -527,21 +527,19 @@
             \vskip 1.5cm
             \CJKfamily{hei} \sanhao
                 \hangpara{4em}{1}
-                {\color{red} 题 \quad 目 \CJKunderline*{\hfill \xjtu@ctitle \hfill}}
+                {\color{red} 题 \quad 目 \textbf{\CJKunderline*{ \hfill  \xjtu@ctitle \hfill}}}
             \vskip 2cm
-        \textcolor{red}{
             \begin{spacing}{1.8}{\CJKfamily{hei} \sanhao
-                \CJKunderline*{ \hfill \xjtu@ccollege \hfill}学院
-                \CJKunderline*{ \hfill \xjtu@cmajor \hfill}专业
-                \CJKunderline*{ \hfill \xjtu@cclass \hfill}班 \\
-                学生姓名 \CJKunderline* {\hfill {\xjtu@cauthor} \hfill} \\
-                学\qquad 号 \CJKunderline* {\hfill {\xjtu@stunum} \hfill} \\
-                指导教师 \CJKunderline* {\hfill {\xjtu@csupervisor} \hfill} \\
-                设计所在单位 \CJKunderline* {\hfill {\xjtu@corgnization} \hfill} \\
+                    \textbf{\color{red}\CJKunderline*{ \hfill \xjtu@ccollege \hfill}}\color{red} 学院
+                    \textbf{\CJKunderline*{ \hfill \xjtu@cmajor \hfill}}\color{red} 专业
+                    \textbf{\CJKunderline*{ \hfill \xjtu@cclass \hfill}}\color{red} 班 \\
+                    \color{red} 学生姓名 \textbf{\CJKunderline* {\hfill {\xjtu@cauthor} \hfill}} \\
+                    \color{red} 学\qquad 号 \textbf{\CJKunderline* {\hfill {\xjtu@stunum} \hfill}} \\
+                    \color{red} 指导教师 \textbf{\CJKunderline* {\hfill {\xjtu@csupervisor} \hfill}} \\
+                    \color{red} 设计所在单位 \textbf{\CJKunderline* {\hfill {\xjtu@corgnization} \hfill}} \\
             }
-            \sanhao \center {\bf \xjtu@cproddate}
+            \color{red} \sanhao \center {\bf \xjtu@cproddate}
             \end{spacing}
-        }
 
         \end{flushleft}
 
@@ -616,7 +614,7 @@
             \pagestyle{plain}
         \fi
         \pagenumbering{arabic}
-        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad}[\end{center}]
+        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad\ \ }[\end{center}]
         \xjtu@inmainbodytrue
     }
     \renewcommand\xjtuendcontent{
@@ -968,6 +966,6 @@
 %\renewcommand{\l@chapter}{\@dottedtocline{1}{0em}{1.5em}}
 %\makeatother
 
-\titlecontents{chapter}[0em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
-\titlecontents{section}[1em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
-\titlecontents{subsection}[2em]{}{\thecontentslabel\quad}{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+\titlecontents{chapter}[0em]{}{\thecontentslabel\ \ }{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+\titlecontents{section}[1em]{}{\thecontentslabel\ \ }{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+\titlecontents{subsection}[2em]{}{\thecontentslabel\ \ }{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
