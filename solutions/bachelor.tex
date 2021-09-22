@@ -42,6 +42,7 @@
     \input{pages/meta.tex}
 
     \xjtuchead
+    \setcounter{page}{5} % 为任务书和其他内容留空间
     \xjtucinfopage
     \xjtueinfopage
     \xjtutoc
@@ -62,6 +63,10 @@
 
     \xjtuendcontent
 
+    \xjtuspchapter{致谢}{致\qquad 谢}
+
+        \input{pages/acknowledgements.tex}
+
     % 将你要引用的文献的 BibTeX 放入 bibliography.bib
     \xjtubib{bibliography}
 
@@ -71,9 +76,6 @@
 
     \xjtuendappendix
 
-    \xjtuspchapter{致谢}{致\qquad 谢}
-
-        \input{pages/acknowledgements.tex}
 
 \end{document}
 
