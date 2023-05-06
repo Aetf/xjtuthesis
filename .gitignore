@@ -7,7 +7,12 @@
 
 *.pdf
 *.kilepr
+*.synctex.gz
+*.synctex(busy)
 
 *~
 
 build/
+
+# MacOS filesystem file
+*.DS_Store

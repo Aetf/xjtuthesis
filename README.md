@@ -17,6 +17,8 @@
 ## 使用字体
 您可选择使用免费字体或版权字体或手动设置字体. 设置方式请参考[如何编译](https://github.com/Aetf/xjtuthesis/wiki/HowToCompile#%E5%AD%97%E4%BD%93)
 
+默认免费字体使用了 Adobe 开源的[思源宋体](https://github.com/adobe-fonts/source-han-serif/releases/tag/2.001R)和[思源黑体](https://github.com/adobe-fonts/source-han-sans/releases/tag/2.004R)，字体库非常大，可以只下载简体中文区的子集。
+
 推荐一款不错的宋体字体: [方正新书宋简体](http://item.taobao.com/item.htm?id=20077875366).
 
 ## 免责声明
