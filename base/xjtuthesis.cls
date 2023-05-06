@@ -30,7 +30,7 @@
 
 % Brand marks, and version info
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.7.0-dev}
+\def\meta@version{0.8.0-dev}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -529,7 +529,7 @@
                 \textbf{ \hfill  \xjtu@ctitle \hfill}
             }
             \vskip 6.5cm
-            \begin{center}{{\CJKfamily{kai} \sanhao
+            \begin{center}{{\sanhao
                 \begin{tabular}{rl}
                     学院（部、中心）：& {\xjtu@ccollege} \\ [0.6em]
                     专\qquad 业：& {\xjtu@cmajor} \\ [0.6em]
