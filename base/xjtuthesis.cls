@@ -92,7 +92,7 @@
 \RequirePackage{pdfpages}
 \RequirePackage{hanging}
 \RequirePackage{xcolor}
-\usepackage{gbt7714}
+\RequirePackage{gbt7714}
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
