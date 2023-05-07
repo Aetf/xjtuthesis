@@ -1,3 +1,17 @@
+0.8.0 (May 5, 2023) (Credit: junyang-zh)
+ * 修改了默认非私有字体为*思源宋体*和*思源黑体*
+ * 修改了 Makefile 使其符合 Wiki 描述（`make bachelor`, etc.）
+ * 修正了 Makefile 中 bibtex 的用法
+ * 使用了 gbt7714 宏包来摒弃内建 bst 用法
+ * 丰富了 gitignore
+ * 根据 2023 年新发布的本科论文模板修改了封面样式
+ * Changed default non-property fonts to *Source Hans Serif* and *Source Hans Sans*.
+ * Changed Makefile in accordance with Wiki (`make bachelor`, etc.)
+ * Fixed the bibtex usage in the Makefile
+ * Used the gbt7714 package to obsolete the inclusion of bst file
+ * replenished the gitignore file
+ * Changed the title page layouts in accordance with the latest bachelor's template in 2023
+
 0.7.0 (Jun 6, 2016)
  * 改变了项目文件结构
  * 修正了页眉间距，与最新标准吻合

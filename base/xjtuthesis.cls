@@ -30,7 +30,7 @@
 
 % Brand marks, and version info
 \def\xjtuthesis{XJTUthesis}
-\def\meta@version{0.7.0-dev}
+\def\meta@version{0.8.0-dev}
 \def\meta@codename{Monet}
 \def\metaversion{\meta@version}
 
@@ -92,6 +92,7 @@
 \RequirePackage{pdfpages}
 \RequirePackage{hanging}
 \RequirePackage{xcolor}
+\RequirePackage{gbt7714}
 
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
@@ -231,11 +232,11 @@
     \setCJKfamilyfont{hei}{SimHei}
   \else
     \setmainfont[Ligatures=TeX]{FreeSerif}
-    \setCJKmainfont{AR PL UMing CN}
-    \setCJKfamilyfont{vert}[RawFeature={script=hani:language=CHN:vertical:+valt}]{AR PL UMing CN}
+    \setCJKmainfont{Source Han Serif CN}
+    \setCJKfamilyfont{vert}[RawFeature={script=hani:language=CHN:vertical:+valt}]{Source Han Serif CN}
         \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
         \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
-    \setCJKfamilyfont{hei}{SimHei}
+    \setCJKfamilyfont{hei}{Source Han Sans CN}
   \fi
 \fi
 
@@ -516,30 +517,30 @@
         \thispagestyle{empty}
         \begin{center}
         \vspace*{1.5cm}
-            \includegraphics[width=8cm]{XJTU_RED.png} \\
+            \includegraphics[width=8cm]{XJTU.pdf} \\
             \vskip 1.2cm
-        \textcolor{red}{
-            {\bf \xiaochu {\bf 毕\ 业\ 设\ 计\ （论\ 文）\ }}
-        }
+            {\bf \sanhao 本科毕业设计（论文）}
         \end{center}
 
         \begin{flushleft}
             \vskip 1.5cm
-            \CJKfamily{hei} \sanhao
+            {\CJKfamily{hei} \sanhao
                 \hangpara{4em}{1}
-                {\color{red} 题 \quad 目 \textbf{\CJKunderline*{ \hfill  \xjtu@ctitle \hfill}}}
-            \vskip 2cm
-            \begin{spacing}{1.8}{\CJKfamily{hei} \sanhao
-                    \textbf{\color{red}\CJKunderline*{ \hfill \xjtu@ccollege \hfill}}\color{red} 学院
-                    \textbf{\CJKunderline*{ \hfill \xjtu@cmajor \hfill}}\color{red} 专业
-                    \textbf{\CJKunderline*{ \hfill \xjtu@cclass \hfill}}\color{red} 班 \\
-                    \color{red} 学生姓名 \textbf{\CJKunderline* {\hfill {\xjtu@cauthor} \hfill}} \\
-                    \color{red} 学\qquad 号 \textbf{\CJKunderline* {\hfill {\xjtu@stunum} \hfill}} \\
-                    \color{red} 指导教师 \textbf{\CJKunderline* {\hfill {\xjtu@csupervisor} \hfill}} \\
-                    \color{red} 设计所在单位 \textbf{\CJKunderline* {\hfill {\xjtu@corgnization} \hfill}} \\
+                \textbf{ \hfill  \xjtu@ctitle \hfill}
             }
-            \color{red} \sanhao \center {\bf \xjtu@cproddate}
-            \end{spacing}
+            \vskip 6.5cm
+            \begin{center}{{\sanhao
+                \begin{tabular}{rl}
+                    学院（部、中心）：& {\xjtu@ccollege} \\ [0.6em]
+                    专\qquad 业：& {\xjtu@cmajor} \\ [0.6em]
+                    班\qquad 级：& {\xjtu@cclass} \\ [0.6em]
+                    学生姓名：& {\xjtu@cauthor} \\ [0.6em]
+                    学\qquad 号：& {\xjtu@stunum} \\ [0.6em]
+                    指导教师：& {\xjtu@csupervisor} \\ [0.6em]
+                \end{tabular}
+            }}
+            \sanhao \center {\bf \xjtu@cproddate}
+            \end{center}
 
         \end{flushleft}
 
@@ -638,7 +639,7 @@
         \setlength{\bibsep}{0.0pt}
         \begin{spacing}{1.2}
             \wuhao
-            \bibliographystyle{gbt7714-2005-xjtu}
+            \bibliographystyle{gbt7714-numerical}
             \bibliography{#1}
         \end{spacing}
         \clearpage
@@ -879,7 +880,7 @@
         \setlength{\bibsep}{0pt}
         \begin{spacing}{1.2}
         \wuhao
-        \bibliographystyle{GBT7714-2005NLang-UTF8}
+        \bibliographystyle{gbt7714-numerical}
         \bibliography{#1}
         \end{spacing}
         \clearpage
