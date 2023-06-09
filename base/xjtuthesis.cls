@@ -94,6 +94,10 @@
 \RequirePackage{xcolor}
 \RequirePackage{gbt7714}
 
+% Add spacing before a table
+\RequirePackage{etoolbox}
+\AtBeginEnvironment{table}{\vspace{10pt}}
+
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
 \RequirePackage[slantfont,boldfont]{xeCJK}
