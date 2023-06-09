@@ -94,6 +94,10 @@
 \RequirePackage{xcolor}
 \RequirePackage{gbt7714}
 
+% Add spacing before a table
+\RequirePackage{etoolbox}
+\AtBeginEnvironment{table}{\vspace{10pt}}
+
 % CJK character support
 \RequirePackage{fontspec,xltxtra,xunicode}
 \RequirePackage[slantfont,boldfont]{xeCJK}
@@ -194,7 +198,7 @@
 \thu@define@fontsize{bahao}{5bp}
 \renewcommand\normalsize{%
   %下面这一行必须以百分号结尾，否则header会有一个向右的微小偏移。
-  \@setfontsize\normalsize{12bp}{20bp}%
+  \@setfontsize\normalsize{12bp}{15.6bp}%
   \abovedisplayskip=10bp \@plus 2bp \@minus 2bp
   \abovedisplayshortskip=10bp \@plus 2bp \@minus 2bp
   \belowdisplayskip=\abovedisplayskip
@@ -274,11 +278,11 @@
 % http://tex.stackexchange.com/questions/133264/circled-footnote-symbols-with-pifont-showing-arrows-instead-of-circled-numbers
 \newcommand*\circled[1]{
     \tikz[baseline=(char.base)]
-    \node[shape=circle,draw,inner sep=0.5pt,minimum size=8pt] (char) {#1};
+    \node[shape=circle,draw,inner sep=0.2pt,minimum size=4pt] (char) {\tiny #1};
 }
 \renewcommand\thefootnote{\protect\circled{\arabic{footnote}}}
 \renewcommand\@makefntext[1]{
-    \noindent\makebox[0pt][r]{\@thefnmark}#1
+    \noindent\raisebox{2ex-\height}{\@thefnmark}\onehalfspacing #1 \vspace*{1ex}
 }
 
 \thu@define@term{type}
@@ -494,9 +498,9 @@
       \linespread{1.2} \selectfont
     \fi
 
-    \renewcommand\footnoterule{\vspace*{-3pt}% eggache!
-        \hrule width 0.25\textwidth height 0.4pt
-            \vspace*{2.6pt}}
+    \renewcommand\footnoterule{\vspace*{2ex}% eggache!
+        \rule{0.25\paperwidth}{0.4pt}
+            \vspace*{1ex}}
 
     \fancypagestyle{plain}{%
       \fancyhf{}
