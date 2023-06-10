@@ -974,3 +974,7 @@
 \titlecontents{chapter}[0em]{}{\thecontentslabel\ \ }{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
 \titlecontents{section}[1em]{}{\thecontentslabel\ \ }{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
 \titlecontents{subsection}[2em]{}{\thecontentslabel\ \ }{}{\dotfill\contentspage[{\makebox[0pt][r]{\thecontentspage}}]}
+
+\newcommand\twodigits[1]{%
+   \ifnum#1<10 0#1\else #1\fi
+}
