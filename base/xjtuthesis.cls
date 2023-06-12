@@ -523,18 +523,18 @@
         \vspace*{1.5cm}
             \includegraphics[width=8cm]{XJTU.pdf} \\
             \vskip 1.2cm
-            {\bf \sanhao 本科毕业设计（论文）}
+            { \erhao 本科毕业设计（论文）}
         \end{center}
 
         \begin{flushleft}
             \vskip 1.5cm
-            {\CJKfamily{hei} \sanhao
+            {\sanhao
                 \hangpara{4em}{1}
                 \textbf{ \hfill  \xjtu@ctitle \hfill}
             }
             \vskip 6.5cm
             \begin{center}{{\sanhao
-                \begin{tabular}{rl}
+                \begin{tabular}{cc}
                     学院（部、中心）：& {\xjtu@ccollege} \\ [0.6em]
                     专\qquad 业：& {\xjtu@cmajor} \\ [0.6em]
                     班\qquad 级：& {\xjtu@cclass} \\ [0.6em]
@@ -543,7 +543,7 @@
                     指导教师：& {\xjtu@csupervisor} \\ [0.6em]
                 \end{tabular}
             }}
-            \sanhao \center {\bf \xjtu@cproddate}
+            \sanhao \center {\xjtu@cproddate}
             \end{center}
 
         \end{flushleft}
