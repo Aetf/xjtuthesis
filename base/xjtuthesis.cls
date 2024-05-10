@@ -229,8 +229,13 @@
 \ifxjtu@nofont\else
   \ifxjtu@propfont
     \setmainfont[Ligatures=TeX]{Times New Roman}
-    \setCJKmainfont{SimSun}
-    \setCJKfamilyfont{vert}[RawFeature={script=hani:language=CHN:vertical:+valt}]{SimSun}
+
+    %make /textbf more Microsoft Word like
+    %set EmboldenFactor to 2.3 as Microsoft Word exported pdf using "save as"
+    %set to 1 as Microsoft Word interface & pdf generate by Windows virtual printer "Microsoft Print to PDF"
+    \xeCJKsetup{EmboldenFactor=2.3}
+    \setCJKmainfont[AutoFakeBold]{SimSun}
+    \setCJKfamilyfont{vert}[AutoFakeBold,RawFeature={script=hani:language=CHN:vertical:+valt}]{SimSun}
         \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
         \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
     \setCJKfamilyfont{hei}{SimHei}
@@ -520,33 +525,37 @@
     \renewcommand\xjtuchead{
         \thispagestyle{empty}
         \begin{center}
-        \vspace*{1.5cm}
-            \includegraphics[width=8cm]{XJTU.pdf} \\
-            \vskip 1.2cm
-            { \erhao 本科毕业设计（论文）}
+        \vspace*{0.8cm}
+            \includegraphics[width=9cm]{XJTU_2024.png} \\
+            \vskip 0.8cm
+            { \erhao \textbf{本科毕业设计（论文）}}
         \end{center}
 
-        \begin{flushleft}
-            \vskip 1.5cm
+        \begin{center}
+            \vskip 3cm
             {\sanhao
                 \hangpara{4em}{1}
                 \textbf{ \hfill  \xjtu@ctitle \hfill}
             }
-            \vskip 6.5cm
+            \vskip 5.2cm
             \begin{center}{{\sanhao
-                \begin{tabular}{cc}
-                    学院（部、中心）：& {\xjtu@ccollege} \\ [0.6em]
-                    专\qquad 业：& {\xjtu@cmajor} \\ [0.6em]
-                    班\qquad 级：& {\xjtu@cclass} \\ [0.6em]
-                    学生姓名：& {\xjtu@cauthor} \\ [0.6em]
-                    学\qquad 号：& {\xjtu@stunum} \\ [0.6em]
-                    指导教师：& {\xjtu@csupervisor} \\ [0.6em]
+                \begin{tabular}{r@{： }l}%设置信息表格按冒号左右对齐
+                    %加入长空行保证表格按分隔符居中
+                    \multicolumn{1}{r}{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}  
+                    &\multicolumn{1}{l}{\qquad\qquad\qquad\qquad\qquad\qquad\qquad} \\ 
+                    学院（部、中心）& {\xjtu@ccollege} \\ [0.5em]
+                    专\qquad 业& {\xjtu@cmajor} \\ [0.5em]
+                    班\qquad 级& {\xjtu@cclass} \\ [0.5em]
+                    学生姓名& {\xjtu@cauthor} \\ [0.5em]
+                    学\qquad 号& {\xjtu@stunum} \\ [0.5em]
+                    指导教师& {\xjtu@csupervisor} \\ [0.5em]
                 \end{tabular}
             }}
-            \sanhao \center {\xjtu@cproddate}
             \end{center}
+            \sanhao \center {\xjtu@cproddate}
+            
 
-        \end{flushleft}
+        \end{center}
 
         \ifxjtu@compact\else
             \clearpage
@@ -556,25 +565,31 @@
         \clearpage
     }
     \renewcommand\xjtucinfopage{
+        \addcontentsline{toc}{chapter}{摘要}%尽管摘要存在于目录之前,但2024年模板要求摘要包含在目录中
         \chaptermark{摘要}
         \makebox{}
+        \begin{spacing}{1.2}%段落行距设置
         \begin{center}
           \sanhao
           摘\quad 要
         \end{center}
 
         \xjtu@cabstract
+        \end{spacing}
 
         \mbox{}
-
+        \begin{spacing}{1.2}%段落行距设置
         {\xiaosi \noindent
             {\bf 关\ \ 键\ \ 词}：
         \xjtu@ckeywords}
+        \end{spacing}
         \clearpage
     }
     \renewcommand\xjtueinfopage{
+        \addcontentsline{toc}{chapter}{ABSTRACT}
         \chaptermark{ABSTRACT}
         \makebox{}
+        \begin{spacing}{1.2}%段落行距设置
         \begin{center}
           \sanhao
           ABSTRACT
@@ -586,14 +601,15 @@
         \setlength{\parskip}{1em}
         \xjtu@eabstract
         }
+        \end{spacing}
 
         \mbox{ }
-
+        \begin{spacing}{1.2}%段落行距设置
         {\xiaosi \noindent
             {\bf KEY WORDS: }
             \xjtu@ekeywords
         }
-
+        \end{spacing}
         \clearpage
     }
 
