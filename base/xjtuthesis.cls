@@ -496,7 +496,7 @@
 \fi
 
 \ifxjtu@bachelor
-
+    \titleformat{\subsection}{\sihao}{\thesubsection}{0.8em}{}
     \ifxjtu@bigskip
       \linespread{1.5} \selectfont
     \else
@@ -606,7 +606,7 @@
         \mbox{ }
         \begin{spacing}{1.2}%段落行距设置
         {\xiaosi \noindent
-            {\bf KEY WORDS: }
+            {\bf KEY WORDS}: 
             \xjtu@ekeywords
         }
         \end{spacing}
