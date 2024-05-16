@@ -497,6 +497,7 @@
 
 \ifxjtu@bachelor
     \titleformat{\subsection}{\sihao}{\thesubsection}{0.8em}{}
+    \titlespacing{\chapter}{0em}{-1.3\baselineskip}{0.2\baselineskip}
     \ifxjtu@bigskip
       \linespread{1.5} \selectfont
     \else
