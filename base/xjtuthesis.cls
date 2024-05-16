@@ -45,6 +45,7 @@
 \newif\ifxjtu@colorlinks\xjtu@colorlinksfalse
 \newif\ifxjtu@compact   \xjtu@compactfalse
 \newif\ifxjtu@content	  \xjtu@contentfalse
+\newif\ifxjtu@autolineskip	  \xjtu@autolineskipfalse
 
 \DeclareOption{bachelor}    {\xjtu@bachelortrue}
 \DeclareOption{master}      {\xjtu@mastertrue}
@@ -55,6 +56,7 @@
 \DeclareOption{pdflinks}    {\xjtu@pdflinkstrue}
 \DeclareOption{colorlinks}  {\xjtu@colorlinkstrue}
 \DeclareOption{compact}     {\xjtu@compacttrue}
+\DeclareOption{autolineskip}     {\xjtu@autolineskiptrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 
@@ -247,6 +249,10 @@
         \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
     \setCJKfamilyfont{hei}{Source Han Sans CN}
   \fi
+\fi
+%auto lineskip or strictly follow the set line skip.
+\ifxjtu@autolineskip\else
+    \raggedbottom
 \fi
 
 \def\thu@define@term#1{
@@ -496,7 +502,10 @@
 \fi
 
 \ifxjtu@bachelor
-
+    %根据本科模板重写节标题格式且不影响硕博格式
+    \titleformat{\subsection}{\sihao}{\thesubsection}{0.8em}{}
+    \titleformat{\subsubsection}{}{\arabic{subsubsection})~}{0.8em}{}
+    \titlespacing{\chapter}{0em}{-1.3\baselineskip}{0.3\baselineskip}
     \ifxjtu@bigskip
       \linespread{1.5} \selectfont
     \else
@@ -515,7 +524,7 @@
                         \fi}
       \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
       \renewcommand{\headrulewidth}{\if@mainmatter 0.5pt\else 0pt \fi}
-      \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .5pt
+      \renewcommand{\headrule}{\vskip 3.5pt \hrule \@height \headrulewidth \@width \headwidth \vskip .5pt
       \hrule \@height \headrulewidth \@width \headwidth \vskip -\headrulewidth}
 
     }
@@ -606,7 +615,7 @@
         \mbox{ }
         \begin{spacing}{1.2}%段落行距设置
         {\xiaosi \noindent
-            {\bf KEY WORDS: }
+            {\bf KEY WORDS}: 
             \xjtu@ekeywords
         }
         \end{spacing}
