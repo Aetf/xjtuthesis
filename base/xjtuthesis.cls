@@ -496,7 +496,9 @@
 \fi
 
 \ifxjtu@bachelor
+    %根据本科模板重写节标题格式且不影响硕博格式
     \titleformat{\subsection}{\sihao}{\thesubsection}{0.8em}{}
+    \titleformat{\subsubsection}{}{\arabic{subsubsection})~}{0.8em}{}
     \titlespacing{\chapter}{0em}{-1.3\baselineskip}{0.2\baselineskip}
     \ifxjtu@bigskip
       \linespread{1.5} \selectfont
