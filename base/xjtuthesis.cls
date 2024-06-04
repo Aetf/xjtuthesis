@@ -79,6 +79,7 @@
 % Math & format packages
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{amsthm}
 \RequirePackage{indentfirst}
 \RequirePackage{tabularx}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}  % 左对齐
@@ -1025,6 +1026,7 @@
 \newtheorem{remark}{注释}[chapter]
 \newtheorem{problem}{问题}[chapter]
 \newtheorem{conjecture}{猜想}[chapter]
+\renewenvironment{proof}{\noindent\textbf{证明}：}{\hfill$\blacksquare$}
 
 \RequirePackage[shortlabels]{enumitem}
 \setenumerate[1]{1),fullwidth,itemindent=\parindent,listparindent=\parindent,itemsep=0.05\baselineskip,partopsep=0pt,parsep=0ex,topsep=0.1\baselineskip}
