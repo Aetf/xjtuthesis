@@ -530,6 +530,12 @@
     }
     \pagestyle{plain}
 
+    \fancypagestyle{extrapdf}{%
+        \fancyhf{}
+        \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
+        \renewcommand{\headrulewidth}{0pt}
+    }
+
     \DeclareCaptionLabelFormat{tablelabel}{#1#2}
     \DeclareCaptionLabelFormat{figurelabel}{#1\enspace#2}
     \DeclareCaptionFormat{tablecaption}{#1\enspace#3}
