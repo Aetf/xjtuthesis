@@ -136,7 +136,6 @@
 \renewcommand\theequation{%
     \ifnum \c@chapter >\z@ \thechapter-\fi \@arabic \c@equation%
 }
-\captionsetup{labelsep=quad}
 \captionsetup[longtable]{labelsep=quad}
 
 \newcommand{\thesis}{thesis}
@@ -208,8 +207,8 @@
   \abovedisplayshortskip=10bp \@plus 2bp \@minus 2bp
   \belowdisplayskip=\abovedisplayskip
   \belowdisplayshortskip=\abovedisplayshortskip}
-\DeclareCaptionFont{wuhao}{\wuhao}\captionsetup{font=wuhao,labelsep=quad} % thanks to @wanderxjtu
-\DeclareCaptionFont{xiaowu}{\xiaowu}\captionsetup[subfloat]{font=xiaowu} % issue 4
+\DeclareCaptionFont{wuhaostretch}{\setstretch{1.2}\wuhao}\captionsetup{font=wuhaostretch,labelsep=quad} % thanks to @wanderxjtu
+\DeclareCaptionFont{xiaowustretch}{\setstretch{1.2}\xiaowu}\captionsetup[subfloat]{font=xiaowustretch} % issue 4
 
 % Subfloat
 \captionsetup[subfloat]{labelformat=simple,captionskip=6bp,nearskip=6bp,farskip=0bp,topadjust=0bp}
