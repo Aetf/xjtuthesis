@@ -236,11 +236,23 @@
     %set EmboldenFactor to 2.3 as Microsoft Word exported pdf using "save as"
     %set to 1 as Microsoft Word interface & pdf generate by Windows virtual printer "Microsoft Print to PDF"
     \xeCJKsetup{EmboldenFactor=2.3}
-    \setCJKmainfont[AutoFakeBold]{SimSun}
+    \setCJKmainfont[AutoFakeBold,ItalicFont=SimKai]{SimSun}
     \setCJKfamilyfont{vert}[AutoFakeBold,RawFeature={script=hani:language=CHN:vertical:+valt}]{SimSun}
         \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
         \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
     \setCJKfamilyfont{hei}{SimHei}
+    
+    % 对于 Mac 用户：
+    % \setCJKmainfont[
+    %     % AutoFakeBold,                  % 非常不明显
+    %     % BoldFont   = Songti SC Black,  % 相比 Bold 更大的字重，可根据个人喜好选择
+    %     BoldFont   = Songti SC Bold,     % 适中的加粗效果，可以更换为 Black 达到更突出的效果
+    %     ItalicFont = Kaiti SC,
+    % ]{Songti SC}
+    % \setCJKfamilyfont{vert}[AutoFakeBold,RawFeature={script=hani:language=CHN:vertical:+valt}]{Songti SC}
+    %     \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
+    %     \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
+    % \setCJKfamilyfont{hei}{Heiti SC}
   \else
     \setmainfont[Ligatures=TeX]{FreeSerif}
     \setCJKmainfont{Source Han Serif CN}
