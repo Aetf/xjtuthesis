@@ -537,6 +537,17 @@
     \captionsetup[table]{format=tablecaption,labelformat=tablelabel}
     \captionsetup[figure]{format=figurecaption,labelformat=figurelabel}
 
+    \renewcommand{\xjtuappendix}{
+        \begin{appendix}
+        \renewcommand{\thechapter}{附录\Alph{chapter}}
+    }
+    \renewcommand{\xjtuappendixchapter}[1]{
+        \stepcounter{chapter}
+        \chapter*{\thechapter\quad#1}
+        \chaptermark{#1}
+        \addcontentsline{toc}{chapter}{\thechapter\quad #1}
+    }
+
     \type{本科}
     \renewcommand\xjtuchead{
         \thispagestyle{empty}
