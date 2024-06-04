@@ -530,6 +530,13 @@
     }
     \pagestyle{plain}
 
+    \DeclareCaptionLabelFormat{tablelabel}{#1#2}
+    \DeclareCaptionLabelFormat{figurelabel}{#1\enspace#2}
+    \DeclareCaptionFormat{tablecaption}{#1\enspace#3}
+    \DeclareCaptionFormat{figurecaption}{#1\quad#3}
+    \captionsetup[table]{format=tablecaption,labelformat=tablelabel}
+    \captionsetup[figure]{format=figurecaption,labelformat=figurelabel}
+
     \type{本科}
     \renewcommand\xjtuchead{
         \thispagestyle{empty}
