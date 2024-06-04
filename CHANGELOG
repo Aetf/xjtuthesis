@@ -1,3 +1,13 @@
+0.9.0 (June 4, 2024) (Credit: ShunchiZhang)
+ * `b5b8832` 修正了摘要和致谢中间的空格
+ * `d8e288c` 修正了图序与表序的前后空格
+ * `ea221fa` 修正了附录奇数页页眉
+ * `c12b835` 增加了文末插入 PDF 的功能（任务书等）
+ * `b5b8832` Fixed: spaces between abstract and acknowledgements
+ * `d8e288c` Fixed: spaces before and after figure and table captions
+ * `ea221fa` Fixed: odd page headers in the appendices
+ * `c12b835` Added: feature to append required PDFs
+
 0.8.0 (May 5, 2023) (Credit: junyang-zh)
  * 修改了默认非私有字体为*思源宋体*和*思源黑体*
  * 修改了 Makefile 使其符合 Wiki 描述（`make bachelor`, etc.）
