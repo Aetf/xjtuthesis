@@ -81,6 +81,9 @@
 \RequirePackage{amssymb}
 \RequirePackage{indentfirst}
 \RequirePackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}  % 左对齐
+\newcolumntype{C}{>{\centering\arraybackslash}X}    % 居中
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}   % 右对齐
 \RequirePackage{threeparttable}
 \RequirePackage{array}
 \RequirePackage{longtable}
