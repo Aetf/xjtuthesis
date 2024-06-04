@@ -574,8 +574,8 @@
         \clearpage
     }
     \renewcommand\xjtucinfopage{
-        \addcontentsline{toc}{chapter}{摘要}%尽管摘要存在于目录之前,但2024年模板要求摘要包含在目录中
-        \chaptermark{摘要}
+        \addcontentsline{toc}{chapter}{摘\quad 要}%尽管摘要存在于目录之前,但2024年模板要求摘要包含在目录中
+        \chaptermark{摘\quad 要}
         \makebox{}
         \begin{spacing}{1.2}%段落行距设置
         \begin{center}
