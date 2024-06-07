@@ -239,7 +239,7 @@
     %set EmboldenFactor to 2.3 as Microsoft Word exported pdf using "save as"
     %set to 1 as Microsoft Word interface & pdf generate by Windows virtual printer "Microsoft Print to PDF"
     \xeCJKsetup{EmboldenFactor=2.3}
-    \setCJKmainfont[AutoFakeBold,ItalicFont=SimKai]{SimSun}
+    \setCJKmainfont[AutoFakeBold]{SimSun}
     \setCJKfamilyfont{vert}[AutoFakeBold,RawFeature={script=hani:language=CHN:vertical:+valt}]{SimSun}
         \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
         \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
