@@ -584,7 +584,7 @@
     }
   \def\importsheet#1{
       \cleardoublepage
-      \includepdf[pages=-,noautoscale=true,offset=0 0cm, scale=1,frame,pagecommand={\thispagestyle{insertpdf} \voffset}]{#1}
+      \includepdf[pages=-,noautoscale=true,offset=0 \voffset, scale=1,pagecommand={\thispagestyle{extrapdf}}]{#1}
   }
     \DeclareCaptionLabelFormat{tablelabel}{#1#2}
     \DeclareCaptionLabelFormat{figurelabel}{#1\enspace#2}
