@@ -1,3 +1,11 @@
+0.9.1 (June 4, 2024) (Credit: ShunchiZhang)
+ * `8348605` 提供了 `tarbularx` 表格的对齐设置
+ * `3795051` 修正了多行图题与表题的行距设置
+ * `2341b9c` 提供了 `proof` 环境以编写证明
+ * `8348605` Added: alignment options for `tabularx`
+ * `3795051` Fixed: line stretch for multi-line figure and table captions
+ * `2341b9c` Added: `proof` environment
+
 0.8.0 (May 5, 2023) (Credit: junyang-zh)
  * 修改了默认非私有字体为*思源宋体*和*思源黑体*
  * 修改了 Makefile 使其符合 Wiki 描述（`make bachelor`, etc.）
