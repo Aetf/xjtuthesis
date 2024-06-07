@@ -521,6 +521,12 @@
     \titleformat{\subsection}{\sihao}{\thesubsection}{0.8em}{}
     \titleformat{\subsubsection}{}{\arabic{subsubsection})~}{0.8em}{}
     \titlespacing{\chapter}{0em}{-1.3\baselineskip}{0.3\baselineskip}
+    \titleformat{\section}[hang]{\xiaosan}{\thesection}{0.3em}{}
+    \titlespacing{\section}{0em}{0.5\baselineskip}{0.5\baselineskip}
+    \titleformat{\subsection}{\sihao}{\thesubsection}{0.3em}{}
+    \titlespacing{\subsection}{2em}{0.4\baselineskip}{0\baselineskip}
+    \titleformat{\subsubsection}{}{\arabic{subsubsection}）}{0.1em}{}
+    \titlespacing{\subsubsection}{2em}{0.1\baselineskip}{0\baselineskip}
     \ifxjtu@bigskip
       \linespread{1.5} \selectfont
     \else
@@ -683,7 +689,7 @@
             \pagestyle{plain}
         \fi
         \pagenumbering{arabic}
-        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad\ \ }[\end{center}]
+        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad }[\end{center}]
         \xjtu@inmainbodytrue
     }
     \renewcommand\xjtuendcontent{
