@@ -100,6 +100,10 @@
 \RequirePackage{xcolor}
 \RequirePackage{gbt7714}
 
+% Code packages
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+
 % Add spacing before a table
 \RequirePackage{etoolbox}
 \AtBeginEnvironment{table}{\vspace{10pt}}
@@ -121,6 +125,30 @@
 
 % titleformat
 \RequirePackage{titlesec,titletoc}
+
+% Code environment definition
+\renewcommand{\lstlistingname}{}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    tabsize=4,
+    captionpos=t, % Set caption position to top
+    breaklines=true,
+    breakatwhitespace=false,
+    escapeinside={\%*}{*)}
+}
 
 % l10n here
 \renewcommand{\tablename}{表}
@@ -518,8 +546,6 @@
 
 \ifxjtu@bachelor
     %根据本科模板重写节标题格式且不影响硕博格式
-    \titleformat{\subsection}{\sihao}{\thesubsection}{0.8em}{}
-    \titleformat{\subsubsection}{}{\arabic{subsubsection})~}{0.8em}{}
     \titlespacing{\chapter}{0em}{-1.3\baselineskip}{0.3\baselineskip}
     \titleformat{\section}[hang]{\xiaosan}{\thesection}{0.3em}{}
     \titlespacing{\section}{0em}{0.5\baselineskip}{0.5\baselineskip}
