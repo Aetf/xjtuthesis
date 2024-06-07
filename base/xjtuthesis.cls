@@ -551,12 +551,15 @@
     }
     \pagestyle{plain}
 
-    \fancypagestyle{extrapdf}{%
+    \fancypagestyle{extrapdf}{% 关闭页眉以使用任务书文件自带页眉
         \fancyhf{}
         \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
         \renewcommand{\headrulewidth}{0pt}
     }
-
+  \def\importsheet#1{
+      \cleardoublepage
+      \includepdf[pages=-,noautoscale=true,offset=0 0cm, scale=1,frame,pagecommand={\thispagestyle{insertpdf} \voffset}]{#1}
+  }
     \DeclareCaptionLabelFormat{tablelabel}{#1#2}
     \DeclareCaptionLabelFormat{figurelabel}{#1\enspace#2}
     \DeclareCaptionFormat{tablecaption}{#1\enspace#3}
