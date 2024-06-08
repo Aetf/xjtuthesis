@@ -79,8 +79,12 @@
 % Math & format packages
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{amsthm}
 \RequirePackage{indentfirst}
 \RequirePackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}  % 左对齐
+\newcolumntype{C}{>{\centering\arraybackslash}X}    % 居中
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}   % 右对齐
 \RequirePackage{threeparttable}
 \RequirePackage{array}
 \RequirePackage{longtable}
@@ -93,8 +97,11 @@
 \setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
 \RequirePackage{pdfpages}
 \RequirePackage{hanging}
-\RequirePackage{xcolor}
 \RequirePackage{gbt7714}
+
+% Code packages
+\RequirePackage{listings}
+\RequirePackage{xcolor}
 
 % Add spacing before a table
 \RequirePackage{etoolbox}
@@ -118,6 +125,30 @@
 % titleformat
 \RequirePackage{titlesec,titletoc}
 
+% Code environment definition
+\renewcommand{\lstlistingname}{}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    tabsize=4,
+    captionpos=t, % Set caption position to top
+    breaklines=true,
+    breakatwhitespace=false,
+    escapeinside={\%*}{*)}
+}
+
 % l10n here
 \renewcommand{\tablename}{表}
 \renewcommand{\figurename}{图}
@@ -133,7 +164,6 @@
 \renewcommand\theequation{%
     \ifnum \c@chapter >\z@ \thechapter-\fi \@arabic \c@equation%
 }
-\captionsetup{labelsep=quad}
 \captionsetup[longtable]{labelsep=quad}
 
 \newcommand{\thesis}{thesis}
@@ -205,8 +235,8 @@
   \abovedisplayshortskip=10bp \@plus 2bp \@minus 2bp
   \belowdisplayskip=\abovedisplayskip
   \belowdisplayshortskip=\abovedisplayshortskip}
-\DeclareCaptionFont{wuhao}{\wuhao}\captionsetup{font=wuhao,labelsep=quad} % thanks to @wanderxjtu
-\DeclareCaptionFont{xiaowu}{\xiaowu}\captionsetup[subfloat]{font=xiaowu} % issue 4
+\DeclareCaptionFont{wuhaostretch}{\setstretch{1.2}\wuhao}\captionsetup{font=wuhaostretch,labelsep=quad} % thanks to @wanderxjtu
+\DeclareCaptionFont{xiaowustretch}{\setstretch{1.2}\xiaowu}\captionsetup[subfloat]{font=xiaowustretch} % issue 4
 
 % Subfloat
 \captionsetup[subfloat]{labelformat=simple,captionskip=6bp,nearskip=6bp,farskip=0bp,topadjust=0bp}
@@ -241,6 +271,18 @@
         \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
         \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
     \setCJKfamilyfont{hei}{SimHei}
+    
+    % 对于 Mac 用户：
+    % \setCJKmainfont[
+    %     % AutoFakeBold,                  % 非常不明显
+    %     % BoldFont   = Songti SC Black,  % 相比 Bold 更大的字重，可根据个人喜好选择
+    %     BoldFont   = Songti SC Bold,     % 适中的加粗效果，可以更换为 Black 达到更突出的效果
+    %     ItalicFont = Kaiti SC,
+    % ]{Songti SC}
+    % \setCJKfamilyfont{vert}[AutoFakeBold,RawFeature={script=hani:language=CHN:vertical:+valt}]{Songti SC}
+    %     \def\CJKmovesymbol#1{\raise.35em\hbox{#1}}
+    %     \def\CJKmove{\let\CJKsymbol\CJKmovesymbol \let\CJKpunctsymbol\CJKsymbol}
+    % \setCJKfamilyfont{hei}{Heiti SC}
   \else
     \setmainfont[Ligatures=TeX]{FreeSerif}
     \setCJKmainfont{Source Han Serif CN}
@@ -503,9 +545,13 @@
 
 \ifxjtu@bachelor
     %根据本科模板重写节标题格式且不影响硕博格式
-    \titleformat{\subsection}{\sihao}{\thesubsection}{0.8em}{}
-    \titleformat{\subsubsection}{}{\arabic{subsubsection})~}{0.8em}{}
     \titlespacing{\chapter}{0em}{-1.3\baselineskip}{0.3\baselineskip}
+    \titleformat{\section}[hang]{\xiaosan}{\thesection}{0.3em}{}
+    \titlespacing{\section}{0em}{0.5\baselineskip}{0.5\baselineskip}
+    \titleformat{\subsection}{\sihao}{\thesubsection}{0.3em}{}
+    \titlespacing{\subsection}{2em}{0.4\baselineskip}{0\baselineskip}
+    \titleformat{\subsubsection}{}{\arabic{subsubsection}）}{0.1em}{}
+    \titlespacing{\subsubsection}{2em}{0.1\baselineskip}{0\baselineskip}
     \ifxjtu@bigskip
       \linespread{1.5} \selectfont
     \else
@@ -529,6 +575,33 @@
 
     }
     \pagestyle{plain}
+
+    \fancypagestyle{extrapdf}{% 关闭页眉以使用任务书文件自带页眉
+        \fancyhf{}
+        \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
+        \renewcommand{\headrulewidth}{0pt}
+    }
+  \def\importsheet#1{
+      \cleardoublepage
+      \includepdf[pages=-,noautoscale=true,offset=0 \voffset, scale=1,pagecommand={\thispagestyle{extrapdf}}]{#1}
+  }
+    \DeclareCaptionLabelFormat{tablelabel}{#1#2}
+    \DeclareCaptionLabelFormat{figurelabel}{#1\enspace#2}
+    \DeclareCaptionFormat{tablecaption}{#1\enspace#3}
+    \DeclareCaptionFormat{figurecaption}{#1\quad#3}
+    \captionsetup[table]{format=tablecaption,labelformat=tablelabel}
+    \captionsetup[figure]{format=figurecaption,labelformat=figurelabel}
+
+    \renewcommand{\xjtuappendix}{
+        \begin{appendix}
+        \renewcommand{\thechapter}{附录\Alph{chapter}}
+    }
+    \renewcommand{\xjtuappendixchapter}[1]{
+        \stepcounter{chapter}
+        \chapter*{\thechapter\quad#1}
+        \chaptermark{#1}
+        \addcontentsline{toc}{chapter}{\thechapter\quad #1}
+    }
 
     \type{本科}
     \renewcommand\xjtuchead{
@@ -574,8 +647,8 @@
         \clearpage
     }
     \renewcommand\xjtucinfopage{
-        \addcontentsline{toc}{chapter}{摘要}%尽管摘要存在于目录之前,但2024年模板要求摘要包含在目录中
-        \chaptermark{摘要}
+        \addcontentsline{toc}{chapter}{摘\quad 要}%尽管摘要存在于目录之前,但2024年模板要求摘要包含在目录中
+        \chaptermark{摘\quad 要}
         \makebox{}
         \begin{spacing}{1.2}%段落行距设置
         \begin{center}
@@ -644,7 +717,7 @@
             \pagestyle{plain}
         \fi
         \pagenumbering{arabic}
-        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad\ \ }[\end{center}]
+        \titleformat{\chapter}[block]{\sanhao}{}{0em}{\begin{center}\thechapter\quad }[\end{center}]
         \xjtu@inmainbodytrue
     }
     \renewcommand\xjtuendcontent{
@@ -987,6 +1060,7 @@
 \newtheorem{remark}{注释}[chapter]
 \newtheorem{problem}{问题}[chapter]
 \newtheorem{conjecture}{猜想}[chapter]
+\renewenvironment{proof}{\noindent\textbf{证明}：}{\hfill$\blacksquare$}
 
 \RequirePackage[shortlabels]{enumitem}
 \setenumerate[1]{1),fullwidth,itemindent=\parindent,listparindent=\parindent,itemsep=0.05\baselineskip,partopsep=0pt,parsep=0ex,topsep=0.1\baselineskip}
