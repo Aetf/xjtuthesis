@@ -97,7 +97,6 @@
 \setenumerate[2]{\qquad(1),itemindent=\parindent,listparindent=\parindent,itemsep=0ex,partopsep=0pt,parsep=0ex,topsep=0\baselineskip}
 \RequirePackage{pdfpages}
 \RequirePackage{hanging}
-\RequirePackage{xcolor}
 \RequirePackage{gbt7714}
 
 % Code packages
