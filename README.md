@@ -31,10 +31,10 @@
   * **研究生**和研究生院学位办(周主任)联系. 电话: 82668899. 办公地址: 教学主楼1311室. 电子邮件: xwb@mail.xjtu.edu.cn ([从来不回](Letters)).
 
 ## 同类解决方案
-
+  * **Overleaf** *无需本地配置环境即可编译使用* 的本科生、研究生毕业论文模板 [Overleaf模板网址](https://www.overleaf.com/latex/templates/xjtu-bachelor-thesis-template-2024/xkzqhwkdfpjx)，基于本repo，最新更新于2024年6月。（Overleaf [其他模板网址](https://www.overleaf.com/latex/templates?q=xjtu)，最后更新于2021年，可供参考，并含答辩可以使用的beamer模板。）
   * Shujun Li （hooklee）的 [西安交通大学博士学位论文cls文档类](http://www.hooklee.com/default.asp?t=TeX%2FLaTeX)，最后更新于 2009 年 2 月 24 日
   * Haoyun 的 [本科生毕业论文模板 (xjtuthss)](http://xjtuthesis.sinaapp.com/)，[相关帖子](http://bbs.xjtu.edu.cn/BMY/con?B=thesis&F=M.1367163286.A)(已经成为死链)
-  * Overleaf 上有无需本地配置环境即可编译使用的本科生、研究生毕业论文模板与答辩可以使用的beamer模板，[相关网址](https://www.overleaf.com/latex/templates?q=xjtu)，最后更新于2021年。（目前有需要修改的地方，但目前「2023年」仍然局限于更换模板中的pdf文件，模板主体仍然可以使用）
+
 
 ## 社交平台
 (由原作者multiple1902维护,现已停止更新):
